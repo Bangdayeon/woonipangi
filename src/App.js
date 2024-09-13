@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
+import img_logo from "./img/logo1.svg";
 
 function App() {
   let webTitle = "우니, 팡이";
@@ -39,8 +40,9 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="navibar">
+    <div className="wrap">
+      <div className="wrap_header">
+        <img src={img_logo} width="48px" />
         <h4>
           {webTitle}
           <span
@@ -54,11 +56,13 @@ function App() {
         </h4>
       </div>
 
-      <h1>당신을 환영하는!🎉</h1>
-      <form>
-        명함을 써라:
-        <input />
-      </form>
+      <div>
+        <h1>당신을 환영하는!🎉</h1>
+        <form>
+          명함을 써라:
+          <input />
+        </form>
+      </div>
     </div>
   );
 }

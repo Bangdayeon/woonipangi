@@ -1,11 +1,11 @@
-.App{
+.wrap{
   background:black;
   color:aqua;
   font-size: 48px;
   font-weight: bold;
   user-select: none; /*화면에 커서 뜨는 거 없앰 */
 }
-.navibar{
+.wrap_header{
   background: white;
   color:black;
   font-size: 15px;
