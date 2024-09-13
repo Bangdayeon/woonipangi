@@ -51,7 +51,7 @@ function App() {
               setLikes(likes + 1);
             }}
           >
-            ❤️
+            __________❤️
           </span>
           {likes}
         </h4>
@@ -61,7 +61,8 @@ function App() {
         <Sidebar />
       </div>
 
-      <div>
+      <div className="main_page">
+        <img src={img_logo} width="150px" />
         <h1>당신을 환영하는!🎉</h1>
         <form>
           명함을 써라:

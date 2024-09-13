@@ -1,11 +1,9 @@
 .menu{
     display:flex;
-    flex-direction: column;
 }
 
 .logo{
     text-align: center;
-
     padding:20px;
     color:rgb(255, 84, 93);
     align-items: center;
@@ -13,12 +11,8 @@
     gap:10px;
     font-size: 0.5em;
 }
-.logo .icon{
-    font-size: 1.9rem;
-}
 .menu-list{
     display: flex;
-    flex-direction: column;
     gap:20px;
 }
 .menu-list .item{

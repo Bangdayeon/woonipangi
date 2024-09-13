@@ -1,46 +1,27 @@
 import React from "react";
-import {
-  BiHome,
-  BiBookAlt,
-  BiMessage,
-  BiSolidReport,
-  BiStats,
-  BiTask,
-  BiHelpCircle,
-} from "react-icons/bi";
 import "../styles/sidebar.css";
 
 const Sidebar = () => {
   return (
     <div className="menu">
       <div className="logo">
-        <BiBookAlt />
-        <h2>Menu</h2>
+        <p>Menu</p>
       </div>
       <div className="menu-list">
         <a href="#" className="item">
-          <BiHome />
-          Dashboard
+          소개
         </a>
         <a href="#" className="item">
-          <BiTask />
-          Assignment
+          활동
         </a>
         <a href="#" className="item">
-          <BiSolidReport />
-          Report
+          굿즈
         </a>
         <a href="#" className="item">
-          <BiStats />
-          Stats
+          파일
         </a>
         <a href="#" className="item">
-          <BiMessage />
-          Message
-        </a>
-        <a href="#" className="item">
-          <BiHelpCircle />
-          Help
+          QnA
         </a>
       </div>
     </div>
