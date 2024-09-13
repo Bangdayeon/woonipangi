@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import Sidebar from "./components/Sidebar";
 import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
 import img_logo from "./img/logo1.svg";
 
@@ -54,6 +55,10 @@ function App() {
           </span>
           {likes}
         </h4>
+      </div>
+
+      <div className="dashboard">
+        <Sidebar />
       </div>
 
       <div>
