@@ -1,0 +1,27 @@
+import Header from '@/shared/ui/Header/Header';
+import '@/styles/globals.css';
+import type { Metadata } from 'next';
+
+import Providers from './providers';
+
+export const metadata: Metadata = {
+  title: '우니팡이',
+  description: '우니팡이 공식 홈페이지',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ko">
+      <body>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
+      </body>
+    </html>
+  );
+}

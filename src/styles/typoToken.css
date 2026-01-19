@@ -1,0 +1,33 @@
+@layer components {
+  /* ========== FONT WEIGHT ========== */
+  .font-regular { @apply font-normal; }
+  .font-medium { @apply font-medium; }
+  .font-semibold { @apply font-semibold; }
+  .font-bold { @apply font-bold; }
+
+  /* ========== TEXT STYLES ========== */
+  /* Display */
+  .font-display { @apply text-[52px] leading-[146%] font-semibold tracking-[0]; }
+
+  /* Title */
+  .font-title-sm { @apply text-[14px] leading-[146%] font-semibold; }
+  .font-title-md { @apply text-[20px] leading-[146%] font-semibold; }
+
+  /* Body */
+  .font-body-sm { @apply text-[12px] leading-[160%] font-normal tracking-[-0.02em]; }
+  .font-body-md { @apply text-[16px] leading-[160%] font-normal tracking-[-0.02em]; }
+  .font-body-lg { @apply text-[18px] leading-[160%] font-normal tracking-[-0.02em]; }
+
+  /* Label */
+  .font-label-sm { @apply text-[12px] leading-[130%] font-semibold; }
+  .font-label-md { @apply text-[14px] leading-[146%] font-semibold; }
+  .font-label-lg { @apply text-[16px] leading-[150%] font-semibold; }
+  .font-label-xl { @apply text-[20px] leading-[150%] font-semibold; }
+
+  /* Link */
+  .font-anchor-sm { @apply text-[12px] leading-[120%] font-medium; }
+  .font-anchor-md { @apply text-[13px] leading-[120%] font-medium; }
+
+  /* Detail */
+  .font-detail { @apply text-[12px] leading-[130%] font-medium; }
+}

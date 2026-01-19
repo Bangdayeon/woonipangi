@@ -1,0 +1,43 @@
+@layer components {
+
+/* ========== BUTTON ========== */
+  /* primary */
+  .bg-btn-primary { @apply bg-gray900; }
+  .bg-btn-primary:hover { @apply hover:bg-gray800; }
+  .bg-btn-primary:focus { @apply focus:bg-gray800; }
+  .bg-btn-primary:active{@apply active:bg-gray700;}
+  .bg-btn-primary:disabled {@apply disabled:bg-gray100; }
+
+  .border-btn-primary { @apply border-gray900; }
+  .border-btn-primary:hover { @apply hover:border-gray800; }
+  .border-btn-primary:focus { @apply focus:border-gray800; }
+  .border-btn-primary:active { @apply active:border-gray700; }
+  .border-btn-primary:disabled { @apply disabled:border-gray100; } 
+
+  .text-btn-primary { @apply text-white; }
+  .text-btn-primary:hover { @apply hover:text-white; }
+  .text-btn-primary:focus { @apply focus:text-white; }
+  .text-btn-primary:active { @apply active:text-white; }
+  .text-btn-primary:disabled {@apply disabled:text-gray200; }
+  
+  /* secondary */
+  .bg-btn-secondary { @apply bg-white; }
+  .bg-btn-secondary:hover { @apply hover:bg-blue50; }
+  .bg-btn-secondary:focus { @apply focus:bg-blue50; }
+  .bg-btn-secondary:active { @apply active:bg-blue100; }
+  .bg-btn-secondary:disabled {@apply disabled:bg-gray100; }
+
+  .border-btn-secondary { @apply border-none; }
+  .border-btn-secondary:hover { @apply hover:border-none; }
+  .border-btn-secondary:focus { @apply focus:border-none; }
+  .border-btn-secondary:active { @apply active:border-none; }
+  .border-btn-secondary:disabled {@apply disabled:border-none; }
+
+  .text-btn-secondary { @apply text-gray900; }
+  .text-btn-secondary:hover { @apply hover:text-gray800; }
+  .text-btn-secondary:focus { @apply focus:text-gray800; }
+  .text-btn-secondary:active { @apply active:text-gray700; }
+  .text-btn-secondary:disabled {@apply disabled:text-gray200; }
+
+
+}
