@@ -1,0 +1,16 @@
+name: "🥕 Feature"
+description: "새로운 기능 추가"
+type: "Feature"
+body:
+  - type: textarea
+    attributes:
+      label: 이슈 내용
+      description: 새로운 기능에 대한 설명을 작성해 주세요.
+      placeholder: 자세히 적을수록 좋습니다
+    validations:
+      required: true
+      
+  - type: textarea
+    attributes:
+      label: 참고 자료
+      description: 참고 자료가 있다면 작성해 주세요.
