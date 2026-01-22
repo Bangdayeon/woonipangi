@@ -11,28 +11,31 @@ jobs:
     name: Lint & Type Check
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code #1. 저장소 코드 다운로드
         uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Install pnpm  #2. pnpm 패키지 매니저 설치
         uses: pnpm/action-setup@v4
         with:
           version: 10.19.0
 
-      - name: Setup Node.js
+      - name: Setup Node.js #3. Node.js 환경 설정
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
-          cache: 'pnpm'
+          cache: 'pnpm' # pnpm 캐시를 활성화하여 설치 속도 향상
 
-      - name: Install dependencies
+
+      - name: Install dependencies  #4. 프로젝트 의존성 설치
         run: pnpm install --frozen-lockfile --prefer-offline
+        # --frozen-lockfile: lock 파일과 정확하게 일치하는 버전 설치
+        # --prefer-offline: 가능한 캐시를 사용
 
-      - name: Run Prettier
+      - name: Run Prettier  #5. Prettier로 포맷팅 검사
         run: pnpm exec prettier --check "src/**/*.{js,jsx,ts,tsx,json,css,md}"
 
-      - name: Run ESLint
+      - name: Run ESLint  #6. ESLint로 코드 품질 검사 (경고도 허용x)
         run: pnpm exec eslint "src/**/*.{js,jsx,ts,tsx}" --max-warnings=0
 
-      - name: Run TypeScript Check
+      - name: Run TypeScript Check  #7. TS 타입 검사
         run: pnpm exec tsc --noEmit
