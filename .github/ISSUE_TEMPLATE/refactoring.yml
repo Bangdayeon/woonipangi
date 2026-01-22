@@ -1,0 +1,16 @@
+name: "♻️ Refactoring"
+description: "리팩토링 작업"
+type: "Refactoring"
+body:
+  - type: textarea
+    attributes:
+      label: 이슈 내용
+      description: 수정사항에 대한 설명을 작성해주세요.
+      placeholder: 자세히 적을수록 좋습니다
+    validations:
+      required: true
+      
+  - type: textarea
+    attributes:
+      label: 참고 자료
+      description: 참고 자료가 있다면 작성해 주세요.
