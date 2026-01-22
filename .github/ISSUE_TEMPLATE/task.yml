@@ -1,6 +1,5 @@
 name: "📝 Task"
 description: "새로운 작업"
-type: "Task"
 body:
   - type: textarea
     attributes:

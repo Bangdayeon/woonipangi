@@ -1,6 +1,5 @@
 name: "🐞 Bug"
 description: "버그 이슈"
-type: "Bug"
 body:
   - type: textarea
     attributes:
