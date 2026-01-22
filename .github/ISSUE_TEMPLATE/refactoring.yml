@@ -1,6 +1,5 @@
 name: "♻️ Refactoring"
 description: "리팩토링 작업"
-type: "Refactoring"
 body:
   - type: textarea
     attributes:

@@ -1,6 +1,5 @@
 name: "🥕 Feature"
 description: "새로운 기능 추가"
-type: "Feature"
 body:
   - type: textarea
     attributes:
