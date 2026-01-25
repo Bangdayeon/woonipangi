@@ -9,7 +9,7 @@ import IconButton from '../IconButton/IconButton';
 const Header = () => {
   const route = useRouter();
   return (
-    <div className="fixed top-0 right-0 left-0 z-50 flex h-16 items-center justify-between bg-white px-8 shadow-md">
+    <div className="sticky top-0 right-0 left-0 z-50 flex h-16 items-center justify-between bg-white px-8 shadow-md">
       <button>
         <Image
           src={Logo}
