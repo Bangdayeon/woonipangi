@@ -12,7 +12,7 @@ export default function HomePage() {
     <main className="pb-80">
       <motion.div style={{ y }}>
         <div className="relative aspect-1920/1080 w-full">
-          <Image src="/images/illust_01.png" alt="배경 이미지" fill priority sizes="100vw" />
+          <Image src="/Images/illust_01.png" alt="배경 이미지" fill priority sizes="100vw" />
         </div>
       </motion.div>
       <div className="mt-50 flex flex-col items-center gap-30 text-center">
@@ -47,7 +47,7 @@ export default function HomePage() {
             className="flex h-110 w-110 cursor-pointer items-center justify-center rounded-4xl shadow-xl transition-all hover:shadow-2xl"
           >
             <div className="relative aspect-350/466 w-66">
-              <Image src="/images/woonie_02.png" alt="우니" fill sizes="264px" />
+              <Image src="/Images/woonie_02.png" alt="우니" fill sizes="264px" />
             </div>
           </Link>
           <Link
@@ -55,7 +55,7 @@ export default function HomePage() {
             className="flex h-110 w-110 cursor-pointer items-center justify-center rounded-4xl shadow-xl transition-all hover:shadow-2xl"
           >
             <div className="relative aspect-350/466 w-66">
-              <Image src="/images/woonie_02.png" alt="우니" fill sizes="264px" />
+              <Image src="/Images/woonie_02.png" alt="우니" fill sizes="264px" />
             </div>
           </Link>
         </section>
