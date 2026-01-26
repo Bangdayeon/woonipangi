@@ -1,6 +1,7 @@
 'use client';
 
 import Input from '@/shared/ui/Input/Input';
+import LikeButton from '@/shared/ui/LikeButton/LikeButton';
 import { useState } from 'react';
 
 export default function FilesPage() {
@@ -16,6 +17,7 @@ export default function FilesPage() {
         icon="IC_Search"
       />
       <span>캐릭터 파일 다운 페이지</span>
+      <LikeButton />
     </div>
   );
 }

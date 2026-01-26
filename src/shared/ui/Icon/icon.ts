@@ -1,6 +1,8 @@
 import IC_Account from '@/assets/icons/ic_account.svg';
 import IC_DropDown from '@/assets/icons/ic_arrow_drop_down.svg';
 import IC_DropUp from '@/assets/icons/ic_arrow_drop_up.svg';
+import IC_Like_Off from '@/assets/icons/ic_favorite_off.svg';
+import IC_Like_On from '@/assets/icons/ic_favorite_on.svg';
 import IC_Instagram from '@/assets/icons/ic_instagram.svg';
 import IC_Mail from '@/assets/icons/ic_mail.svg';
 import IC_Search from '@/assets/icons/ic_search.svg';
@@ -12,6 +14,8 @@ export const IconMap = {
   IC_Instagram,
   IC_Mail,
   IC_Search,
+  IC_Like_Off,
+  IC_Like_On,
 } as const;
 
 export type IconMapTypes = keyof typeof IconMap;

@@ -1,0 +1,20 @@
+@keyframes likePop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.likePop {
+  animation: likePop 500ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .likePop {
+    animation: none;
+  }
+}
