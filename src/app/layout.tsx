@@ -1,3 +1,4 @@
+import Footer from '@/shared/ui/Footer/Footer';
 import Header from '@/shared/ui/Header/Header';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
@@ -16,10 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="grid min-h-dvh grid-rows-[auto_1fr]">
+      <body className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
         <Providers>
           <Header />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
