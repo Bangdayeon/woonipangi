@@ -39,5 +39,23 @@
   .text-btn-secondary:active { @apply active:text-gray700; }
   .text-btn-secondary:disabled {@apply disabled:text-gray200; }
 
+  /* tertiary */
+  .bg-btn-tertiary { @apply bg-white; }
+  .bg-btn-tertiary:hover { @apply hover:bg-gray50; }
+  .bg-btn-tertiary:focus { @apply focus:bg-gray50; }
+  .bg-btn-tertiary:active { @apply active:bg-gray100; }
+  .bg-btn-tertiary:disabled {@apply disabled:bg-gray100; }
+
+  .border-btn-tertiary { @apply border border-gray300; }
+  .border-btn-tertiary:hover { @apply hover:border-gray400; }
+  .border-btn-tertiary:focus { @apply focus:border-gray400; }
+  .border-btn-tertiary:active { @apply active:border-gray500; }
+  .border-btn-tertiary:disabled {@apply disabled:border-gray200; }
+
+  .text-btn-tertiary { @apply text-gray900; }
+  .text-btn-tertiary:hover { @apply hover:text-gray800; }
+  .text-btn-tertiary:focus { @apply focus:text-gray800; }
+  .text-btn-tertiary:active { @apply active:text-gray700; }
+  .text-btn-tertiary:disabled {@apply disabled:text-gray200; }
 
 }
