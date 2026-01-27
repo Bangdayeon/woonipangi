@@ -1,5 +1,6 @@
 'use client';
 
+import Dropdown from '@/shared/ui/Dropdown/Dropdown';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +11,13 @@ export default function HomePage() {
 
   return (
     <main className="pb-80">
+      <Dropdown
+        options={[
+          { label: 'a', value: 'a' },
+          { label: 'ab', value: 'ab' },
+          { label: 'ac', value: 'abc' },
+        ]}
+      />
       <motion.div style={{ y }}>
         <div className="relative aspect-1920/1080 w-full">
           <Image src="/Images/illust_01.png" alt="배경 이미지" fill priority sizes="100vw" />
