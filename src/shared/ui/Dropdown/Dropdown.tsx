@@ -13,6 +13,8 @@ export interface DropdownOption {
 
 interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   options: DropdownOption[];
+  value?: DropdownOption | null;
+  placeholder?: string;
   defaultSelected?: DropdownOption;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'secondary' | 'tertiary';
@@ -23,8 +25,10 @@ interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSe
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   {
     options,
+    value,
+    placeholder,
     defaultSelected = options[0],
-    size = 'sm',
+    size = 'md',
     variant = 'tertiary',
     rounded = 'full',
     onSelect,
@@ -32,11 +36,21 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   },
   externalRef
 ) {
+  const isControlled = value !== undefined;
+
+  const [internalSelected, setInternalSelected] = useState<DropdownOption | null>(
+    defaultSelected ?? options[0] ?? null
+  );
+
+  const selected = isControlled ? value : internalSelected;
+
   const internalRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
   const buttonRef = useRef<HTMLButtonElement>(null); // trigger 참조 (메뉴 선택하여 드롭다운 닫은 후 포커스 복귀를 위함)
   const [focusedIndex, setFocusedIndex] = useState(0);
   const listId = useId();
+
+  const labelText = selected?.label ?? placeholder ?? '선택';
 
   const setRefs = useCallback(
     (node: HTMLDivElement | null) => {
@@ -52,9 +66,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   );
 
   const { isOpen, toggle, close } = useDropdown(internalRef);
-  const [selected, setSelected] = useState<DropdownOption | null>(
-    defaultSelected ?? options[0] ?? null
-  );
 
   // 메뉴 열릴 때 focusedIndex 초기화
   useEffect(() => {
@@ -83,7 +94,9 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   }, [isOpen]);
 
   const handleOptionClick = (option: DropdownOption) => {
-    setSelected(option);
+    if (!isControlled) {
+      setInternalSelected(option);
+    }
     onSelect?.(option);
     close();
   };
@@ -92,8 +105,9 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
     <div ref={setRefs} className="relative inline-block" {...rest}>
       <Button
         ref={buttonRef}
-        label={selected?.label ?? '..'}
+        label={labelText}
         icon={isOpen ? 'IC_DropUp' : 'IC_DropDown'}
+        aria-label={labelText}
         aria-expanded={isOpen}
         aria-controls={listId}
         disabled={options.length === 0}
