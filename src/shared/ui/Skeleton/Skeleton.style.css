@@ -1,0 +1,24 @@
+.skeleton {
+  background: linear-gradient(
+    100deg,
+    var(--color-gray100) 8%,
+    var(--color-gray50) 21%,
+    var(--color-gray100) 30%
+  );
+  background-size: 200% 100%;
+
+  animation: skeletonGradientWave 1.5s linear infinite;
+}
+
+/* motion sensitivity 사용자 고려 */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
+
+@keyframes skeletonGradientWave {
+  to {
+    background-position-x: -200%;
+  }
+}
