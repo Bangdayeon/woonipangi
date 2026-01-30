@@ -1,11 +1,9 @@
 'use client';
 
-import Filter from './components/Filter/Filter';
-
 export default function FilesPage() {
   return (
     <div>
-      <Filter />
+      <span>캐릭터 파일 다운 페이지</span>
     </div>
   );
 }
