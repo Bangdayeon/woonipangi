@@ -1,6 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import SVGIcon from '../Icon/SVGIcon';
@@ -12,8 +13,14 @@ import { Toast, ToastType } from './toast.types';
 export function ToastContainer({ toasts }: { toasts: Toast[] }) {
   const { containerStyle, toastStyle } = style();
   const { closeToast } = useToast();
+  const [mounted, setMounted] = useState(false);
 
-  if (typeof document === 'undefined') return null;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const renderToastIcon = (type: ToastType) => {
     switch (type) {
@@ -22,14 +29,14 @@ export function ToastContainer({ toasts }: { toasts: Toast[] }) {
       case 'error':
         return <SVGIcon icon="IC_Error" className="text-red500 h-8 w-8" />;
       case 'warn':
-        return <SVGIcon icon="IC_Warning" className="text-yellow500 mb-1 ml-1 h-8 w-8" />;
+        return <SVGIcon icon="IC_Warning" className="text-yellow500 h-8 w-8" />;
       default:
         return null;
     }
   };
 
   return createPortal(
-    <div className={containerStyle()} role="alert" aria-atomic="true" aria-live="polite">
+    <div className={containerStyle()} role="alert" aria-live="polite" aria-atomic="true">
       <AnimatePresence>
         {toasts.map(toast => (
           <motion.div
