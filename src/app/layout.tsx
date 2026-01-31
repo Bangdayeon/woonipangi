@@ -1,9 +1,10 @@
 import Footer from '@/shared/ui/Footer/Footer';
 import Header from '@/shared/ui/Header/Header';
+import { ToastProvider } from '@/shared/ui/Toast/ToastProvider';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 
-import Providers from './providers';
+import QueryProviders from './providers';
 
 export const metadata: Metadata = {
   title: '우니팡이',
@@ -18,11 +19,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
-        <Providers>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </Providers>
+        <QueryProviders>
+          <ToastProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ToastProvider>
+        </QueryProviders>
       </body>
     </html>
   );
