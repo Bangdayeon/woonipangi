@@ -6,7 +6,7 @@ export const style = tv({
     variant: {
       primary: 'bg-btn-primary border-btn-primary text-btn-primary border',
       secondary: 'bg-btn-secondary border-btn-secondary text-btn-secondary border',
-      ghost: '',
+      ghost: 'text-gray600 hover:text-gray900',
     },
     size: {
       sm: 'h-8 w-8',
@@ -18,4 +18,21 @@ export const style = tv({
       false: '',
     },
   },
+  compoundVariants: [
+    {
+      variant: 'ghost',
+      size: 'sm',
+      class: 'h-5 w-5',
+    },
+    {
+      variant: 'ghost',
+      size: 'md',
+      class: 'h-6 w-6',
+    },
+    {
+      variant: 'ghost',
+      size: 'lg',
+      class: 'h-7 w-7',
+    },
+  ],
 });
