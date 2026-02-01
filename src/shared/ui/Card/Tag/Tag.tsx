@@ -1,17 +1,13 @@
-import clsx from 'clsx';
-
 export interface TagProps {
   text: string;
-  color: string;
 }
 
-const Tag = ({ text, color }: TagProps) => {
+const Tag = ({ text }: TagProps) => {
   return (
     <div
-      className={clsx(
-        'font-label-sm flex w-fit items-center justify-center rounded-md px-2 py-1',
-        color
-      )}
+      className={
+        'font-label-sm border-gray100 flex w-fit max-w-full items-center justify-center rounded-lg border bg-white px-2 py-0.5 whitespace-nowrap'
+      }
     >
       {text}
     </div>
