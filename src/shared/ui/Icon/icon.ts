@@ -1,6 +1,8 @@
 import IC_Account from '@/assets/icons/ic_account.svg';
+import IC_Arrow_Back from '@/assets/icons/ic_arrow_back.svg';
 import IC_DropDown from '@/assets/icons/ic_arrow_drop_down.svg';
 import IC_DropUp from '@/assets/icons/ic_arrow_drop_up.svg';
+import IC_Arrow_Next from '@/assets/icons/ic_arrow_next.svg';
 import IC_Error from '@/assets/icons/ic_error.svg';
 import IC_Like_Off from '@/assets/icons/ic_favorite_off.svg';
 import IC_Like_On from '@/assets/icons/ic_favorite_on.svg';
@@ -13,8 +15,10 @@ import IC_X from '@/assets/icons/ic_x.svg';
 
 export const IconMap = {
   IC_Account,
+  IC_Arrow_Back,
   IC_DropDown,
   IC_DropUp,
+  IC_Arrow_Next,
   IC_Error,
   IC_Instagram,
   IC_Like_Off,
