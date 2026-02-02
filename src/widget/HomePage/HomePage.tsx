@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import ThreeHead from '../3DRender/three';
+
 export default function HomePage() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
@@ -11,9 +13,7 @@ export default function HomePage() {
   return (
     <main className="pb-80">
       <motion.div style={{ y }}>
-        <div className="relative aspect-1920/1080 w-full">
-          <Image src="/Images/illust_01.png" alt="배경 이미지" fill priority sizes="100vw" />
-        </div>
+        <ThreeHead />
       </motion.div>
       <div className="mt-50 flex flex-col items-center gap-30 text-center">
         <motion.div
