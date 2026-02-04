@@ -65,7 +65,12 @@ const config = [
 
       // 기타 규칙
       'require-jsdoc': 'off',
-      'prettier/prettier': 'error',
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+        },
+      ],
 
       // 파일명 검증
       'validate-filename/naming-rules': [

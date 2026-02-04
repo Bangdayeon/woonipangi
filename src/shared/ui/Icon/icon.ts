@@ -8,6 +8,7 @@ import IC_Download from '@/assets/icons/ic_download.svg';
 import IC_Error from '@/assets/icons/ic_error.svg';
 import IC_Like_Off from '@/assets/icons/ic_favorite_off.svg';
 import IC_Like_On from '@/assets/icons/ic_favorite_on.svg';
+import IC_Image_Folder from '@/assets/icons/ic_image_folder.svg';
 import IC_Instagram from '@/assets/icons/ic_instagram.svg';
 import IC_Mail from '@/assets/icons/ic_mail.svg';
 import IC_Search from '@/assets/icons/ic_search.svg';
@@ -25,6 +26,7 @@ export const IconMap = {
   IC_Download,
   IC_Error,
   IC_Instagram,
+  IC_Image_Folder,
   IC_Like_Off,
   IC_Like_On,
   IC_Mail,
