@@ -1,0 +1,17 @@
+.effect {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -70%) scale(0.8);
+  }
+}
