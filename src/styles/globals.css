@@ -20,6 +20,11 @@
   --font-pretendard: Pretendard, sans-serif;
 }
 @layer base {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   body {
     @apply font-pretendard;
   }
