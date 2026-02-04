@@ -5,13 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ThreeHead from '../3DRender/three';
+import { useClickImageEffect } from './ClickImageEffect/useClickImageEffect';
 
 export default function HomePage() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
+  const { onPointerDown } = useClickImageEffect();
 
   return (
-    <main className="pb-80">
+    <main className="pb-80" onClick={onPointerDown}>
       <motion.div style={{ y }}>
         <ThreeHead />
       </motion.div>
