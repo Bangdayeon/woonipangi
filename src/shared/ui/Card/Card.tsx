@@ -1,25 +1,22 @@
+import { Card as CardType } from '@/types/card.types';
 import Image from 'next/image';
 
 import IconButton from '../IconButton/IconButton';
 import Tag from './Tag/Tag';
 
-export interface CardProps {
-  image: string;
-  tags: string[];
-  title: string;
-  uploadDate: Date;
-}
+export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }: CardType) {
+  const date = new Date(createdAt);
+  const isValidDate = !isNaN(date.getTime());
 
-export default function Card({ image, tags, title, uploadDate }: CardProps) {
-  const formattedDate = uploadDate.toLocaleDateString('ko-KR');
-  const isoDate = uploadDate.toISOString();
+  const formattedDate = isValidDate ? date.toLocaleDateString('ko-KR') : '';
+  const isoDate = isValidDate ? date.toISOString() : '';
 
   return (
     <div className="border-gray100 flex w-full flex-col rounded-2xl border">
       <div className="border-gray100 aspect-18/20 w-full border-b">
         <div className="flex h-full w-full items-center justify-center">
           <div className="relative h-[90%] w-[90%]">
-            <Image src={image} alt="" fill className="object-contain" />
+            <Image src={thumbnail} alt={title} fill className="object-contain" />
           </div>
         </div>
       </div>
