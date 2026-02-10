@@ -1,26 +1,26 @@
 export const Character = [
-  { label: '우니 & 팡이', value: '우니 & 팡이' },
+  { label: '전체 캐릭터', value: '전체 캐릭터' },
+  { label: '우니&팡이', value: '우니&팡이' },
   { label: '우니', value: '우니' },
   { label: '팡이', value: '팡이' },
 ];
 
 export const Club = [
-  { label: '전체 동아리', value: '전체 동아리' },
-  { label: '공연예술분과', value: '공연예술분과' },
-  { label: '문화분과', value: '문화분과' },
-  { label: '종교봉사분과', value: '종교봉사분과' },
-  { label: '체육1분과', value: '체육1분과' },
-  { label: '체육2분과', value: '체육2분과' },
-  { label: '학술분과', value: '학술분과' },
+  { label: '전체 부서', value: '전체 부서' },
+  { label: '동아리', value: '동아리' },
+  { label: '총동아리연합회', value: '총동아리연합회' },
+  { label: '기타 부서', value: '기타 부서' },
 ];
 
-export const College = [
-  { label: '전체 단과대학', value: '전체 단과대학' },
-  { label: '경영대학', value: '경영대학' },
-  { label: '공과대학', value: '공과대학' },
-  { label: '인공지능융합대학', value: '인공지능융합대학' },
-  { label: '인문사회과학대학', value: '인문사회과학대학' },
-  { label: '자연과학대학', value: '자연과학대학' },
-  { label: '전자정보공과대학', value: '전자정보공과대학' },
-  { label: '정책법학대학', value: '정책법학대학' },
+export const Event = [
+  { label: '전체 이벤트', value: '전체 이벤트' },
+  { label: '굿즈', value: '굿즈' },
+  { label: '아이엠마켓', value: '아이엠마켓' },
+];
+
+export const Illust = [
+  { label: '전체 일러스트', value: '전체 일러스트' },
+  { label: '달력 일러스트', value: '달력 일러스트' },
+  { label: '만화/짤', value: '만화/짤' },
+  { label: '기타 일러스트', value: '기타 일러스트' },
 ];
