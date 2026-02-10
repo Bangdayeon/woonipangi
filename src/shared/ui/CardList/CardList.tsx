@@ -1,4 +1,6 @@
-import Card, { CardProps } from '../Card/Card';
+import { Card as CardProps } from '@/types/card.types';
+
+import Card from '../Card/Card';
 
 export interface CardListProps {
   cards: CardProps[];
@@ -17,11 +19,13 @@ export default function CardList({ cards }: CardListProps) {
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
       {cards.map((card, index) => (
         <Card
-          key={`${card.title}-${index}`} // 실제 서비스에선 id 권장
-          image={card.image}
-          tags={card.tags}
+          key={card.id}
+          id={card.id}
           title={card.title}
-          uploadDate={card.uploadDate}
+          tags={card.tags}
+          fileUrls={card.fileUrls}
+          thumbnail={card.thumbnail}
+          createdAt={card.createdAt}
         />
       ))}
     </div>
