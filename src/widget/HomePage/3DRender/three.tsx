@@ -41,13 +41,20 @@ export default function ThreeHead() {
     // --- GLTF 로드 ---
     const loader = new GLTFLoader();
     let head: InstanceType<typeof THREE.Object3D>;
-    let baseScale = 1; // 기본 스케일 저장
+    let initialFitScale = 0.4; // 기본 스케일 저장
 
     // 화면 크기에 따른 스케일 계산 함수
     const calculateScale = () => {
-      // 기준: 1920px 화면에서 scale 1
-      const scaleMultiplier = Math.min(sizes.width / 1920, 1.5); // 최대 1.5배까지
-      return baseScale * scaleMultiplier;
+      // 화면의 대각선 혹은 최소 길이를 기준으로 하여 종횡비 변화에 대응
+      const viewportRef = Math.min(sizes.width, sizes.height);
+
+      // 기준 해상도(예: 1000px) 대비 현재 해상도 비율 계산
+      let multiplier = viewportRef / 1000;
+
+      // multiplier에 제한을 걸어 너무 작거나 너무 큰 화면에서 대응
+      multiplier = Math.max(0.1, Math.min(multiplier, 0.6));
+
+      return initialFitScale * multiplier;
     };
 
     loader.load('/images/head.glb', (gltf: GLTF) => {
@@ -63,7 +70,7 @@ export default function ThreeHead() {
       const size = new THREE.Vector3();
       box.getSize(size);
       const maxDim = Math.max(size.x, size.y, size.z);
-      baseScale = 2 / maxDim; // 기본 스케일 저장
+      initialFitScale = 2 / maxDim; // 기본 스케일 저장
 
       const currentScale = calculateScale();
       group.scale.set(currentScale, currentScale, currentScale);

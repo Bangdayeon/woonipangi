@@ -6,7 +6,7 @@ import Divider from '../Divider/Divider';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray700 text-gray100 flex justify-between p-7">
+    <footer className="bg-gray700 text-gray100 flex gap-10 p-7">
       <div className="flex flex-col justify-between">
         <div className="flex items-center gap-4">
           <Image src="/Images/wp_01.png" alt="로고" width={80} height={80} />
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
         <span>© 2021 Bangdayeon</span>
       </div>
-      <div className="flex flex-col gap-2 text-right">
+      <div className="flex flex-col gap-2 text-left">
         <span className="font-semibold">MENU</span>
         <Divider color="bg-gray400" />
         <nav className="flex flex-col gap-1" aria-label="메뉴">
