@@ -156,7 +156,7 @@ export default function ThreeHead() {
   return (
     <div
       ref={containerRef}
-      className="bg-blue-50 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-size-[20px_20px]"
+      className="bg-blue50 bg-[linear-gradient(to_right,#CAEBFC_1.1px,transparent_1px),linear-gradient(to_bottom,#CAEBFC_1.1px,transparent_1px)] bg-size-[20px_20px]"
     />
   );
 }

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useCallback, useEffect } from 'react';
 
 import Button from '../Button/Button';
 import IconButton from '../IconButton/IconButton';
@@ -8,9 +9,10 @@ import { getVisiblePages } from './getVisiblePages';
 export interface PaginationProps {
   currentPage: number;
   totalCount: number;
-  onPageChange: (page: number, pageSize: number) => void;
-  pageSize?: number; // 반응형 pageSize 전달
+  onPageChange: (page: number) => void; // pageSize 파라미터 제거
+  pageSize?: number;
 }
+
 export const Pagination = ({
   currentPage,
   totalCount,
@@ -20,8 +22,13 @@ export const Pagination = ({
   const safePageSize = Number.isFinite(pageSize) && pageSize > 0 ? pageSize : 1;
   const totalPages = Math.max(1, Math.ceil(totalCount / safePageSize));
 
-  const clamp = (page: number) => Math.min(Math.max(page, 1), totalPages);
-  const goTo = (page: number) => onPageChange(clamp(page), safePageSize);
+  const goTo = useCallback(
+    (page: number) => {
+      const clampedPage = Math.min(Math.max(page, 1), totalPages);
+      onPageChange(clampedPage);
+    },
+    [onPageChange, totalPages]
+  );
 
   const isFirstPage = currentPage <= 1;
   const isLastPage = currentPage >= totalPages;
@@ -29,12 +36,41 @@ export const Pagination = ({
   const visiblePages = getVisiblePages(currentPage, totalPages);
   const slots = style();
 
+  // 키보드 화살표로 페이지 이동
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // 폼 입력 요소(Input, TextArea 등)에서 입력 중일 때는 동작 방지
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return;
+      }
+
+      if (event.key === 'ArrowLeft') {
+        if (!isFirstPage) {
+          event.preventDefault(); // 브라우저 스크롤 방지
+          goTo(currentPage - 1);
+        }
+      } else if (event.key === 'ArrowRight') {
+        if (!isLastPage) {
+          event.preventDefault(); // 브라우저 스크롤 방지
+          goTo(currentPage + 1);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentPage, isFirstPage, isLastPage, goTo]);
+
   return (
     <nav aria-label="페이지 이동" className={slots.container()}>
       <IconButton
-        type="button"
         icon="IC_Arrow_Back"
-        className={clsx(slots.button(), slots.arrowButton())}
+        variant="secondary"
+        size="sm"
+        className={clsx(slots.button(), slots.arrowButton(), isFirstPage && 'invisible')}
         disabled={isFirstPage}
         onClick={() => goTo(currentPage - 1)}
         ariaLabel="이전 페이지"
@@ -46,7 +82,9 @@ export const Pagination = ({
           <Button
             key={p}
             label={p.toString()}
-            type="button"
+            variant="secondary"
+            size="sm"
+            radius="full"
             className={clsx(slots.button(), active && slots.active())}
             onClick={() => goTo(p)}
             aria-current={active ? 'page' : undefined}
@@ -55,8 +93,9 @@ export const Pagination = ({
       })}
       <IconButton
         icon="IC_Arrow_Next"
-        type="button"
-        className={clsx(slots.button(), slots.arrowButton())}
+        variant="secondary"
+        size="sm"
+        className={clsx(slots.button(), slots.arrowButton(), isLastPage && 'invisible')}
         disabled={isLastPage}
         onClick={() => goTo(currentPage + 1)}
         ariaLabel="다음 페이지"
