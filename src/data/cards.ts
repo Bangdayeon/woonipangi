@@ -198,10 +198,9 @@ export const CardDatas = [
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.pdf',
-      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922_%E1%84%83%E1%85%A2%E1%84%8C%E1%85%B5%201.png',
+      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.png',
     ],
-    thumbnail:
-      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922_%E1%84%83%E1%85%A2%E1%84%8C%E1%85%B5%201.png',
+    thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.png',
     createdAt: '2024-09-22',
   },
   {
@@ -1008,10 +1007,9 @@ export const CardDatas = [
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.pdf',
-      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820_%E1%84%83%E1%85%A2%E1%84%8C%E1%85%B5%201.png',
+      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.png',
     ],
-    thumbnail:
-      'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820_%E1%84%83%E1%85%A2%E1%84%8C%E1%85%B5%201.png',
+    thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.png',
     createdAt: '2022-08-20',
   },
   {
