@@ -51,11 +51,12 @@ const PopoverContent = ({ children, popoverKey, className }: PopoverContentProps
       }}
       style={floatingStyles}
       className={clsx(
-        'border-gray100 bg-gray50 z-50 m-1 rounded-2xl border shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]',
+        'border-gray100 z-50 m-1 overflow-hidden rounded-2xl border bg-white shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]',
         className
       )}
       aria-modal="false"
       role="dialog"
+      onClick={e => e.stopPropagation()}
     >
       {children(close)}
     </div>,

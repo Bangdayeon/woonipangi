@@ -28,6 +28,7 @@ const PopoverTrigger = ({ children, popoverKey, ariaLabel }: PopoverTriggerProps
   const isActive = activeKey === popoverKey;
 
   const handleInteraction = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     // 원래 children의 onClick이 있다면 실행
     children.props.onClick?.(e);
 
