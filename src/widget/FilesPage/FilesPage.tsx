@@ -3,14 +3,19 @@
 import { CardDatas } from '@/data/cards';
 import CardList from '@/shared/ui/CardList';
 import { Pagination } from '@/shared/ui/Pagination/Pagination';
+import { useModalStore } from '@/stores/modalStore';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
+
+import CardModal from './components/CardModal';
 
 export default function FilesPage() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const pageSize = 24;
+
+  const { type, props } = useModalStore();
 
   // url에서 현재 페이지 번호 추출
   const currentPage = useMemo(() => {
@@ -39,28 +44,33 @@ export default function FilesPage() {
   };
 
   return (
-    <main className="mx-auto my-30 flex min-h-screen w-full flex-col items-center px-4">
-      <div className="w-full md:max-w-200 lg:max-w-300">
-        <header className="mb-10">
-          <h1 className="text-gray900 text-2xl font-bold md:text-3xl">캐릭터 파일 다운 페이지</h1>
-          <p className="text-gray500 mt-2">원하는 캐릭터 리소스를 선택하여 다운로드하세요.</p>
-        </header>
+    <>
+      <main className="mx-auto my-30 flex min-h-screen w-full flex-col items-center px-4">
+        <div className="w-full md:max-w-200 lg:max-w-300">
+          <header className="mb-10">
+            <h1 className="text-gray900 text-2xl font-bold md:text-3xl">캐릭터 파일 다운 페이지</h1>
+            <p className="text-gray500 mt-2">원하는 캐릭터 리소스를 선택하여 다운로드하세요.</p>
+          </header>
 
-        {/* 리스트 */}
-        <div className="min-h-150">
-          <CardList cards={displayedCards} />
-        </div>
+          {/* 리스트 */}
+          <div className="min-h-150">
+            <CardList cards={displayedCards} />
+          </div>
 
-        {/* 하단 페이지네이션 컨트롤 */}
-        <div className="mt-16 mb-20 flex justify-center">
-          <Pagination
-            currentPage={currentPage}
-            totalCount={CardDatas.length}
-            pageSize={pageSize}
-            onPageChange={handlePageChange}
-          />
+          {/* 하단 페이지네이션 컨트롤 */}
+          <div className="mt-16 mb-20 flex justify-center">
+            <Pagination
+              currentPage={currentPage}
+              totalCount={CardDatas.length}
+              pageSize={pageSize}
+              onPageChange={handlePageChange}
+            />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      {type === 'CARDMORE' && props && (
+        <CardModal image={props.thumbnail as string} title={props.title as string} />
+      )}
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { useModalStore } from '@/stores/modalStore';
 import { Card as CardType } from '@/types/card.types';
 import Image from 'next/image';
 
@@ -8,11 +9,35 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
   const date = new Date(createdAt);
   const isValidDate = !isNaN(date.getTime());
 
-  const formattedDate = isValidDate ? date.toLocaleDateString('ko-KR') : '';
+  const formattedDate = isValidDate
+    ? date.toLocaleDateString('ko-KR', {
+        year: '2-digit', // 2자리 연도
+        month: '2-digit',
+        day: '2-digit',
+      })
+    : '';
   const isoDate = isValidDate ? date.toISOString() : '';
 
+  const { open } = useModalStore();
+
+  const handleCardClick = () => {
+    open('CARDMORE', { id, title, thumbnail });
+  };
+
   return (
-    <div className="border-gray100 flex w-full flex-col rounded-2xl border">
+    <div
+      tabIndex={0}
+      role="button"
+      aria-label={`${title} 상세보기`}
+      className="border-gray100 active:border-gray300 hover:border-gray200 hover:ring-gray200 flex w-full cursor-pointer flex-col rounded-2xl border transition-colors duration-150 hover:ring-1"
+      onClick={handleCardClick}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCardClick();
+        }
+      }}
+    >
       <div className="border-gray100 aspect-18/20 w-full border-b">
         <div className="flex h-full w-full items-center justify-center">
           <div className="relative h-[90%] w-[90%]">
@@ -30,10 +55,18 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
           ))}
         </div>
         <div className="flex items-end justify-between">
-          <span className="font-body-sm text-gray400">
+          <span className="text-gray400 font-label-xs">
             제작일 | <time dateTime={isoDate}>{formattedDate}</time>
           </span>
-          <IconButton icon="IC_Download" variant="ghost" ariaLabel="파일 다운" />
+          <IconButton
+            icon="IC_Download"
+            variant="ghost"
+            ariaLabel="파일 다운"
+            onClick={(e: React.MouseEvent) => {
+              e.stopPropagation();
+              // TODO: 추후 팝오버로 교체
+            }}
+          />
         </div>
       </div>
     </div>

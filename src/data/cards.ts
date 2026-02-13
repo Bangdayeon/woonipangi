@@ -219,7 +219,7 @@ export const CardDatas = [
   {
     id: 19,
     title: '스티커 - 2022',
-    tags: ['우니&팡이', '굿즈'],
+    tags: ['우니팡이', '굿즈'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/stickers_220418.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/stickers_220418.pdf',
@@ -475,7 +475,7 @@ export const CardDatas = [
   {
     id: 40,
     title: '우니 - 광야 그립톡',
-    tags: ['우니', '총동아리연합회'],
+    tags: ['우니', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_kwangya_griptok_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_kwangya_griptok_220820.pdf',
@@ -764,7 +764,7 @@ export const CardDatas = [
   {
     id: 64,
     title: 'IVF01 ',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_01_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_01_211127.pdf',
@@ -776,7 +776,7 @@ export const CardDatas = [
   {
     id: 65,
     title: 'IVF02',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_02_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_02_211127.pdf',
@@ -788,7 +788,7 @@ export const CardDatas = [
   {
     id: 66,
     title: 'KAFA(아마축구반)',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_KAFA_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_KAFA_211127.pdf',
@@ -800,7 +800,7 @@ export const CardDatas = [
   {
     id: 67,
     title: 'PUB',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_PUB_211129.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_PUB_211129.pdf',
@@ -812,7 +812,7 @@ export const CardDatas = [
   {
     id: 68,
     title: 'RCY 2021',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_RCY_211122.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_RCY_211122.pdf',
@@ -824,7 +824,7 @@ export const CardDatas = [
   {
     id: 69,
     title: '뒤통수',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_back_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_back_220820.pdf',
@@ -836,7 +836,7 @@ export const CardDatas = [
   {
     id: 70,
     title: '아마야구반(PEGASUS)',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_baseball_250307.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_baseball_250307.pdf',
@@ -848,7 +848,7 @@ export const CardDatas = [
   {
     id: 71,
     title: '볼 짜부',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheeks_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheeks_220820.pdf',
@@ -860,7 +860,7 @@ export const CardDatas = [
   {
     id: 72,
     title: '천운 01',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_01_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_01_211127.pdf',
@@ -872,7 +872,7 @@ export const CardDatas = [
   {
     id: 73,
     title: '천운 02',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_02_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_02_211127.pdf',
@@ -884,7 +884,7 @@ export const CardDatas = [
   {
     id: 74,
     title: '원형 로고',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_circle_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_circle_220629.pdf',
@@ -896,7 +896,7 @@ export const CardDatas = [
   {
     id: 75,
     title: '행복하세연 01',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_01_211110.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_01_211110.pdf',
@@ -908,7 +908,7 @@ export const CardDatas = [
   {
     id: 76,
     title: '행복하세연 02',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_02_211110.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_02_211110.pdf',
@@ -920,7 +920,7 @@ export const CardDatas = [
   {
     id: 77,
     title: 'DO-WITH',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_dowith_211122.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_dowith_211122.pdf',
@@ -932,7 +932,7 @@ export const CardDatas = [
   {
     id: 78,
     title: '할로윈',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_halloween_221017.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_halloween_221017.pdf',
@@ -944,7 +944,7 @@ export const CardDatas = [
   {
     id: 79,
     title: '포옹',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_hug_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_hug_220629.pdf',
@@ -956,7 +956,7 @@ export const CardDatas = [
   {
     id: 80,
     title: '밤하늘',
-    tags: ['우니&팡이', '아이엠마켓'],
+    tags: ['우니팡이', '아이엠마켓'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_night_240909.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_night_240909.pdf',
@@ -968,7 +968,7 @@ export const CardDatas = [
   {
     id: 81,
     title: '별똥별',
-    tags: ['우니&팡이', '아이엠마켓'],
+    tags: ['우니팡이', '아이엠마켓'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_stars_240909.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_stars_240909.pdf',
@@ -980,7 +980,7 @@ export const CardDatas = [
   {
     id: 82,
     title: '4월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_apr_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_apr_240922.pdf',
@@ -992,7 +992,7 @@ export const CardDatas = [
   {
     id: 83,
     title: '8월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_aug_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_aug_240922.pdf',
@@ -1004,7 +1004,7 @@ export const CardDatas = [
   {
     id: 84,
     title: '민들레',
-    tags: ['우니&팡이', '기타 일러스트'],
+    tags: ['우니팡이', '일러스트'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.pdf',
@@ -1017,7 +1017,7 @@ export const CardDatas = [
   {
     id: 85,
     title: '12월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dec_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dec_240922.pdf',
@@ -1029,7 +1029,7 @@ export const CardDatas = [
   {
     id: 86,
     title: '2월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_feb_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_feb_240922.pdf',
@@ -1041,7 +1041,7 @@ export const CardDatas = [
   {
     id: 87,
     title: '1월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jan_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jan_240922.pdf',
@@ -1053,7 +1053,7 @@ export const CardDatas = [
   {
     id: 88,
     title: '7월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jul_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jul_240922.pdf',
@@ -1065,7 +1065,7 @@ export const CardDatas = [
   {
     id: 89,
     title: '6월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jun_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jun_240922.pdf',
@@ -1077,7 +1077,7 @@ export const CardDatas = [
   {
     id: 90,
     title: '3월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_mar_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_mar_240922.pdf',
@@ -1089,7 +1089,7 @@ export const CardDatas = [
   {
     id: 91,
     title: '5월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_may_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_may_240922.pdf',
@@ -1101,7 +1101,7 @@ export const CardDatas = [
   {
     id: 92,
     title: '11월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_nov_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_nov_240922.pdf',
@@ -1113,7 +1113,7 @@ export const CardDatas = [
   {
     id: 93,
     title: '10월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_oct_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_oct_240922.pdf',
@@ -1125,7 +1125,7 @@ export const CardDatas = [
   {
     id: 94,
     title: '9월 일러스트',
-    tags: ['우니&팡이', '달력 일러스트'],
+    tags: ['우니팡이', '달력 그림'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sep_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sep_240922.pdf',
@@ -1137,7 +1137,7 @@ export const CardDatas = [
   {
     id: 95,
     title: '광운알리미',
-    tags: ['우니&팡이', '기타 부서'],
+    tags: ['우니팡이', '기타 부서'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kawngwoon_allimi_23021.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kawngwoon_allimi_23021.pdf',
@@ -1149,7 +1149,7 @@ export const CardDatas = [
   {
     id: 96,
     title: '검도부',
-    tags: ['우니&팡이', '동아리'],
+    tags: ['우니팡이', '동아리'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kumdo_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kumdo_211127.pdf',
@@ -1161,7 +1161,7 @@ export const CardDatas = [
   {
     id: 97,
     title: '광야 엽서 - 나침반',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_compass_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_compass_220820.pdf',
@@ -1173,7 +1173,7 @@ export const CardDatas = [
   {
     id: 98,
     title: '광야 혓바닥',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_coster_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_coster_220820.pdf',
@@ -1185,7 +1185,7 @@ export const CardDatas = [
   {
     id: 99,
     title: '광야 밤하늘',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_cup_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_cup_220820.pdf',
@@ -1197,7 +1197,7 @@ export const CardDatas = [
   {
     id: 100,
     title: '광야 볼 짜부',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_keyring_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_keyring_220820.pdf',
@@ -1209,7 +1209,7 @@ export const CardDatas = [
   {
     id: 101,
     title: '광야 무드등',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_moodlight_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_moodlight_220820.pdf',
@@ -1222,7 +1222,7 @@ export const CardDatas = [
   {
     id: 102,
     title: '광야 엽서 - 항해',
-    tags: ['우니&팡이', '총동아리연합회'],
+    tags: ['우니팡이', '총동연'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_voyage_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_voyage_220820.pdf',
@@ -1234,7 +1234,7 @@ export const CardDatas = [
   {
     id: 103,
     title: '몬스테라',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_monstera_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_monstera_220820.pdf',
@@ -1246,7 +1246,7 @@ export const CardDatas = [
   {
     id: 104,
     title: '엽서 - 밤하늘',
-    tags: ['우니&팡이', '굿즈'],
+    tags: ['우니팡이', '굿즈'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_02_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_02_240922.pdf',
@@ -1258,7 +1258,7 @@ export const CardDatas = [
   {
     id: 105,
     title: '엽서 - 엉덩이',
-    tags: ['우니&팡이', '굿즈'],
+    tags: ['우니팡이', '굿즈'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_03_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_03_240922.pdf',
@@ -1270,7 +1270,7 @@ export const CardDatas = [
   {
     id: 106,
     title: '포스트잇 - 꽃',
-    tags: ['우니&팡이', '굿즈'],
+    tags: ['우니팡이', '굿즈'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_220820.pdf',
@@ -1282,7 +1282,7 @@ export const CardDatas = [
   {
     id: 107,
     title: '포스트잇 - 노랑',
-    tags: ['우니&팡이', '굿즈'],
+    tags: ['우니팡이', '굿즈'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_240922.pdf',
@@ -1294,7 +1294,7 @@ export const CardDatas = [
   {
     id: 108,
     title: 'RCY',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_rcy_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_rcy_250222.pdf',
@@ -1306,7 +1306,7 @@ export const CardDatas = [
   {
     id: 109,
     title: '소주',
-    tags: ['우니&팡이'],
+    tags: ['우니팡이'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_soju_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_soju_220629.pdf',
@@ -1326,7 +1326,7 @@ export const CardDatas = [
   {
     id: 111,
     title: '톰과 제리',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_tomjerry_230405.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_tomjerry_230405.JPG',
     createdAt: '2023-04-05',
@@ -1334,7 +1334,7 @@ export const CardDatas = [
   {
     id: 112,
     title: '우니의 일기: 노천극장',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_nocheon_230313.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_nocheon_230313.JPG',
     createdAt: '2023-03-13',
@@ -1342,7 +1342,7 @@ export const CardDatas = [
   {
     id: 113,
     title: '크리스마스 2022',
-    tags: ['우니&팡이', '일러스트'],
+    tags: ['우니팡이', '일러스트'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_christmas_221225.JPG',
     ],
@@ -1352,7 +1352,7 @@ export const CardDatas = [
   {
     id: 114,
     title: '군고구마',
-    tags: ['우니&팡이', '일러스트'],
+    tags: ['우니팡이', '일러스트'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sweetpotato_221212.JPG',
     ],
@@ -1363,7 +1363,7 @@ export const CardDatas = [
   {
     id: 115,
     title: '우니의 일기 - 민트초코',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_mincho_221122.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_mincho_221122.JPG',
     createdAt: '2022-11-22',
@@ -1371,7 +1371,7 @@ export const CardDatas = [
   {
     id: 116,
     title: '우니의 일기: 대학생',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG',
     createdAt: '2022-10-04',
@@ -1379,7 +1379,7 @@ export const CardDatas = [
   {
     id: 117,
     title: '우니의 일기: 대학생',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG',
     createdAt: '2022-10-04',
@@ -1387,7 +1387,7 @@ export const CardDatas = [
   {
     id: 118,
     title: '우니의 일기: 행운',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_lucky_221028.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_lucky_221028.JPG',
     createdAt: '2022-10-28',
@@ -1395,7 +1395,7 @@ export const CardDatas = [
   {
     id: 119,
     title: '우니의 일기: 시험기간',
-    tags: ['우니&팡이', '만화/짤'],
+    tags: ['우니팡이', '만화/짤'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_test_221026.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_test_221026.JPG',
     createdAt: '2022-10-26',
@@ -1403,7 +1403,7 @@ export const CardDatas = [
   {
     id: 120,
     title: '윈도우 배경',
-    tags: ['우니&팡이', '일러스트'],
+    tags: ['우니팡이', '일러스트'],
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_bg_250507.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_bg_250507.JPG',
     createdAt: '2025-05-07',
