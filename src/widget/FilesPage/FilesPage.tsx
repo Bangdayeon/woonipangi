@@ -124,7 +124,11 @@ export default function FilesPage() {
         </div>
       </main>
       {type === 'CARDMORE' && props && (
-        <CardModal image={props.thumbnail as string} title={props.title as string} />
+        <CardModal
+          image={props.thumbnail as string}
+          title={props.title as string}
+          tmi={props.tmi as string}
+        />
       )}
     </>
   );

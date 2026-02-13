@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import Tag from './Tag/Tag';
 
-export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }: CardType) {
+export default function Card({ id, title, tags, tmi, fileUrls, thumbnail, createdAt }: CardType) {
   const date = new Date(createdAt);
   const isValidDate = !isNaN(date.getTime());
 
@@ -22,7 +22,7 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
   const { open } = useModalStore();
 
   const handleCardClick = () => {
-    open('CARDMORE', { id, title, thumbnail });
+    open('CARDMORE', { id, title, thumbnail, tmi });
   };
 
   const handleDownload = (url: string, extension: string) => {
