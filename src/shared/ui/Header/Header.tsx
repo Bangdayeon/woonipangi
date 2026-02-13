@@ -38,9 +38,10 @@ const Header = () => {
           variant="secondary"
           className="md:hidden"
         />
-        <Button
+        <LinkButton
           icon="IC_Mail"
           label="문의"
+          href="/ask"
           radius="full"
           variant="secondary"
           className="hidden! md:flex!"
