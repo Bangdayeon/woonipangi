@@ -4,7 +4,6 @@ import Logo from '@/assets/images/LogoWithText.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Button from '../Button/Button';
 import LinkButton from '../LinkButton/LinkButton';
 
 const Header = () => {
