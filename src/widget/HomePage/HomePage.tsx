@@ -12,31 +12,44 @@ export default function HomePage() {
   const y = useTransform(scrollY, [0, 500], [0, -100]);
   const { onPointerDown } = useClickImageEffect();
 
-  const [isLocked, setIsLocked] = useState(true);
-  const [showScrollToBottomBtn, setShowScrollToBottomBtn] = useState(true);
-  const [showScrollToTopBtn, setShowScrollToTopBtn] = useState(false);
-  const nextSectionRef = useRef<HTMLDivElement>(null);
-  const justUnlockedRef = useRef(false); // 최상단 복귀 직후 잠금 방지 플래그
+  // 초기 상태를 스크롤 위치에 따라 결정 (뒤로가기 대응)
+  const [isLocked, setIsLocked] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY <= 10;
+    }
+    return true;
+  });
+  const [showScrollToBottomBtn, setShowScrollToBottomBtn] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY <= 10;
+    }
+    return true;
+  });
+  const [showScrollToTopBtn, setShowScrollToTopBtn] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.scrollY > 10;
+    }
+    return false;
+  });
 
-  // 스크롤 및 스크롤바 UI 제어 (Resize 포함)
+  const nextSectionRef = useRef<HTMLDivElement>(null);
+  const justUnlockedRef = useRef(false);
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const relockTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const isLockedRef = useRef(isLocked);
+  useEffect(() => {
+    isLockedRef.current = isLocked;
+  }, [isLocked]);
+
+  // 스크롤 및 스크롤바 UI 제어
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
 
     const updateScrollState = () => {
       const isMobileOrTablet = window.innerWidth < 1024;
-      const currentY = window.scrollY;
 
-      /**
-       * [수정] 버튼 가시성 제어
-       * - 아래로 가기 버튼: 최상단(10px 이내)일 때만 표시
-       * - 위로 가기 버튼: 최상단이 아닐 때 '항상' 표시
-       */
-      const isAtTop = currentY <= 10;
-      setShowScrollToBottomBtn(isAtTop);
-      setShowScrollToTopBtn(!isAtTop);
-
-      // 데스크톱 모드일 때
+      // 데스크톱은 무조건 해제
       if (!isMobileOrTablet) {
         html.style.overflow = '';
         body.style.overflow = '';
@@ -45,7 +58,7 @@ export default function HomePage() {
         return;
       }
 
-      // 모바일/태블릿 모드일 때 스크롤 잠금 적용
+      // 모바일/태블릿: 잠금 상태일 때만 overflow hidden
       if (isLocked) {
         html.style.overflow = 'hidden';
         body.style.overflow = 'hidden';
@@ -71,36 +84,57 @@ export default function HomePage() {
     };
   }, [isLocked]);
 
-  // 실제 스크롤 발생 시 버튼 가시성 실시간 업데이트
+  // 실제 스크롤 발생 시 로직
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       const isAtTop = currentY <= 10;
 
-      // 어떤 환경에서든 최상단 여부에 따라 버튼 가시성 결정
       setShowScrollToBottomBtn(isAtTop);
       setShowScrollToTopBtn(!isAtTop);
 
-      // 모바일 환경에서 최상단 도달 시 다시 잠금
-      if (window.innerWidth < 1024 && currentY <= 0 && !isLocked && !justUnlockedRef.current) {
+      // 최상단이 아닐 때는 무조건 잠금을 해제함 (뒤로가기 등으로 중간 위치 진입 시 대응)
+      if (!isAtTop && isLockedRef.current) {
+        setIsLocked(false);
+      }
+
+      // 모바일 환경에서 '완전 최상단' 도달 시에만 다시 잠금
+      if (
+        window.innerWidth < 1024 &&
+        currentY <= 1 &&
+        !isLockedRef.current &&
+        !justUnlockedRef.current
+      ) {
         setIsLocked(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isLocked]);
+  }, []);
+
+  // setTimeout cleanup
+  useEffect(() => {
+    return () => {
+      clearTimeout(scrollTimerRef.current);
+      clearTimeout(relockTimerRef.current);
+    };
+  }, []);
 
   const handleScrollToBottom = () => {
+    clearTimeout(scrollTimerRef.current); // 기존 타이머 정리하여 relock 방지
+    clearTimeout(relockTimerRef.current);
+
     setIsLocked(false);
     justUnlockedRef.current = true;
-    setTimeout(() => {
+
+    scrollTimerRef.current = setTimeout(() => {
       nextSectionRef.current?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
-      // smooth scroll이 시작된 뒤 re-lock guard 해제
-      setTimeout(() => {
+
+      relockTimerRef.current = setTimeout(() => {
         justUnlockedRef.current = false;
       }, 500);
     }, 0);
@@ -115,7 +149,7 @@ export default function HomePage() {
 
   return (
     <main className="pb-80" onClick={onPointerDown}>
-      {/* 아래로 이동 버튼: 최상단에서만 노출 (모바일 위주) */}
+      {/* 아래로 이동 버튼 */}
       {showScrollToBottomBtn && (
         <IconButton
           onClick={handleScrollToBottom}
@@ -126,7 +160,7 @@ export default function HomePage() {
         />
       )}
 
-      {/* 위로 이동 버튼: 최상단이 아닐 때 '항상' 노출 */}
+      {/* 위로 이동 버튼 */}
       {showScrollToTopBtn && (
         <IconButton
           onClick={handleScrollToTop}
@@ -134,7 +168,7 @@ export default function HomePage() {
           size="lg"
           icon="IC_Arrow_Up"
           ariaLabel="위로 스크롤"
-          className="fixed right-5 bottom-5 z-50 shadow-2xl"
+          className="fixed right-5 bottom-10 z-50 shadow-2xl"
         />
       )}
 
