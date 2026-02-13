@@ -6,7 +6,7 @@ import Divider from '../Divider/Divider';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray700 text-gray100 flex flex-col gap-5 p-7 md:flex-row md:gap-10">
+    <footer className="bg-gray700 text-gray100 sticky bottom-0 flex h-fit flex-col gap-5 p-7 md:flex-row md:gap-10">
       <div className="flex gap-10">
         {/* 로고 */}
         <div className="relative h-15 w-15 md:h-20 md:w-20">
