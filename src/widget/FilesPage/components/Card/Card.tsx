@@ -1,9 +1,9 @@
+import IconButton from '@/shared/ui/IconButton/IconButton';
+import Popover from '@/shared/ui/Popover/Popover';
 import { useModalStore } from '@/stores/modalStore';
 import { Card as CardType } from '@/types/card.types';
 import Image from 'next/image';
 
-import IconButton from '../IconButton/IconButton';
-import Popover from '../Popover/Popover';
 import Tag from './Tag/Tag';
 
 export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }: CardType) {

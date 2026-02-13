@@ -1,8 +1,8 @@
+import SVGIcon from '@/shared/ui/Icon/SVGIcon';
+import IconButton from '@/shared/ui/IconButton/IconButton';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
-import SVGIcon from '../../Icon/SVGIcon';
-import IconButton from '../../IconButton/IconButton';
 import styles from './LikeButton.module.css';
 
 const LikeButton = () => {

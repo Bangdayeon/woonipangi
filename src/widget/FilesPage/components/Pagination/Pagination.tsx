@@ -1,8 +1,8 @@
+import Button from '@/shared/ui/Button/Button';
+import IconButton from '@/shared/ui/IconButton/IconButton';
 import clsx from 'clsx';
 import { useCallback, useEffect } from 'react';
 
-import Button from '../Button/Button';
-import IconButton from '../IconButton/IconButton';
 import { style } from './Pagination.style';
 import { getVisiblePages } from './getVisiblePages';
 
