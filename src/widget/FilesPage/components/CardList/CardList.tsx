@@ -23,6 +23,7 @@ export default function CardList({ cards }: CardListProps) {
           id={card.id}
           title={card.title}
           tags={card.tags}
+          tmi={card.tmi}
           fileUrls={card.fileUrls}
           thumbnail={card.thumbnail}
           createdAt={card.createdAt}

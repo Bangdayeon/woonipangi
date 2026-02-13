@@ -3,6 +3,7 @@ export const CardDatas = [
     id: 1,
     title: '마크',
     tags: ['우니'],
+    tmi: '광운대학교 마크에 포함되어있는 말 아이콘이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/mark.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/mark.pdf',
@@ -15,6 +16,7 @@ export const CardDatas = [
     id: 2,
     title: '팡이 비행',
     tags: ['팡이'],
+    tmi: '비행하는 팡이의 모습이다. 팔을 벌리지 않아도 잘 날 수 있으나, 폼을 잡아보고 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_01_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_01_220629.pdf',
@@ -27,6 +29,7 @@ export const CardDatas = [
     id: 3,
     title: '엎드린 팡이',
     tags: ['팡이'],
+    tmi: '편안하게 엎드려있는 팡이의 모습이다. 스티커 굿즈로 나온 적이 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_bow_down_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_bow_down_240922.pdf',
@@ -39,6 +42,7 @@ export const CardDatas = [
     id: 4,
     title: '팡이 엉덩이',
     tags: ['팡이'],
+    tmi: '팡이의 엉덩이이다. 동그랗다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_butt_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_butt_240922.pdf',
@@ -51,6 +55,7 @@ export const CardDatas = [
     id: 5,
     title: '팡이 꽃침대',
     tags: ['팡이'],
+    tmi: '꽃 위에 누워서 쉬고 있는 팡이이다. 배가 볼록하다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_flower_bed_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_flower_bed_220629.pdf',
@@ -63,6 +68,7 @@ export const CardDatas = [
     id: 6,
     title: '부적(건강) - 팡이',
     tags: ['팡이', '굿즈'],
+    tmi: '건강을 기원하는 부적이다. 장수의 아이콘 거북이가 된 팡이가 그려져있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_health_amulet_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_health_amulet_240922.pdf',
@@ -75,6 +81,7 @@ export const CardDatas = [
     id: 7,
     title: '팡이 만세',
     tags: ['팡이'],
+    tmi: '만세를 외치는 팡이의 모습이다. 어딘가 신나보인다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_horray_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_horray_220629.pdf',
@@ -87,6 +94,7 @@ export const CardDatas = [
     id: 8,
     title: '키캡 살려줘 팡이',
     tags: ['팡이'],
+    tmi: `타자를 너무 많이치다가 키캡에 갇혀버린 팡이의 모습이다.\n당신도 키캡이 되지 않게 조심하길 바란다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_keycap_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_keycap_240922.pdf',
@@ -99,6 +107,7 @@ export const CardDatas = [
     id: 9,
     title: '부적(행운) - 팡이',
     tags: ['팡이', '굿즈'],
+    tmi: `행운을 불러오는 부적이다.\n동글동글하니 행운이 굴러들어올 것 같은 얼굴을 한 팡이가 그려져있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_lucky_amulet_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_lucky_amulet_240922.pdf',
@@ -111,6 +120,7 @@ export const CardDatas = [
     id: 10,
     title: '팡이 요술봉',
     tags: ['팡이'],
+    tmi: '요술봉을 든 팡이이다. 무슨 짓을 하려는 걸까?',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_magic_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_magic_220629.pdf',
@@ -123,6 +133,7 @@ export const CardDatas = [
     id: 11,
     title: '엽서: Box is the Best',
     tags: ['팡이', '굿즈'],
+    tmi: '고양이처럼 상자에 들어간 팡이의 모습이다. 엽서로 나온 적이 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_postcard_01__240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_postcard_01__240922.pdf',
@@ -135,6 +146,7 @@ export const CardDatas = [
     id: 12,
     title: '엽서: Flower Blossom',
     tags: ['팡이', '굿즈'],
+    tmi: '꽃밭에 누워있는 팡이이다. 엽서로 나온 적이 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_postcard_02_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_postcard_02_240922.pdf',
@@ -147,6 +159,7 @@ export const CardDatas = [
     id: 13,
     title: '팡이 교수 - A+',
     tags: ['팡이'],
+    tmi: '교수가 되어 학생들에게 A+을 주는 팡이이다. 상상만 해도 행복하다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_professor_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_professor_240922.pdf',
@@ -159,6 +172,7 @@ export const CardDatas = [
     id: 14,
     title: '쇠치는 팡이',
     tags: ['팡이', '기타 부서'],
+    tmi: '쇠(꽹과리)를 치고 있는 팡이이다. 갠지갱갠지갱',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_satong_231108.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_satong_231108.pdf',
@@ -171,6 +185,7 @@ export const CardDatas = [
     id: 15,
     title: '팡이 썬글라스',
     tags: ['팡이'],
+    tmi: '썬글라스를 쓰고 뭔가 비밀스러워진 팡이이다. 앙 다문 입이 다부지다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_sunglasses_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_sunglasses_240922.pdf',
@@ -183,6 +198,7 @@ export const CardDatas = [
     id: 16,
     title: '놀란 팡이',
     tags: ['팡이'],
+    tmi: '무언가를 보고 놀란 팡이이다. 도대체 뭘 봤길래?',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_surprised_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_surprised_220629.pdf',
@@ -195,6 +211,7 @@ export const CardDatas = [
     id: 17,
     title: '거북이 팡이',
     tags: ['팡이'],
+    tmi: `영 좋지 않은 자세로 공부를 하다가 거북목이 심해져 거북이가 된 팡이이다.\n팡이: 너도 거북이가 되지 않게 조심해.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_turtle_240922.pdf',
@@ -207,6 +224,7 @@ export const CardDatas = [
     id: 18,
     title: '노란꽃과 팡이',
     tags: ['팡이'],
+    tmi: '요술봉으로 꽃을 자라게 만든 팡이이다. 신나보인다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_yellow_flower_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_yellow_flower_220629.pdf',
@@ -219,6 +237,7 @@ export const CardDatas = [
     id: 19,
     title: '스티커 - 2022',
     tags: ['우니팡이', '굿즈'],
+    tmi: '2022년에 제작자가 갑자기 만들고 팔아봤던 리무버블 스티커 도안이다. 200장 한정판이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/stickers_220418.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/stickers_220418.pdf',
@@ -231,6 +250,7 @@ export const CardDatas = [
     id: 20,
     title: 'KABA(아마농구반)',
     tags: ['우니', '동아리'],
+    tmi: '드리블을 하고 있는 우니이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bascketball_230910.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bascketball_230910.pdf',
@@ -243,6 +263,7 @@ export const CardDatas = [
     id: 21,
     title: '아마야구반(PEGASUS)',
     tags: ['우니', '동아리'],
+    tmi: '투수가 되어 야구공 던질 준비를 하고 있는 우니이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_baseball_pitcher_250307.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_baseball_pitcher_250307.pdf',
@@ -255,6 +276,7 @@ export const CardDatas = [
     id: 22,
     title: '엎드리는 우니',
     tags: ['우니'],
+    tmi: '냅다 어딘가에 눕는 우니이다. 우니는 아무데나 뒹구는 것을 좋아한다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bow_down_01_221030.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bow_down_01_221030.pdf',
@@ -267,6 +289,7 @@ export const CardDatas = [
     id: 23,
     title: '엎드린 우니',
     tags: ['우니'],
+    tmi: '어딘가 맹해진 표정으로 엎드려있는 우니이다. 스티커 굿즈로 나온 적이 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bow_down_02_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_bow_down_02_240922.pdf',
@@ -279,6 +302,7 @@ export const CardDatas = [
     id: 24,
     title: '우니 엉덩이',
     tags: ['우니'],
+    tmi: '팡이의 엉덩이이다. 동그랗다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_butt_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_butt_240922.pdf',
@@ -291,6 +315,7 @@ export const CardDatas = [
     id: 25,
     title: '우니 커피 수혈',
     tags: ['우니'],
+    tmi: `커피를 마시고 마시다 못해 수혈을 받고 있는 우니이다.\n*절대 따라하지 마시오*`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_coffee_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_coffee_220629.pdf',
@@ -303,6 +328,7 @@ export const CardDatas = [
     id: 26,
     title: '건설법무대학원 01',
     tags: ['우니', '기타 부서'],
+    tmi: "건설법무대학원의 '건설'의상을 입은 우니이다.",
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_01_241222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_01_241222.pdf',
@@ -316,6 +342,7 @@ export const CardDatas = [
     id: 27,
     title: '건설법무대학원 02',
     tags: ['우니', '기타 부서'],
+    tmi: "건설법무대학원의 '법무'의상을 입은 우니이다.",
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_02_241222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_02_241222.pdf',
@@ -329,6 +356,7 @@ export const CardDatas = [
     id: 28,
     title: '건설법무대학원 03',
     tags: ['우니', '기타 부서'],
+    tmi: `건설법무대학원의 \\'건설\\'의상을 입은 우니이다.\n믿음직스럽게 엄지를 세우고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_03_241222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_03_241222.pdf',
@@ -342,6 +370,7 @@ export const CardDatas = [
     id: 29,
     title: '건설법무대학원 04',
     tags: ['우니', '기타 부서'],
+    tmi: `건설법무대학원의 \\'법무\\'의상을 입은 우니이다.\n점잖게 저울을 들고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_04_241222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_construction_legal_affairs_04_241222.pdf',
@@ -355,6 +384,7 @@ export const CardDatas = [
     id: 30,
     title: '우니 기본형 2022',
     tags: ['우니'],
+    tmi: `어도비 일러스트로 탄생한 첫 우니 기본형이다.\n어깨에 잔뜩 힘을 주고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_default_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_default_220629.pdf',
@@ -366,6 +396,7 @@ export const CardDatas = [
   {
     id: 31,
     title: '우니 기본형 2024',
+    tmi: `어도비 일러스트로 탄생한 두번째 우니 기본형이다.\n다이어트를 한 것 같다.`,
     tags: ['우니'],
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_default_241222.ai',
@@ -379,6 +410,7 @@ export const CardDatas = [
     id: 32,
     title: '우니 쌍엄지척',
     tags: ['우니'],
+    tmi: `어딘가 굉장히 신나있는 우니이다.\n기 가 빨릴 수 있으니 내향형인이라면 크게 보지 않는 것이 좋다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_double_thumbs_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_double_thumbs_220629.pdf',
@@ -391,6 +423,7 @@ export const CardDatas = [
     id: 33,
     title: '조는 우니',
     tags: ['우니'],
+    tmi: `꾸벅꾸벅 졸고 있는 우니이다.\n대놓고 턱을 괴는 것을 보니 수업시간은 아닌듯 하다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_drowse_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_drowse_220629.pdf',
@@ -403,6 +436,7 @@ export const CardDatas = [
     id: 34,
     title: '우니 얼굴',
     tags: ['우니'],
+    tmi: '우니의 얼굴이다. 귀엽다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_face_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_face_240922.pdf',
@@ -415,6 +449,7 @@ export const CardDatas = [
     id: 35,
     title: '우니 - 골프',
     tags: ['우니'],
+    tmi: '골프를 치는 우니의 모습이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_golf_230910.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_golf_230910.pdf',
@@ -427,6 +462,7 @@ export const CardDatas = [
     id: 36,
     title: '우니 졸업',
     tags: ['우니', '기타 부서'],
+    tmi: '22년도 졸업준비위원회와 함께 탄생한 학사복을 입은 우니이다. 신형 학사복을 입고있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_graduate_2021.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_graduate_2021.pdf',
@@ -439,6 +475,7 @@ export const CardDatas = [
     id: 37,
     title: '군침이 싹 도는 우니',
     tags: ['우니'],
+    tmi: '무언가 음모를 꾸미는 듯한 표정을 하는 우니이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_guncheem_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_guncheem_220629.pdf',
@@ -451,6 +488,7 @@ export const CardDatas = [
     id: 38,
     title: '여행 - 아이엠마켓1',
     tags: ['우니', '아이엠마켓'],
+    tmi: '광운대에서 열리는 아이엠마켓의 1회차 마스코트가 된 우니이다. 여행을 떠나고 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_iammarket1_220925.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_iammarket1_220925.pdf',
@@ -463,6 +501,7 @@ export const CardDatas = [
     id: 39,
     title: '아이스유니콘스(아이스하키)',
     tags: ['우니', '동아리'],
+    tmi: `아이스하키를 하고 있는 우니이다.\n사실 더 멋진 옷을 입고 멋진 자세를 한 그림이 여러 개 있었는데 파일이 안보인다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_ice_hockey_230910.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_ice_hockey_230910.pdf',
@@ -475,6 +514,7 @@ export const CardDatas = [
     id: 40,
     title: '우니 - 광야 그립톡',
     tags: ['우니', '총동연'],
+    tmi: `40대 총동연에서 팔았던 굿즈이다.\n제작자가 임원이었어서 가성비가 좋았다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_kwangya_griptok_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_kwangya_griptok_220820.pdf',
