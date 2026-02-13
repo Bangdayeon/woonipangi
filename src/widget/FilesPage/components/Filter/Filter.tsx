@@ -8,7 +8,7 @@ import { Character, Club, Event, Illust } from './Lists';
 const DEFAULT_CHARACTER = Character.find(o => o.value === '전체 캐릭터') ?? Character[0] ?? null;
 const DEFAULT_CLUB = Club.find(o => o.value === '전체 동아리') ?? Club[0] ?? null;
 const DEFAULT_EVENT = Event.find(o => o.value === '전체 이벤트') ?? Event[0] ?? null;
-const DEFAULT_ILLUST = Illust.find(o => o.value === '전체 일러스트') ?? Illust[0] ?? null;
+const DEFAULT_ILLUST = Illust.find(o => o.value === '전체 그림') ?? Illust[0] ?? null;
 
 export default function Filter() {
   const [character, setCharacter] = useState<DropdownOption | null>(DEFAULT_CHARACTER);

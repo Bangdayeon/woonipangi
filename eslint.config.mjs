@@ -64,6 +64,7 @@ const config = [
       '@typescript-eslint/no-explicit-any': 'warn',
 
       // 기타 규칙
+      'react/prop-types': 'off',
       'require-jsdoc': 'off',
       'prettier/prettier': [
         'error',

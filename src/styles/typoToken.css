@@ -19,6 +19,7 @@
   .font-body-lg { @apply text-[18px] leading-[160%] font-normal tracking-[-0.02em]; }
 
   /* Label */
+  .font-label-xs { @apply text-[11px] leading-[130%] font-medium; }
   .font-label-sm { @apply text-[12px] leading-[130%] font-semibold; }
   .font-label-md { @apply text-[14px] leading-[146%] font-semibold; }
   .font-label-lg { @apply text-[16px] leading-[150%] font-semibold; }
