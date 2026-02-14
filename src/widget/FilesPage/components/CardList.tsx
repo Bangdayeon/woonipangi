@@ -1,6 +1,6 @@
 import { Card as CardProps } from '@/types/card.types';
 
-import Card from '../Card/Card';
+import Card from './Card/Card';
 
 export interface CardListProps {
   cards: CardProps[];

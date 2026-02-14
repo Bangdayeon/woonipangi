@@ -12,7 +12,7 @@ export interface DropdownOption {
 }
 
 interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
-  options: DropdownOption[];
+  options: readonly DropdownOption[];
   value?: DropdownOption | null;
   placeholder?: string;
   defaultSelected?: DropdownOption;

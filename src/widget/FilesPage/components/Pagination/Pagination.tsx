@@ -1,12 +1,13 @@
 import Button from '@/shared/ui/Button/Button';
 import IconButton from '@/shared/ui/IconButton/IconButton';
+import { PAGE_SIZE } from '@/widget/FilesPage/constants/paginationOptions';
 import clsx from 'clsx';
 import { useCallback, useEffect } from 'react';
 
 import { style } from './Pagination.style';
 import { getVisiblePages } from './getVisiblePages';
 
-export interface PaginationProps {
+export interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   currentPage: number;
   totalCount: number;
   onPageChange: (page: number) => void; // pageSize 파라미터 제거
@@ -17,7 +18,9 @@ export const Pagination = ({
   currentPage,
   totalCount,
   onPageChange,
-  pageSize = 20,
+  pageSize = PAGE_SIZE,
+  className,
+  ...rest
 }: PaginationProps) => {
   const safePageSize = Number.isFinite(pageSize) && pageSize > 0 ? pageSize : 1;
   const totalPages = Math.max(1, Math.ceil(totalCount / safePageSize));
@@ -65,7 +68,7 @@ export const Pagination = ({
   }, [currentPage, isFirstPage, isLastPage, goTo]);
 
   return (
-    <nav aria-label="페이지 이동" className={slots.container()}>
+    <nav aria-label="페이지 이동" className={clsx(slots.container(), className)} {...rest}>
       <IconButton
         icon="IC_Arrow_Back"
         variant="secondary"
