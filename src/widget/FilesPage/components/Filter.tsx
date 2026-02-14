@@ -3,12 +3,12 @@ import Dropdown from '@/shared/ui/Dropdown/Dropdown';
 import { DropdownOption } from '@/shared/ui/Dropdown/Dropdown';
 import { useState } from 'react';
 
-import { Character, Club, Event, Illust } from './Lists';
+import { CHARACTER, DEPARTMENT, EVENT, ILLUST } from '../constants/filterOptions';
 
-const DEFAULT_CHARACTER = Character.find(o => o.value === '전체 캐릭터') ?? Character[0] ?? null;
-const DEFAULT_CLUB = Club.find(o => o.value === '전체 동아리') ?? Club[0] ?? null;
-const DEFAULT_EVENT = Event.find(o => o.value === '전체 이벤트') ?? Event[0] ?? null;
-const DEFAULT_ILLUST = Illust.find(o => o.value === '전체 그림') ?? Illust[0] ?? null;
+const DEFAULT_CHARACTER = CHARACTER.find(o => o.value === 'all_character') ?? CHARACTER[0] ?? null;
+const DEFAULT_CLUB = DEPARTMENT.find(o => o.value === 'all_department') ?? DEPARTMENT[0] ?? null;
+const DEFAULT_EVENT = EVENT.find(o => o.value === 'all_event') ?? EVENT[0] ?? null;
+const DEFAULT_ILLUST = ILLUST.find(o => o.value === 'all_illust') ?? ILLUST[0] ?? null;
 
 export default function Filter() {
   const [character, setCharacter] = useState<DropdownOption | null>(DEFAULT_CHARACTER);
@@ -26,10 +26,10 @@ export default function Filter() {
   return (
     <div className="flex w-fit gap-3">
       <Button variant="tertiary" radius="full" label="전체" onClick={reset} />
-      <Dropdown options={Character} value={character} onSelect={setCharacter} />
-      <Dropdown options={Club} value={club} onSelect={setClub} />
-      <Dropdown options={Event} value={event} onSelect={setEvent} />
-      <Dropdown options={Illust} value={illust} onSelect={setIllust} />
+      <Dropdown options={CHARACTER} value={character} onSelect={setCharacter} />
+      <Dropdown options={DEPARTMENT} value={club} onSelect={setClub} />
+      <Dropdown options={EVENT} value={event} onSelect={setEvent} />
+      <Dropdown options={ILLUST} value={illust} onSelect={setIllust} />
     </div>
   );
 }
