@@ -32,11 +32,14 @@ export default function HomePage() {
     return false;
   });
 
+  const [isClient, setIsClient] = useState(false);
+
   const nextSectionRef = useRef<HTMLDivElement>(null);
   const justUnlockedRef = useRef(false);
   const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const relockTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isLockedRef = useRef(isLocked);
+
   useEffect(() => {
     isLockedRef.current = isLocked;
   }, [isLocked]);
@@ -146,6 +149,11 @@ export default function HomePage() {
       behavior: 'smooth',
     });
   };
+
+  // 서버 렌더링 시에는 플레이스홀더 반환
+  if (!isClient) {
+    return <div className="h-screen w-full bg-gray-50" />;
+  }
 
   return (
     <main className="pb-80" onClick={onPointerDown}>
