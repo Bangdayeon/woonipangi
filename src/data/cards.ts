@@ -527,6 +527,7 @@ export const CardDatas = [
     id: 41,
     title: '부적(사랑) - 우니',
     tags: ['우니', '굿즈'],
+    tmi: '사랑을 가져다 준다는 부적이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_love_amulet_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_love_amulet_240922.pdf',
@@ -539,6 +540,7 @@ export const CardDatas = [
     id: 42,
     title: '우니 내거다',
     tags: ['우니'],
+    tmi: '어딘가에 딱 붙어서 탐내고 있는 우니이다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_mine_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_mine_220629.pdf',
@@ -551,6 +553,7 @@ export const CardDatas = [
     id: 43,
     title: '부적(재물) - 우니',
     tags: ['우니', '굿즈'],
+    tmi: '부자가 되고 싶다면 이 부적을 사용해볼 수 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_money_amulet_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_money_amulet_240922.pdf',
@@ -563,6 +566,7 @@ export const CardDatas = [
     id: 44,
     title: '우니 오케이',
     tags: ['우니'],
+    tmi: '세상만사 오케이!',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_okay_220303.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_okay_220303.pdf',
@@ -575,6 +579,7 @@ export const CardDatas = [
     id: 45,
     title: '우니 손바닥',
     tags: ['우니'],
+    tmi: '손바닥을 내밀고 있는 우니이다. 하이파이브를 쳐주자.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_palm_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_palm_220820.pdf',
@@ -587,6 +592,7 @@ export const CardDatas = [
     id: 46,
     title: '펜들고 인사하는 우니',
     tags: ['우니'],
+    tmi: '우니가 한손에 펜을 들고 인사하고 있다. 공부하다 뛰쳐나온 걸까?',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_pen_hi_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_pen_hi_220629.pdf',
@@ -599,6 +605,7 @@ export const CardDatas = [
     id: 47,
     title: '우니 - RCY 기본',
     tags: ['우니', '동아리'],
+    tmi: '봉사하러 갈 준비를 한 우니이다. 가방에는 김밥도시락이 들어있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_rcy_default_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_rcy_default_250222.pdf',
@@ -611,6 +618,7 @@ export const CardDatas = [
     id: 48,
     title: '우니 - RCY 엄지척',
     tags: ['우니', '동아리'],
+    tmi: `자신만만한 표정으로 엄지를 치켜세우고 있다.\n방금 뿌듯한 일을하고 김밥까지 먹어서 기분이 좋다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_rcy_thumbup_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_rcy_thumbup_250222.pdf',
@@ -623,6 +631,7 @@ export const CardDatas = [
     id: 49,
     title: '우니 동상 실사',
     tags: ['우니'],
+    tmi: `광운대학교에 실제 설치된 동상의 모습을 하고있다.\n우니: "난 멋있어."`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_real_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_real_220629.pdf',
@@ -635,6 +644,7 @@ export const CardDatas = [
     id: 50,
     title: '장구치는 우니',
     tags: ['우니', '기타 부서'],
+    tmi: `장구를 신나게 치고 있는 우니이다.\n덩기덕쿵더러러러`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_satong_231108.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_satong_231108.pdf',
@@ -647,6 +657,7 @@ export const CardDatas = [
     id: 51,
     title: '잠자는 우니',
     tags: ['우니'],
+    tmi: `좋은 꿈을 꾸고있는듯 하다.\n우니는 맛있는 볶음밥을 먹는 꿈을 꾸고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_sleeping_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_sleeping_220629.pdf',
@@ -659,6 +670,7 @@ export const CardDatas = [
     id: 52,
     title: '우니 미소',
     tags: ['우니'],
+    tmi: '귀엽다...',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_smile_01_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_smile_01_220820.pdf',
@@ -671,6 +683,7 @@ export const CardDatas = [
     id: 53,
     title: 'KAFA(아마축구반)',
     tags: ['우니', '동아리'],
+    tmi: `드리블을 하고 있다.\n다리가 짧아도 나름 하는 듯하다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_soccer_230910.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_soccer_230910.pdf',
@@ -683,6 +696,7 @@ export const CardDatas = [
     id: 54,
     title: '우니 - 소프트 졸업',
     tags: ['우니', '기타 부서', '굿즈'],
+    tmi: `교수님의 요청으로 해외에서 그린 졸업 기념 그림이다.\n23년도 졸업생은 이 그림이 박힌 우산을 받았다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_software_graduation_231102.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_software_graduation_231102.pdf',
@@ -696,6 +710,7 @@ export const CardDatas = [
     id: 55,
     title: '우니 소주 링거',
     tags: ['우니'],
+    tmi: `"오늘 안주는 감자튀김이었다구~~"`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_soju_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_soju_250222.pdf',
@@ -708,6 +723,7 @@ export const CardDatas = [
     id: 56,
     title: '우니 노트북 공부',
     tags: ['우니'],
+    tmi: `노트북으로 열심히 무언가 하고 있는 우니이다.\n우니: "이번 학기는 꼭 A+을 받겠어!"`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_study_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_study_220629.pdf',
@@ -720,6 +736,7 @@ export const CardDatas = [
     id: 57,
     title: '우니 썬글라스',
     tags: ['우니'],
+    tmi: `태양을 피하고 싶은 우니이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_sunglasses_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_sunglasses_240922.pdf',
@@ -732,6 +749,7 @@ export const CardDatas = [
     id: 58,
     title: '우니 놀람',
     tags: ['우니'],
+    tmi: `무언가를 보고 깜짝 놀란 우니이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_surprised_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_surprised_220629.pdf',
@@ -744,6 +762,7 @@ export const CardDatas = [
     id: 59,
     title: '우니 엄지척',
     tags: ['우니'],
+    tmi: `엄지척한 우니를 보면 무엇이든 할 수 있을 것만같은 기분이든다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_thumb_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_thumb_220629.pdf',
@@ -756,6 +775,7 @@ export const CardDatas = [
     id: 60,
     title: '피곤한 우니',
     tags: ['우니'],
+    tmi: `이 우니는 3일동안 거의 잠을 못 잤다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_tired_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_tired_220629.pdf',
@@ -768,6 +788,7 @@ export const CardDatas = [
     id: 61,
     title: '우니 브이',
     tags: ['우니'],
+    tmi: `눈을 찌르는 것이 아니다. 브이를 하고 있는 것이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_v_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_v_220629.pdf',
@@ -780,6 +801,7 @@ export const CardDatas = [
     id: 62,
     title: '우니 기우뚱',
     tags: ['우니'],
+    tmi: `무언가 뚱뚱해보이는 건 기분탓일 것이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_whole_221030.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_whole_221030.pdf',
@@ -792,6 +814,7 @@ export const CardDatas = [
     id: 63,
     title: '우니 날개',
     tags: ['우니'],
+    tmi: `우니의 날개이다. 사실 우니의 날개는 탈부착이 가능하다. (뻥이다)`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wing_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wing_250222.pdf',
@@ -804,6 +827,7 @@ export const CardDatas = [
     id: 64,
     title: 'IVF01 ',
     tags: ['우니팡이', '동아리'],
+    tmi: `기도를 하고 있는 우니와 팡이이다.\n내용을 비밀이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_01_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_01_211127.pdf',
@@ -816,6 +840,7 @@ export const CardDatas = [
     id: 65,
     title: 'IVF02',
     tags: ['우니팡이', '동아리'],
+    tmi: `더 열심히 기도를 하고 있는 우니이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_02_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_IVF_02_211127.pdf',
@@ -828,6 +853,7 @@ export const CardDatas = [
     id: 66,
     title: 'KAFA(아마축구반)',
     tags: ['우니팡이', '동아리'],
+    tmi: `상당히 의기양양한 표정을 짓고있다.\n이긴걸까?`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_KAFA_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_KAFA_211127.pdf',
@@ -840,6 +866,7 @@ export const CardDatas = [
     id: 67,
     title: 'PUB',
     tags: ['우니팡이', '동아리'],
+    tmi: `게임에 열중하고 있는 우니와 팡이이다.\n타자는 어떻게 치는 거지?`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_PUB_211129.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_PUB_211129.pdf',
@@ -852,6 +879,7 @@ export const CardDatas = [
     id: 68,
     title: 'RCY 2021',
     tags: ['우니팡이', '동아리'],
+    tmi: `파이팅 넘치는 우니와 팡이이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_RCY_211122.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_RCY_211122.pdf',
@@ -864,6 +892,7 @@ export const CardDatas = [
     id: 69,
     title: '뒤통수',
     tags: ['우니팡이'],
+    tmi: `어딘가를 바라보고 있는 우니와 팡이이다. 푸짐하다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_back_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_back_220820.pdf',
@@ -876,6 +905,7 @@ export const CardDatas = [
     id: 70,
     title: '아마야구반(PEGASUS)',
     tags: ['우니팡이'],
+    tmi: `팡이는 공이 자기 몸보다도 크다.\n우니야 팡이를 치면 안돼!`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_baseball_250307.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_baseball_250307.pdf',
@@ -888,6 +918,7 @@ export const CardDatas = [
     id: 71,
     title: '볼 짜부',
     tags: ['우니팡이'],
+    tmi: `볼을 맞대고 있는 우니와 팡이이다. 참 말랑해보인다.\n금속 뱃지 굿즈로 나온 적이 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheeks_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheeks_220820.pdf',
@@ -900,6 +931,7 @@ export const CardDatas = [
     id: 72,
     title: '천운 01',
     tags: ['우니팡이', '동아리'],
+    tmi: `국궁을 하는 우니와 팡이이다. 어디까지 쏘아올릴 수 있을까?`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_01_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_01_211127.pdf',
@@ -912,6 +944,7 @@ export const CardDatas = [
     id: 73,
     title: '천운 02',
     tags: ['우니팡이', '동아리'],
+    tmi: `멋진 옷을 입고 국궁을 하는 우니와 팡이이다. 오~`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_02_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_cheonwoon_02_211127.pdf',
@@ -924,6 +957,7 @@ export const CardDatas = [
     id: 74,
     title: '원형 로고',
     tags: ['우니팡이'],
+    tmi: `지구에는 땅과 하늘이 있고, 광운대에는 우니와 팡이가 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_circle_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_circle_220629.pdf',
@@ -936,6 +970,7 @@ export const CardDatas = [
     id: 75,
     title: '행복하세연 01',
     tags: ['우니팡이', '총동연'],
+    tmi: `이렇게 연이 많은데도 우니와 팡이는 절대 뜨지 않는다\n우니는 제법 무게가 나가나보다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_01_211110.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_01_211110.pdf',
@@ -948,6 +983,7 @@ export const CardDatas = [
     id: 76,
     title: '행복하세연 02',
     tags: ['우니팡이', '총동연'],
+    tmi: `연 한 개를 팡이 혼자 날리면 팡이가 날아갈 수도 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_02_211110.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_club_union39_02_211110.pdf',
@@ -960,6 +996,7 @@ export const CardDatas = [
     id: 77,
     title: 'DO-WITH',
     tags: ['우니팡이', '동아리'],
+    tmi: `정말 착한 표정을 짓고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_dowith_211122.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_dowith_211122.pdf',
@@ -972,6 +1009,7 @@ export const CardDatas = [
     id: 78,
     title: '할로윈',
     tags: ['우니팡이'],
+    tmi: `우니와 팡이는 이번에 사탕을 정말 많이 받았다.\n우니와 팡이는 이번에 사탕을 정말 많이 받았다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_halloween_221017.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_halloween_221017.pdf',
@@ -984,6 +1022,7 @@ export const CardDatas = [
     id: 79,
     title: '포옹',
     tags: ['우니팡이'],
+    tmi: `웬일로 둘이 사이좋게 포옹을 하고 있다.\n정말 좋은 일이 있었나보다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_hug_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_hug_220629.pdf',
@@ -996,6 +1035,7 @@ export const CardDatas = [
     id: 80,
     title: '밤하늘',
     tags: ['우니팡이', '아이엠마켓'],
+    tmi: `밤하늘을 보고 있는 우니와 팡이이다.\n별이 밝다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_night_240909.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_night_240909.pdf',
@@ -1008,6 +1048,7 @@ export const CardDatas = [
     id: 81,
     title: '별똥별',
     tags: ['우니팡이', '아이엠마켓'],
+    tmi: `떨어진 별똥별을 구경하고 있는 우니와 팡이이다.\n소원을 빌 시간이 정말 많아졌다`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_stars_240909.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_iammarket_stars_240909.pdf',
@@ -1020,6 +1061,7 @@ export const CardDatas = [
     id: 82,
     title: '4월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `떨어지는 벚꽃을 잡으면 소원이 하나 이루어진다는 소문이 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_apr_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_apr_240922.pdf',
@@ -1032,6 +1074,7 @@ export const CardDatas = [
     id: 83,
     title: '8월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `수박을 맛있게 먹고 있는 우니와 팡이이다.\n수박씨를 먹으면 뱃속에서 자랄지도 모른다고 생각해서 열심히 골라내며 먹는다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_aug_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_aug_240922.pdf',
@@ -1044,6 +1087,7 @@ export const CardDatas = [
     id: 84,
     title: '민들레',
     tags: ['우니팡이', '일러스트'],
+    tmi: `우니가 민들레 씨앗을 불면 팡이는 그걸 잡고 둥둥 떠다닐 수 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dandelion_220820.pdf',
@@ -1056,6 +1100,7 @@ export const CardDatas = [
     id: 85,
     title: '12월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `우니와 팡이는 눈사람 만드는 것을 좋아한다.\n눈이 오면 학교에도 몇 개 만들어보기도 한다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dec_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_dec_240922.pdf',
@@ -1068,6 +1113,7 @@ export const CardDatas = [
     id: 86,
     title: '2월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `붕어빵을 열심히 먹고 있다.\n우니는 팥붕을 좋아하고 팡이는 슈붕을 좋아한다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_feb_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_feb_240922.pdf',
@@ -1080,6 +1126,7 @@ export const CardDatas = [
     id: 87,
     title: '1월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `우니와 팡이는 감을 열심히 따먹는다.\n하지만 오늘은 까치에게 양보해줬다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jan_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jan_240922.pdf',
@@ -1092,6 +1139,7 @@ export const CardDatas = [
     id: 88,
     title: '7월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `물장구를 치고 있다.\n우니가 물웅덩이에 크게 빠지면 팡이는 흠뻑 젖는다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jul_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jul_240922.pdf',
@@ -1104,6 +1152,7 @@ export const CardDatas = [
     id: 89,
     title: '6월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `둘이 열심히 네잎 클로버를 찾다가 팡이가 드디어 찾았다.\n팡이는 작아서 우니보다 더 잘찾을 수 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jun_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_jun_240922.pdf',
@@ -1116,6 +1165,7 @@ export const CardDatas = [
     id: 90,
     title: '3월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `3월이 오면 개나리가 많이 핀다.\n우니와 팡이는 샛노란 개나리를 좋아한다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_mar_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_mar_240922.pdf',
@@ -1128,6 +1178,7 @@ export const CardDatas = [
     id: 91,
     title: '5월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `우니는 비눗방울을 잘 분다.\n팡이가 들어갈 수 있을 정도로 크게 불 수 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_may_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_may_240922.pdf',
@@ -1140,6 +1191,7 @@ export const CardDatas = [
     id: 92,
     title: '11월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `캠핑은 재밌다.\n마시멜로를 구워먹으면 향이 너무 좋다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_nov_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_nov_240922.pdf',
@@ -1152,6 +1204,7 @@ export const CardDatas = [
     id: 93,
     title: '10월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `다람쥐가 도토리를 묻은 곳을 까먹어서 우니와 팡이가 도와주고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_oct_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_oct_240922.pdf',
@@ -1164,6 +1217,7 @@ export const CardDatas = [
     id: 94,
     title: '9월 일러스트',
     tags: ['우니팡이', '달력 그림'],
+    tmi: `가을은 독서의 계절이다.\n팡이는 정말 '잠깐' 잠들었다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sep_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sep_240922.pdf',
@@ -1176,6 +1230,7 @@ export const CardDatas = [
     id: 95,
     title: '광운알리미',
     tags: ['우니팡이', '기타 부서'],
+    tmi: `광운대학교를 열심히 알리는 우니와 팡이이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kawngwoon_allimi_23021.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kawngwoon_allimi_23021.pdf',
@@ -1188,6 +1243,7 @@ export const CardDatas = [
     id: 96,
     title: '검도부',
     tags: ['우니팡이', '동아리'],
+    tmi: `검도를 통해 정신수양을 하는 우니와 팡이이다.\n차분해보인다`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kumdo_211127.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kumdo_211127.pdf',
@@ -1200,6 +1256,7 @@ export const CardDatas = [
     id: 97,
     title: '광야 엽서 - 나침반',
     tags: ['우니팡이', '총동연'],
+    tmi: `테야테야갈테야 광야로 갈테야`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_compass_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_compass_220820.pdf',
@@ -1212,6 +1269,7 @@ export const CardDatas = [
     id: 98,
     title: '광야 혓바닥',
     tags: ['우니팡이', '총동연'],
+    tmi: `우니는 아무거나 핥다가 혀가 딱 붙어버렸다.\n팡이는 우니가 먹는 것 안먹는 것 구분을 못하는 것을 한심하게 보고있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_coster_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_coster_220820.pdf',
@@ -1224,6 +1282,7 @@ export const CardDatas = [
     id: 99,
     title: '광야 밤하늘',
     tags: ['우니팡이', '총동연'],
+    tmi: `밤하늘을 배경으로 하고 마주앉아있는 우니와 팡이이다.\n머그컵 굿즈로 나온 적이 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_cup_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_cup_220820.pdf',
@@ -1236,6 +1295,7 @@ export const CardDatas = [
     id: 100,
     title: '광야 볼 짜부',
     tags: ['우니팡이', '총동연'],
+    tmi: `40대 총동연 로고를 배경으로 하고 볼을 맞대고 있는 우니와 팡이이다.\n키링 굿즈로 나온 적이 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_keyring_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_keyring_220820.pdf',
@@ -1248,6 +1308,7 @@ export const CardDatas = [
     id: 101,
     title: '광야 무드등',
     tags: ['우니팡이', '총동연'],
+    tmi: `무드등 굿즈로 나온 적이 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_moodlight_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_moodlight_220820.pdf',
@@ -1261,6 +1322,7 @@ export const CardDatas = [
     id: 102,
     title: '광야 엽서 - 항해',
     tags: ['우니팡이', '총동연'],
+    tmi: `종이배를 타고 항해하는 우니와 팡이이다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_voyage_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_kwangya_voyage_220820.pdf',
@@ -1273,6 +1335,7 @@ export const CardDatas = [
     id: 103,
     title: '몬스테라',
     tags: ['우니팡이'],
+    tmi: `몬스테라 사이 구멍으로 눈을 대보고 있다.\n난 몬스테라를 좋아한다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_monstera_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_monstera_220820.pdf',
@@ -1285,6 +1348,7 @@ export const CardDatas = [
     id: 104,
     title: '엽서 - 밤하늘',
     tags: ['우니팡이', '굿즈'],
+    tmi: `보라색 밤하늘이다. 색이 예쁘다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_02_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_02_240922.pdf',
@@ -1297,6 +1361,7 @@ export const CardDatas = [
     id: 105,
     title: '엽서 - 엉덩이',
     tags: ['우니팡이', '굿즈'],
+    tmi: `우니와 팡이의 엉덩이가 동글동글하다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_03_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postcard_03_240922.pdf',
@@ -1309,6 +1374,7 @@ export const CardDatas = [
     id: 106,
     title: '포스트잇 - 꽃',
     tags: ['우니팡이', '굿즈'],
+    tmi: `꽃 컨셉 엽서이다.\n사실 굿즈로 나온 적은 없다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_220820.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_220820.pdf',
@@ -1321,6 +1387,7 @@ export const CardDatas = [
     id: 107,
     title: '포스트잇 - 노랑',
     tags: ['우니팡이', '굿즈'],
+    tmi: `22년도 떡메모지 굿즈로 나온 적이 있다.\n포스트잇으로 주문한 줄 알았는데 떡메모지로 잘못 주문했었다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_240922.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_postit_240922.pdf',
@@ -1333,6 +1400,7 @@ export const CardDatas = [
     id: 108,
     title: 'RCY',
     tags: ['우니팡이'],
+    tmi: `봉사활동 간다고 신난 팡이를 우니가 챙겨주고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_rcy_250222.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_rcy_250222.pdf',
@@ -1345,6 +1413,7 @@ export const CardDatas = [
     id: 109,
     title: '소주',
     tags: ['우니팡이'],
+    tmi: `대학생활을 즐기고 있는 우니와 팡이이다.\n팡이는 팩소주를 마시고 있다. 고수인가보다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_soju_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_soju_220629.pdf',
@@ -1357,6 +1426,7 @@ export const CardDatas = [
     id: 110,
     title: '따봉 우니',
     tags: ['우니'],
+    tmi: `행운을 주는 따봉 우니이다. 절대 B가 아니다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_ttabong_240529.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/w_ttabong_240529.JPG',
     createdAt: '2024-05-29',
@@ -1365,6 +1435,7 @@ export const CardDatas = [
     id: 111,
     title: '톰과 제리',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `대학생이라면 상당수가 경험해봤을 것이다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_tomjerry_230405.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_tomjerry_230405.JPG',
     createdAt: '2023-04-05',
@@ -1373,6 +1444,7 @@ export const CardDatas = [
     id: 112,
     title: '우니의 일기: 노천극장',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `노천극장에서 막국수에 보쌈을 먹는데 비가와서 등나무 아래로 피해서 먹은 적이 있다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_nocheon_230313.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_nocheon_230313.JPG',
     createdAt: '2023-03-13',
@@ -1381,6 +1453,7 @@ export const CardDatas = [
     id: 113,
     title: '크리스마스 2022',
     tags: ['우니팡이', '일러스트'],
+    tmi: `우니는 기대하면서 선물 주머니에 손을 넣었지만,\n팡이가 선물을 숨기고 장난을 치고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_christmas_221225.JPG',
     ],
@@ -1391,6 +1464,7 @@ export const CardDatas = [
     id: 114,
     title: '군고구마',
     tags: ['우니팡이', '일러스트'],
+    tmi: `우니와 팡이는 군고구마를 좋아한다.\n그래서 직접 군고구마를 팔아보고 있다.`,
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_sweetpotato_221212.JPG',
     ],
@@ -1402,6 +1476,7 @@ export const CardDatas = [
     id: 115,
     title: '우니의 일기 - 민트초코',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `우니는 민트초코를 좋아한다. 사실 뭐든 그냥 먹는 것을 좋아할지도?`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_mincho_221122.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_mincho_221122.JPG',
     createdAt: '2022-11-22',
@@ -1410,38 +1485,34 @@ export const CardDatas = [
     id: 116,
     title: '우니의 일기: 대학생',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `좀 실패하고 실수한 경험이 있다고 인생이 쉽게 망하지 않는다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG',
     createdAt: '2022-10-04',
   },
   {
     id: 117,
-    title: '우니의 일기: 대학생',
-    tags: ['우니팡이', '만화/짤'],
-    fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG'],
-    thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_eat_221104.JPG',
-    createdAt: '2022-10-04',
-  },
-  {
-    id: 118,
     title: '우니의 일기: 행운',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `어떤 풀은 자기가 행운인지 모르기도 한다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_lucky_221028.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_lucky_221028.JPG',
     createdAt: '2022-10-28',
   },
   {
-    id: 119,
+    id: 118,
     title: '우니의 일기: 시험기간',
     tags: ['우니팡이', '만화/짤'],
+    tmi: `왜 시험기간에는 과제가 많은 걸까?\n어떤 대학생은 과제를 하느라 시험공부를 제대로 해본 적이 없다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_test_221026.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_toon_test_221026.JPG',
     createdAt: '2022-10-26',
   },
   {
-    id: 120,
+    id: 119,
     title: '윈도우 배경',
     tags: ['우니팡이', '일러스트'],
+    tmi: `윈도우 기본 배경화면이 된 우니와 팡이이다. 여유로워 보인다.`,
     fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_bg_250507.JPG'],
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_bg_250507.JPG',
     createdAt: '2025-05-07',
