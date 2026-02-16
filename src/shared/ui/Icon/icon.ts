@@ -13,8 +13,10 @@ import IC_Like_On from '@/assets/icons/ic_favorite_on.svg';
 import IC_Image_Folder from '@/assets/icons/ic_image_folder.svg';
 import IC_Instagram from '@/assets/icons/ic_instagram.svg';
 import IC_Mail from '@/assets/icons/ic_mail.svg';
+import IC_Menu from '@/assets/icons/ic_menu.svg';
 import IC_Reset from '@/assets/icons/ic_reset.svg';
 import IC_Search from '@/assets/icons/ic_search.svg';
+import IC_Stream from '@/assets/icons/ic_stream.svg';
 import IC_Success from '@/assets/icons/ic_success.svg';
 import IC_Warning from '@/assets/icons/ic_warning.svg';
 import IC_X from '@/assets/icons/ic_x.svg';
@@ -35,8 +37,10 @@ export const IconMap = {
   IC_Like_Off,
   IC_Like_On,
   IC_Mail,
+  IC_Menu,
   IC_Reset,
   IC_Search,
+  IC_Stream,
   IC_Success,
   IC_Warning,
   IC_X,

@@ -1,60 +1,84 @@
 'use client';
 
 import Logo from '@/assets/images/LogoWithText.png';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
+import IconButton from '../IconButton/IconButton';
 import LinkButton from '../LinkButton/LinkButton';
+import Popover from '../Popover/Popover';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // 스크롤 위치가 0보다 크면 배경색과 블러를 활성화
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    // 초기 실행
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 flex h-15 items-center justify-between bg-transparent px-4 md:h-20 md:px-4">
+    <header
+      className={clsx(
+        'fixed top-0 right-0 left-0 z-50 flex h-15 items-center justify-between px-4 md:h-20 md:px-4',
+        isScrolled
+          ? 'bg-white/50 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] backdrop-blur-[1px]'
+          : 'bg-transparent backdrop-blur-none'
+      )}
+    >
       <Link href="/" aria-label="메인으로 이동" className="relative h-8 w-31 md:h-13 md:w-44.5">
         <Image src={Logo} alt="" fill className="cursor-pointer object-contain" />
       </Link>
       <nav className="flex items-center gap-2" aria-label="주요 메뉴">
-        {/* <Dropdown
-          options={[
-            { label: '한국어', value: '한국어' },
-            { label: 'Eng', value: 'Eng' },
-          ]}
-        /> */}
-
-        <LinkButton
-          icon="IC_Image_Folder"
-          label="마스코트 모음"
-          href="/files"
-          radius="full"
-          variant="secondary"
-          className="hidden! md:flex!"
-        />
-        <LinkButton
-          icon="IC_Image_Folder"
-          label="마스코트 모음"
-          href="/files"
-          radius="full"
-          size="sm"
-          variant="secondary"
-          className="md:hidden"
-        />
-        <LinkButton
-          icon="IC_Mail"
-          label="문의"
-          href="/ask"
-          radius="full"
-          variant="secondary"
-          className="hidden! md:flex!"
-        />
-        <LinkButton
-          icon="IC_Mail"
-          label="문의"
-          href="/ask"
-          radius="full"
-          size="sm"
-          variant="secondary"
-          className="md:hidden"
-        />
+        <Popover>
+          <Popover.Trigger popoverKey="header_menu">
+            <IconButton icon="IC_Menu" variant="secondary" ariaLabel="헤더 메뉴" />
+          </Popover.Trigger>
+          <Popover.Content popoverKey="header_menu" transparent>
+            {close => (
+              <div className="mr-1 flex flex-col gap-2 p-0.5 py-1">
+                <LinkButton
+                  icon="IC_Image_Folder"
+                  label="마스코트 모음"
+                  href="/files"
+                  radius="full"
+                  variant="secondary"
+                  className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"
+                  onClick={close}
+                />
+                <LinkButton
+                  icon="IC_Stream"
+                  label="마스코트 소개"
+                  href="/intro"
+                  radius="full"
+                  variant="secondary"
+                  className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"
+                  onClick={close}
+                />
+                <LinkButton
+                  icon="IC_Mail"
+                  label="문의"
+                  href="/ask"
+                  radius="full"
+                  variant="secondary"
+                  className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"
+                  onClick={close}
+                />
+              </div>
+            )}
+          </Popover.Content>
+        </Popover>
       </nav>
+      {/* 하단 그라데이션 경계 */}
+      <div className="absolute right-0 bottom-0 left-0 h-px bg-linear-to-r from-transparent via-gray-200/40 to-transparent" />
     </header>
   );
 };

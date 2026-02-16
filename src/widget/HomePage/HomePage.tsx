@@ -41,6 +41,11 @@ export default function HomePage() {
   const isLockedRef = useRef(isLocked);
 
   useEffect(() => {
+    // eslint-disable-next-line
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
     isLockedRef.current = isLocked;
   }, [isLocked]);
 

@@ -2,6 +2,7 @@
 
 import { useOutsideDismiss } from '@/shared/utils/useOutsideDismiss';
 import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -12,10 +13,11 @@ interface PopoverContentProps {
   children: (close: () => void) => React.ReactNode; // render props 패턴으로 close 함수를 전달
   popoverKey: string; // 어떤 Popover인지 구분하는 고유 키
   className?: string;
+  transparent?: boolean;
 }
 
 // Popover의 실제 내용을 표시하는 컴포넌트, Portal을 통해 body에 렌더링되며 Floating UI로 위치를 계산
-const PopoverContent = ({ children, popoverKey, className }: PopoverContentProps) => {
+const PopoverContent = ({ children, popoverKey, className, transparent }: PopoverContentProps) => {
   const { activeKey, anchorEl, placement, close } = usePopover();
 
   // 현재 이 Content가 활성화되어 있는지 확인
@@ -40,26 +42,57 @@ const PopoverContent = ({ children, popoverKey, className }: PopoverContentProps
   });
 
   // 비활성 상태면 렌더링하지 않음
-  if (!isActive || typeof document === 'undefined') return null;
+  if (typeof document === 'undefined') return null;
 
   // Portal을 통해 body에 렌더링
   return createPortal(
-    <div
-      ref={node => {
-        refs.setFloating(node);
-        contentRef.current = node;
-      }}
-      style={floatingStyles}
-      className={clsx(
-        'border-gray100 z-50 m-1 overflow-hidden rounded-2xl border bg-white shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]',
-        className
+    <AnimatePresence>
+      {isActive && (
+        <div
+          ref={node => {
+            refs.setFloating(node);
+            contentRef.current = node;
+          }}
+          style={floatingStyles}
+          className="z-50"
+        >
+          <motion.div
+            className={clsx(
+              `m-1 overflow-hidden rounded-2xl`,
+              transparent
+                ? 'bg-transparent'
+                : 'border-gray100 border bg-white shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]',
+              className
+            )}
+            aria-modal="false"
+            role="dialog"
+            onClick={e => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              transition: {
+                type: 'spring',
+                stiffness: 800,
+                damping: 20,
+                mass: 0.8,
+              },
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              transition: {
+                duration: 0.1,
+                ease: 'easeOut',
+              },
+            }}
+          >
+            {children(close)}
+          </motion.div>
+        </div>
       )}
-      aria-modal="false"
-      role="dialog"
-      onClick={e => e.stopPropagation()}
-    >
-      {children(close)}
-    </div>,
+    </AnimatePresence>,
     document.body
   );
 };

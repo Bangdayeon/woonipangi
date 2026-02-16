@@ -1,5 +1,4 @@
 import SVGIcon from '@/shared/ui/Icon/SVGIcon';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import Divider from '../Divider/Divider';
@@ -8,10 +7,6 @@ export default function Footer() {
   return (
     <footer className="bg-gray700 text-gray100 sticky bottom-0 flex h-fit flex-col gap-5 p-7 md:flex-row md:gap-10">
       <div className="flex gap-10">
-        {/* 로고 */}
-        <div className="relative h-15 w-15 md:h-20 md:w-20">
-          <Image src="/Images/wp_01.png" alt="우니팡이 로고" fill className="object-contain" />
-        </div>
         {/* 메뉴 */}
         <div className="flex flex-col gap-5">
           <div className="font-body-sm md:font-body-md flex flex-col gap-2 text-left">
@@ -19,13 +14,14 @@ export default function Footer() {
             <Divider color="bg-gray400" />
             <nav className="flex flex-col gap-1" aria-label="푸터 메뉴">
               <Link href="/">홈</Link>
-              <Link href="/files">캐릭터 파일</Link>
+              <Link href="/intro">마스코트 소개</Link>
+              <Link href="/files">마스코트 모음</Link>
             </nav>
           </div>
         </div>
       </div>
       {/* 연락처 */}
-      <div className="font-body-sm md:font-body-md flex gap-5 md:flex-col md:gap-1">
+      <div className="font-body-sm md:font-body-md flex flex-col gap-1">
         <div className="flex items-center gap-1">
           <SVGIcon icon="IC_Mail" aria-hidden={true} />
           <a href="mailto:dybang00@gmail.com">dybang00@gmail.com</a>
