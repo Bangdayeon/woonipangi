@@ -16,7 +16,7 @@ export interface IconButtonProps extends Omit<
   className?: string;
   icon: IconMapTypes;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   ariaLabel: string;

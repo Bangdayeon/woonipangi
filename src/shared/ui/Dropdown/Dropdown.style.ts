@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const contentStyle = tv({
-  base: 'custom-scrollbar divide-gray900 text-gray900 border-gray50 absolute z-10 my-1 max-h-40 max-w-40 divide-y overflow-hidden overflow-y-auto rounded-md border bg-white text-ellipsis whitespace-nowrap shadow-md',
+  base: 'custom-scrollbar divide-gray100 text-gray900 border-gray50 absolute z-10 my-1 max-h-40 max-w-40 divide-y overflow-hidden overflow-y-auto rounded-md border bg-white text-ellipsis whitespace-nowrap shadow-md',
 });
 
 export const listStyle = tv({

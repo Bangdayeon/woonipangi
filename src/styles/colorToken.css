@@ -2,22 +2,22 @@
 
 /* ========== BUTTON ========== */
   /* primary */
-  .bg-btn-primary { @apply bg-gray900; }
-  .bg-btn-primary:hover { @apply hover:bg-gray800; }
-  .bg-btn-primary:focus { @apply focus:bg-gray800; }
-  .bg-btn-primary:active{@apply active:bg-gray700;}
+  .bg-btn-primary { @apply bg-blue200; }
+  .bg-btn-primary:hover { @apply hover:bg-blue100; }
+  .bg-btn-primary:focus { @apply focus:bg-blue200; }
+  .bg-btn-primary:active{@apply active:bg-blue300;}
   .bg-btn-primary:disabled {@apply disabled:bg-gray100; }
 
-  .border-btn-primary { @apply border-gray900; }
-  .border-btn-primary:hover { @apply hover:border-gray800; }
-  .border-btn-primary:focus { @apply focus:border-gray800; }
-  .border-btn-primary:active { @apply active:border-gray700; }
+  .border-btn-primary { @apply border-blue200; }
+  .border-btn-primary:hover { @apply hover:border-blue100; }
+  .border-btn-primary:focus { @apply focus:border-blue100; }
+  .border-btn-primary:active { @apply active:border-blue100; }
   .border-btn-primary:disabled { @apply disabled:border-gray100; } 
 
-  .text-btn-primary { @apply text-white; }
-  .text-btn-primary:hover { @apply hover:text-white; }
-  .text-btn-primary:focus { @apply focus:text-white; }
-  .text-btn-primary:active { @apply active:text-white; }
+  .text-btn-primary { @apply text-gray800; }
+  .text-btn-primary:hover { @apply hover:text-gray800; }
+  .text-btn-primary:focus { @apply focus:text-gray800; }
+  .text-btn-primary:active { @apply active:text-gray800; }
   .text-btn-primary:disabled {@apply disabled:text-gray200; }
   
   /* secondary */

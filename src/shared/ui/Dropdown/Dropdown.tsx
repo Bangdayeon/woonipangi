@@ -17,7 +17,7 @@ interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSe
   placeholder?: string;
   defaultSelected?: DropdownOption;
   size?: 'sm' | 'md' | 'lg';
-  variant?: 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary';
   rounded?: 'md' | 'full';
   onSelect?: (option: DropdownOption) => void;
 }
@@ -46,11 +46,12 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
 
   const internalRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
-  const buttonRef = useRef<HTMLButtonElement>(null); // trigger 참조 (메뉴 선택하여 드롭다운 닫은 후 포커스 복귀를 위함)
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const listId = useId();
 
-  const labelText = selected?.label ?? placeholder ?? '선택';
+  // value가 null이면 placeholder 표시, 아니면 label 표시
+  const labelText = selected ? selected.label : (placeholder ?? '선택');
 
   const setRefs = useCallback(
     (node: HTMLDivElement | null) => {
@@ -67,7 +68,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
 
   const { isOpen, toggle, close } = useDropdown(internalRef);
 
-  // 메뉴 열릴 때 focusedIndex 초기화
   useEffect(() => {
     if (isOpen) {
       const selectedIdx = options.findIndex(o => o.value === selected?.value);
@@ -75,7 +75,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
     }
   }, [isOpen, options, selected?.value]);
 
-  // 메뉴 열릴 때 포커스 이동
   useEffect(() => {
     if (!isOpen || options.length === 0) return;
 
@@ -85,7 +84,6 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
 
   const wasOpenRef = useRef(false);
 
-  // 메뉴 닫힐 때 트리거 버튼으로 포커스 복귀
   useEffect(() => {
     if (wasOpenRef.current && !isOpen) {
       buttonRef.current?.focus();
@@ -121,7 +119,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
         <ul
           id={listId}
           className={contentStyle()}
-          role="menu"
+          role="listbox"
           onKeyDown={e => {
             if (e.key === 'ArrowDown') {
               e.preventDefault();
@@ -153,7 +151,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
                 }
               }}
               aria-selected={selected?.value === option.value}
-              role="menuitem"
+              role="option"
               tabIndex={idx === focusedIndex ? 0 : -1}
             >
               {option.label}
