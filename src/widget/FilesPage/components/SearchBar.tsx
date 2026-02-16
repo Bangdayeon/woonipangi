@@ -30,6 +30,7 @@ export default function SearchBar() {
 
   return (
     <Input
+      className="w-full min-w-0"
       placeholder="검색어를 입력해주세요."
       icon="IC_Search"
       value={inputValue}

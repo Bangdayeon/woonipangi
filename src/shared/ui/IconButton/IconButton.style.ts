@@ -6,6 +6,7 @@ export const style = tv({
     variant: {
       primary: 'bg-btn-primary border-btn-primary text-btn-primary border',
       secondary: 'bg-btn-secondary border-btn-secondary text-btn-secondary border',
+      tertiary: 'bg-btn-tertiary border-btn-tertiary text-btn-tertiary border',
       ghost: 'text-gray600 hover:text-gray900',
     },
     size: {

@@ -6,6 +6,7 @@ import CardList from '@/widget/FilesPage/components/CardList';
 import { useMemo } from 'react';
 
 import CardModal from './components/CardModal';
+import Filter from './components/Filter';
 import { Pagination } from './components/Pagination/Pagination';
 import SearchBar from './components/SearchBar';
 import SortDropdown from './components/SortDropdown';
@@ -32,14 +33,17 @@ export default function FilesPage() {
 
   return (
     <>
-      <main className="mx-auto mt-25 flex min-h-screen w-full flex-col items-center px-4">
+      <div className="mx-auto mt-25 flex min-h-screen w-full flex-col items-center px-4">
         <div className="w-full md:max-w-200 lg:max-w-300">
           <header className="mb-5">
             <h1 className="text-gray900 text-2xl font-bold md:text-3xl">마스코트 모음</h1>
           </header>
 
-          <div className="flex flex-col">
-            <SearchBar />
+          <div className="flex w-full flex-col">
+            <div className="flex w-full flex-col gap-2">
+              <SearchBar />
+              <Filter />
+            </div>
             <SortDropdown className="mt-10 flex justify-end" />
           </div>
 
@@ -61,7 +65,7 @@ export default function FilesPage() {
             onPageChange={handlePageChange}
           />
         </div>
-      </main>
+      </div>
       {type === 'CARDMORE' && props && (
         <CardModal
           image={props.thumbnail as string}

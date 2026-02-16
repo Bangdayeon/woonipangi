@@ -1,35 +1,94 @@
-import Button from '@/shared/ui/Button/Button';
-import Dropdown from '@/shared/ui/Dropdown/Dropdown';
-import { DropdownOption } from '@/shared/ui/Dropdown/Dropdown';
-import { useState } from 'react';
+import Dropdown, { DropdownOption } from '@/shared/ui/Dropdown/Dropdown';
+import IconButton from '@/shared/ui/IconButton/IconButton';
+import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
+import { useCallback, useMemo } from 'react';
 
 import { CHARACTER, DEPARTMENT, EVENT, ILLUST } from '../constants/filterOptions';
+import { useQueryParams } from '../hooks/useQueryParams';
 
-const DEFAULT_CHARACTER = CHARACTER.find(o => o.value === 'all_character') ?? CHARACTER[0] ?? null;
-const DEFAULT_CLUB = DEPARTMENT.find(o => o.value === 'all_department') ?? DEPARTMENT[0] ?? null;
-const DEFAULT_EVENT = EVENT.find(o => o.value === 'all_event') ?? EVENT[0] ?? null;
-const DEFAULT_ILLUST = ILLUST.find(o => o.value === 'all_illust') ?? ILLUST[0] ?? null;
+interface FilterProps {
+  className?: string;
+}
 
-export default function Filter() {
-  const [character, setCharacter] = useState<DropdownOption | null>(DEFAULT_CHARACTER);
-  const [club, setClub] = useState<DropdownOption | null>(DEFAULT_CLUB);
-  const [event, setEvent] = useState<DropdownOption | null>(DEFAULT_EVENT);
-  const [illust, setIllust] = useState<DropdownOption | null>(DEFAULT_ILLUST);
+// 필터 설정 배열
+const FILTERS = [
+  { key: 'character', options: CHARACTER, placeholder: '캐릭터' },
+  { key: 'department', options: DEPARTMENT, placeholder: '부서' },
+  { key: 'event', options: EVENT, placeholder: '이벤트' },
+  { key: 'illust', options: ILLUST, placeholder: '일러스트' },
+] as const;
 
+export default function Filter({ className }: FilterProps) {
+  const searchParams = useSearchParams();
+  const { updateQueryParams } = useQueryParams();
+
+  // 선택된 옵션 찾기 헬퍼
+  const getSelectedOption = useCallback(
+    (key: string, options: readonly DropdownOption[]) => {
+      const current = searchParams.get(key);
+      return current && current !== 'all'
+        ? (options.find(opt => opt.value === current) ?? null)
+        : null;
+    },
+    [searchParams]
+  );
+
+  // 각 필터의 선택 상태
+  const selectedValues = useMemo(
+    () => ({
+      character: getSelectedOption('character', CHARACTER),
+      department: getSelectedOption('department', DEPARTMENT),
+      event: getSelectedOption('event', EVENT),
+      illust: getSelectedOption('illust', ILLUST),
+    }),
+    [getSelectedOption]
+  );
+
+  // 필터 변경 핸들러
+  const handleFilterChange = (key: string) => (option: DropdownOption) => {
+    updateQueryParams({
+      [key]: option.value === 'all' ? null : option.value,
+      page: 1,
+    });
+  };
+
+  // 전체 초기화
   const reset = () => {
-    setCharacter(DEFAULT_CHARACTER);
-    setClub(DEFAULT_CLUB);
-    setEvent(DEFAULT_EVENT);
-    setIllust(DEFAULT_ILLUST);
+    updateQueryParams({
+      character: null,
+      department: null,
+      event: null,
+      illust: null,
+      page: 1,
+    });
   };
 
   return (
-    <div className="flex w-fit gap-3">
-      <Button variant="tertiary" radius="full" label="전체" onClick={reset} />
-      <Dropdown options={CHARACTER} value={character} onSelect={setCharacter} />
-      <Dropdown options={DEPARTMENT} value={club} onSelect={setClub} />
-      <Dropdown options={EVENT} value={event} onSelect={setEvent} />
-      <Dropdown options={ILLUST} value={illust} onSelect={setIllust} />
+    <div className={clsx('flex flex-wrap gap-1 md:gap-2', className)}>
+      <IconButton
+        icon="IC_Reset"
+        variant="tertiary"
+        size="sm"
+        ariaLabel="전체 초기화"
+        onClick={reset}
+      />
+      {FILTERS.map(({ key, options, placeholder }) => {
+        const value = selectedValues[key as keyof typeof selectedValues];
+        const isActive = value !== null;
+
+        return (
+          <Dropdown
+            key={key}
+            options={options}
+            size="sm"
+            value={value}
+            onSelect={handleFilterChange(key)}
+            placeholder={placeholder}
+            variant={isActive ? 'primary' : 'tertiary'}
+          />
+        );
+      })}
     </div>
   );
 }

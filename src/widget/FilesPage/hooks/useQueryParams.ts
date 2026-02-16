@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 
 interface QueryParams {
@@ -17,36 +18,39 @@ interface QueryParams {
  * ```
  */
 export function useQueryParams() {
+  const router = useRouter();
   /**
    * 새로운 파라미터를 기존 URL 쿼리 스트링과 병합/수정
    * @param newParams - 업데이트할 파라미터들이 담긴 객체
    * @description
    * 1. 현재 URL의 파라미터를 유지하면서 전달받은 값만 수정
    * 2. 값이 null, undefined, 혹은 빈 문자열('')인 경우 해당 키를 URL에서 삭제
-   * 3. window.history.pushState를 사용하여 페이지 새로고침 없이 주소창만 변경
+   * 3. router.push를 사용하여 페이지 새로고침 없이 주소창만 변경
    */
-  const updateQueryParams = useCallback((newParams: QueryParams) => {
-    if (typeof window === 'undefined') return;
+  const updateQueryParams = useCallback(
+    (newParams: QueryParams) => {
+      if (typeof window === 'undefined') return;
 
-    const params = new URLSearchParams(window.location.search);
+      const params = new URLSearchParams(window.location.search);
 
-    Object.entries(newParams).forEach(([key, value]) => {
-      if (value === null || value === undefined || value === '') {
-        params.delete(key);
-      } else {
-        params.set(key, value.toString());
-      }
-    });
+      Object.entries(newParams).forEach(([key, value]) => {
+        if (value === null || value === undefined || value === '') {
+          params.delete(key);
+        } else {
+          params.set(key, value.toString());
+        }
+      });
 
-    // 쿼리 스트링이 있으면 '?', 없으면 빈 문자열로 URL 구성
-    const queryString = params.toString();
-    const newUrl = queryString
-      ? `${window.location.pathname}?${queryString}`
-      : window.location.pathname;
+      // 쿼리 스트링이 있으면 '?', 없으면 빈 문자열로 URL 구성
+      const queryString = params.toString();
+      const newUrl = queryString
+        ? `${window.location.pathname}?${queryString}`
+        : window.location.pathname;
 
-    window.history.pushState({}, '', newUrl);
-    // PopStateEvent 수동 디스패치 제거 (Next.js 및 브라우저 표준 준수)
-  }, []);
+      router.push(newUrl, { scroll: false }); // replace x push -> 히스토리 스택에 쌓여 뒤로가기 가능
+    },
+    [router]
+  );
 
   return { updateQueryParams };
 }
