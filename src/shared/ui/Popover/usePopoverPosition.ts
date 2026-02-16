@@ -1,6 +1,6 @@
 'use client';
 
-import { Placement, flip, offset, shift, useFloating } from '@floating-ui/react-dom';
+import { Placement, autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react-dom';
 import { useEffect } from 'react';
 
 /**
@@ -23,6 +23,7 @@ export const usePopoverPosition = (
       flip(), // 화면 공간에 맞춰 위아래로 뒤집기
       shift(), // 화면 밖으로 나가지 않도록 옆으로 밀어넣기
     ],
+    whileElementsMounted: autoUpdate,
   });
 
   // Trigger 요소를 Floating UI에 연결
