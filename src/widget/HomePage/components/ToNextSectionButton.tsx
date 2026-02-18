@@ -1,11 +1,11 @@
-import IconButton from "@/shared/ui/IconButton/IconButton";
+import IconButton from '@/shared/ui/IconButton/IconButton';
 
 interface Props {
   isShow?: boolean;
-  onClick: ()=>void;
+  onClick: () => void;
 }
 
-export default function ToNextSectionButton({isShow=false, onClick}:Props) {
+export default function ToNextSectionButton({ isShow = false, onClick }: Props) {
   if (!isShow) return null;
 
   return (

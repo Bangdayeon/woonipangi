@@ -3,12 +3,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import ThreeHead from './components/three';
 import { useClickImageEffect } from './components/ClickImageEffect/useClickImageEffect';
 import RandomText from './components/RandomText';
-import { useHomePageScroll } from './hooks/useHomePageScroll';
 import ToNextSectionButton from './components/ToNextSectionButton';
 import ToTopButton from './components/ToTopButton';
+import ThreeHead from './components/three';
+import { useHomePageScroll } from './hooks/useHomePageScroll';
 import Section_1 from './sections/Section_1';
 import Section_2 from './sections/Section_2';
 
@@ -41,23 +41,21 @@ export default function HomePage() {
   return (
     <main className="pb-80">
       <section onClick={onPointerDown}>
+        <RandomText />
 
-      <RandomText />
-      
-      {/* 아래로 이동 버튼 */}
-      <ToNextSectionButton isShow={showScrollToBottomBtn} onClick={handleScrollToBottom}/>
+        {/* 아래로 이동 버튼 */}
+        <ToNextSectionButton isShow={showScrollToBottomBtn} onClick={handleScrollToBottom} />
 
-      {/* 위로 이동 버튼 */}
-      <ToTopButton isShow={showScrollToTopBtn} onClick={handleScrollToTop} />
+        {/* 위로 이동 버튼 */}
+        <ToTopButton isShow={showScrollToTopBtn} onClick={handleScrollToTop} />
 
-      <motion.div style={{ y }} className="z-9999">
-        <ThreeHead />
-      </motion.div>
-
+        <motion.div style={{ y }} className="z-9999">
+          <ThreeHead />
+        </motion.div>
       </section>
       {/* --- KEYBOARD SECTION --- */}
-      <div ref={nextSectionRef} className='h-60'/>
-      <Section_1/>
+      <div ref={nextSectionRef} className="h-60" />
+      <Section_1 />
 
       {/* --- IDENTITY SECTION --- */}
       <Section_2 />

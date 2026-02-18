@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
+
 import { useScrollLock } from './useScrollLock';
 
 interface UseHomePageScrollReturn {
-  isLocked: boolean;  // mobile, tablet에서 스크롤 잠금 여부
+  isLocked: boolean; // mobile, tablet에서 스크롤 잠금 여부
   showScrollToBottomBtn: boolean; // "아래로 이동 버튼" 표시 여부
-  showScrollToTopBtn: boolean;  // "상단 이동 버튼" 표시 여부
+  showScrollToTopBtn: boolean; // "상단 이동 버튼" 표시 여부
   nextSectionRef: React.RefObject<HTMLDivElement | null>; // "아래로 이동 버튼" 클릭 시 스크롤할 다음 섹션
   handleScrollToBottom: () => void; // 다음 섹션으로 스크롤할 시, 잠금 해제
-  handleScrollToTop: () => void;  // 페이지 최상단으로 스크롤
+  handleScrollToTop: () => void; // 페이지 최상단으로 스크롤
 }
 
 // 홈페이지의 스크롤 관련 모든 상태와 핸들러를 관리하는 훅

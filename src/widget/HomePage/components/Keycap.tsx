@@ -84,22 +84,21 @@ export default function Keycap({
           z: isPressed ? -16 : 0,
           y: isPressed ? 10 : 0,
           scale,
-          
         }}
-        transition={{ type: 'spring', stiffness: 800, damping: 10,  }}
+        transition={{ type: 'spring', stiffness: 800, damping: 10 }}
         style={{
           transformStyle: 'preserve-3d',
-          width: topW/5,
-          height: topH/10, 
+          width: topW / 5,
+          height: topH / 10,
         }}
       >
         {/* ── 앞면 (Front face) ──────────────────────────────────── */}
         <div
-          className='md:-ml-1 md:-mt-1'
+          className="md:-mt-1 md:-ml-1"
           style={{
             position: 'absolute',
             left: -4,
-            width: topW-4,
+            width: topW - 4,
             height: depth,
             top: topH - 28,
             backgroundColor: darkColor,
@@ -112,7 +111,7 @@ export default function Keycap({
 
         {/* ── 오른쪽 옆면 (Right side face) ─────────────────────── */}
         <div
-          className='md:-ml-1'
+          className="md:-ml-1"
           style={{
             position: 'absolute',
             top: -14,
