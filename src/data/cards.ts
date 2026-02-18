@@ -1517,4 +1517,13 @@ export const CardDatas = [
     thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/wp_illust_bg_250507.JPG',
     createdAt: '2025-05-07',
   },
+  {
+    id: 120,
+    title: '로딩 팡이',
+    tags: ['팡이'],
+    tmi: `이 웹페이지 로딩 중에 볼 수 있다.\n24픽셀이어서 매우 작다.`,
+    fileUrls: ['https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/loading_pang.gif'],
+    thumbnail: 'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/loading_pang.gif',
+    createdAt: '2026-02-15',
+  },
 ];

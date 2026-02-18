@@ -1,159 +1,37 @@
 'use client';
 
-import IconButton from '@/shared/ui/IconButton/IconButton';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import ThreeHead from './3DRender/three';
-import { useClickImageEffect } from './ClickImageEffect/useClickImageEffect';
+import ThreeHead from './components/three';
+import { useClickImageEffect } from './components/ClickImageEffect/useClickImageEffect';
+import RandomText from './components/RandomText';
+import { useHomePageScroll } from './hooks/useHomePageScroll';
+import ToNextSectionButton from './components/ToNextSectionButton';
+import ToTopButton from './components/ToTopButton';
+import Section_1 from './sections/Section_1';
+import Section_2 from './sections/Section_2';
 
 export default function HomePage() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, -100]);
   const { onPointerDown } = useClickImageEffect();
 
-  // 초기 상태를 스크롤 위치에 따라 결정 (뒤로가기 대응)
-  const [isLocked, setIsLocked] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY <= 10;
-    }
-    return true;
-  });
-  const [showScrollToBottomBtn, setShowScrollToBottomBtn] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY <= 10;
-    }
-    return true;
-  });
-  const [showScrollToTopBtn, setShowScrollToTopBtn] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY > 10;
-    }
-    return false;
-  });
-
   const [isClient, setIsClient] = useState(false);
 
-  const nextSectionRef = useRef<HTMLDivElement>(null);
-  const justUnlockedRef = useRef(false);
-  const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const relockTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const isLockedRef = useRef(isLocked);
+  // 스크롤 관련 상태 및 핸들러 훅
+  const {
+    showScrollToBottomBtn,
+    showScrollToTopBtn,
+    nextSectionRef,
+    handleScrollToBottom,
+    handleScrollToTop,
+  } = useHomePageScroll();
 
   useEffect(() => {
     // eslint-disable-next-line
     setIsClient(true);
   }, []);
-
-  useEffect(() => {
-    isLockedRef.current = isLocked;
-  }, [isLocked]);
-
-  // 스크롤 및 스크롤바 UI 제어
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-
-    const updateScrollState = () => {
-      const isMobileOrTablet = window.innerWidth < 1024;
-
-      // 데스크톱은 무조건 해제
-      if (!isMobileOrTablet) {
-        html.style.overflow = '';
-        body.style.overflow = '';
-        body.style.touchAction = '';
-        body.classList.remove('no-scrollbar');
-        return;
-      }
-
-      // 모바일/태블릿: 잠금 상태일 때만 overflow hidden
-      if (isLocked) {
-        html.style.overflow = 'hidden';
-        body.style.overflow = 'hidden';
-        body.style.touchAction = 'pan-x pan-y pinch-zoom';
-        body.classList.add('no-scrollbar');
-      } else {
-        html.style.overflow = '';
-        body.style.overflow = '';
-        body.style.touchAction = '';
-        body.classList.remove('no-scrollbar');
-      }
-    };
-
-    updateScrollState();
-    window.addEventListener('resize', updateScrollState);
-
-    return () => {
-      html.style.overflow = '';
-      body.style.overflow = '';
-      body.style.touchAction = '';
-      body.classList.remove('no-scrollbar');
-      window.removeEventListener('resize', updateScrollState);
-    };
-  }, [isLocked]);
-
-  // 실제 스크롤 발생 시 로직
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const isAtTop = currentY <= 10;
-
-      setShowScrollToBottomBtn(isAtTop);
-      setShowScrollToTopBtn(!isAtTop);
-
-      // 최상단이 아닐 때는 무조건 잠금을 해제함 (뒤로가기 등으로 중간 위치 진입 시 대응)
-      if (!isAtTop && isLockedRef.current) {
-        setIsLocked(false);
-      }
-
-      // 모바일 환경에서 '완전 최상단' 도달 시에만 다시 잠금
-      if (
-        window.innerWidth < 1024 &&
-        currentY <= 1 &&
-        !isLockedRef.current &&
-        !justUnlockedRef.current
-      ) {
-        setIsLocked(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // setTimeout cleanup
-  useEffect(() => {
-    return () => {
-      clearTimeout(scrollTimerRef.current);
-      clearTimeout(relockTimerRef.current);
-    };
-  }, []);
-
-  const handleScrollToBottom = () => {
-    clearTimeout(scrollTimerRef.current); // 기존 타이머 정리하여 relock 방지
-    clearTimeout(relockTimerRef.current);
-
-    setIsLocked(false);
-    justUnlockedRef.current = true;
-
-    scrollTimerRef.current = setTimeout(() => {
-      nextSectionRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-
-      relockTimerRef.current = setTimeout(() => {
-        justUnlockedRef.current = false;
-      }, 500);
-    }, 0);
-  };
-
-  const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   // 서버 렌더링 시에는 플레이스홀더 반환
   if (!isClient) {
@@ -161,51 +39,106 @@ export default function HomePage() {
   }
 
   return (
-    <main className="pb-80" onClick={onPointerDown}>
+    <main className="pb-80">
+      <section onClick={onPointerDown}>
+
+      <RandomText />
+      
       {/* 아래로 이동 버튼 */}
-      {showScrollToBottomBtn && (
-        <IconButton
-          onClick={handleScrollToBottom}
-          size="lg"
-          icon="IC_Arrow_Down"
-          ariaLabel="아래로 스크롤"
-          className="fixed bottom-10 left-1/2 z-50 -translate-x-1/2 animate-bounce shadow-2xl lg:hidden"
-        />
-      )}
+      <ToNextSectionButton isShow={showScrollToBottomBtn} onClick={handleScrollToBottom}/>
 
       {/* 위로 이동 버튼 */}
-      {showScrollToTopBtn && (
-        <IconButton
-          onClick={handleScrollToTop}
-          variant="secondary"
-          size="lg"
-          icon="IC_Arrow_Up"
-          ariaLabel="위로 스크롤"
-          className="fixed right-5 bottom-10 z-50 shadow-2xl"
-        />
-      )}
+      <ToTopButton isShow={showScrollToTopBtn} onClick={handleScrollToTop} />
 
-      <motion.div style={{ y }}>
+      <motion.div style={{ y }} className="z-9999">
         <ThreeHead />
       </motion.div>
 
-      <section
-        ref={nextSectionRef}
-        className="mt-50 flex flex-col items-center gap-30 px-20 text-center"
-        aria-labelledby="intro-heading"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <h1 id="intro-heading" className="text-4xl font-bold break-keep">
-            광운대학교의 마스코트,
-            <br className="md:hidden" /> 우니와 팡이를 소개합니다
-          </h1>
-        </motion.div>
       </section>
+      {/* --- KEYBOARD SECTION --- */}
+      <div ref={nextSectionRef} className='h-60'/>
+      <Section_1/>
+
+      {/* --- IDENTITY SECTION --- */}
+      <Section_2 />
+
+      {/* --- RESOURCE SECTION --- */}
+      {/* <section className="relative overflow-hidden bg-gray-50 px-6 py-40">
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
+            <div className="space-y-4">
+              <span className="text-xs font-black tracking-[0.4em] text-indigo-400 uppercase">
+                Library
+              </span>
+              <h2 className="text-5xl leading-[0.85] font-black tracking-tighter uppercase md:text-7xl">
+                Download <br /> Resources
+              </h2>
+            </div>
+            <p className="max-w-50 text-right text-sm leading-snug font-medium text-gray-400">
+              우니와 팡이를 <br />
+              자유롭게 활용해보세요. <br />
+              상업적 용도는 지양해주세요.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              { title: 'Graphic Pack', format: 'PNG / AI', count: '12 Files' },
+              { title: 'Digital Goods', format: 'Wallpaper', count: '04 Files' },
+              { title: 'Brand Guide', format: 'PDF', count: '01 File' },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -12 }}
+                className="group flex aspect-4/5 cursor-pointer flex-col justify-between rounded-[2.5rem] border border-gray-100 bg-white p-12 shadow-sm transition-all hover:border-black hover:shadow-2xl"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-50 transition-colors group-hover:bg-black group-hover:text-white">
+                    <LinkIconButton
+                      icon="IC_Download"
+                      href="/files"
+                      ariaLabel="다운로드"
+                      className="h-6 w-6"
+                    />
+                  </div>
+                  <span className="text-[10px] font-black text-gray-300 uppercase transition-colors group-hover:text-black">
+                    {item.format}
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-3xl font-black tracking-tight">{item.title}</h3>
+                  <p className="text-sm font-medium text-gray-400">{item.count} 가용</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute top-0 right-0 z-0 h-full w-1/3 bg-indigo-50/30 blur-[100px]" />
+      </section> */}
+
+      {/* --- FOOTER --- */}
+      {/* <footer className="flex flex-col items-center space-y-12 border-t border-gray-100 px-6 py-32 text-center">
+        <div className="text-3xl font-black tracking-tighter uppercase italic underline decoration-indigo-500 decoration-4 underline-offset-4">
+          Woonie & Pangi
+        </div>
+        <div className="space-y-4">
+          <p className="text-xs leading-relaxed font-bold tracking-widest text-gray-400 uppercase">
+            Designed for University Identity <br />© 2025 Archive Collection.
+          </p>
+          <div className="flex justify-center gap-6 pt-4">
+            {['Instagram', 'Terms', 'Privacy'].map(link => (
+              <a
+                key={link}
+                href="#"
+                className="text-[10px] font-black tracking-widest text-gray-300 uppercase transition-colors hover:text-black"
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
+      </footer> */}
     </main>
   );
 }
