@@ -32,17 +32,16 @@
 
 /* ========== [ CUSTOM SCROLL BAR ] ========== */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-gray200);
+  background-color: var(--color-gray300);
   border-radius: 8px;
   cursor: pointer;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
-  /* Provide breathing room for the scrollbar: top/bottom 8px, right 4px (design spec). */
-  margin: 8px 4px 8px 0;
+  padding: 2px 2px 2px 2;
 }
 /* Firefox 대응 */
 .no-scrollbar {

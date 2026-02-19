@@ -16,7 +16,7 @@ export const CardDatas = [
     id: 2,
     title: '팡이 비행',
     tags: ['팡이'],
-    tmi: '비행하는 팡이의 모습이다. 팔을 벌리지 않아도 잘 날 수 있으나, 폼을 잡아보고 있다.',
+    tmi: '비행하는 팡이의 모습이다.\n팔을 벌리지 않아도 잘 날 수 있으나, 폼을 잡아보고 있다.',
     fileUrls: [
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_01_220629.ai',
       'https://pub-c055a1822d244b0aaba0dc63c00dcba2.r2.dev/p_01_220629.pdf',
