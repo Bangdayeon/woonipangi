@@ -1,47 +1,19 @@
 import IconButton from '@/shared/ui/IconButton/IconButton';
 import Popover from '@/shared/ui/Popover/Popover';
-import { useModalStore } from '@/stores/modalStore';
+import { download } from '@/shared/utils/download';
+import { formatDate } from '@/shared/utils/formatDate';
 import { Card as CardType } from '@/types/card.types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import Tag from './Tag/Tag';
 
-export default function Card({ id, title, tags, tmi, fileUrls, thumbnail, createdAt }: CardType) {
-  const date = new Date(createdAt);
-  const isValidDate = !isNaN(date.getTime());
-
-  const formattedDate = isValidDate
-    ? date.toLocaleDateString('ko-KR', {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit',
-      })
-    : '';
-  const isoDate = isValidDate ? date.toISOString() : '';
-
-  const { open } = useModalStore();
+export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }: CardType) {
+  const router = useRouter();
+  const { formattedDate, isoDate } = formatDate(createdAt);
 
   const handleCardClick = () => {
-    open('CARDMORE', { id, title, thumbnail, tmi });
-  };
-
-  const handleDownload = (url: string, extension: string) => {
-    const filename = `${title}.${extension.toLowerCase()}`;
-    const downloadUrl = `/api/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename)}`;
-
-    const link = document.createElement('a');
-    link.href = downloadUrl;
-
-    // 다운로드 속성 명시
-    link.setAttribute('download', filename);
-
-    document.body.appendChild(link);
-    link.click();
-
-    // 가비지 컬렉션 유도
-    setTimeout(() => {
-      document.body.removeChild(link);
-    }, 100);
+    router.push(`/files/${id}`);
   };
 
   return (
@@ -94,7 +66,7 @@ export default function Card({ id, title, tags, tmi, fileUrls, thumbnail, create
                         key={`${id}-file-${index}`}
                         role="menuitem"
                         onClick={() => {
-                          handleDownload(url, extension);
+                          download(url, title, extension);
                           close();
                         }}
                         className="text-gray700 hover:bg-gray50 block w-full px-4 py-2 text-left text-sm transition-colors duration-150"

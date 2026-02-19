@@ -17,13 +17,12 @@ export default function CardList({ cards }: CardListProps) {
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-      {cards.map((card, index) => (
+      {cards.map(card => (
         <Card
           key={card.id}
           id={card.id}
           title={card.title}
           tags={card.tags}
-          tmi={card.tmi}
           fileUrls={card.fileUrls}
           thumbnail={card.thumbnail}
           createdAt={card.createdAt}

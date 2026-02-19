@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
+      <body className="custom-scrollbar grid min-h-dvh grid-rows-[auto_1fr_auto]">
         <QueryProviders>
           <ToastProvider>
             <Header />
