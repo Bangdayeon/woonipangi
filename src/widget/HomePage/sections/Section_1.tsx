@@ -1,15 +1,21 @@
+import Example from '@/assets/images/example.gif';
 import { motion } from 'framer-motion';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import { ReactNode, useState } from 'react';
 
 import Keyboard from '../components/Keyboard';
 
-export default function Section_1() {
+interface Props {
+  ref: React.RefObject<HTMLElement | null>;
+}
+
+export default function Section_1({ ref }: Props) {
   const [activeTab, setActiveTab] = useState<string | null>(null);
-  const [image, setImage] = useState<string | null>(null);
+  const [image, setImage] = useState<string | StaticImport | null>(null);
   const [extraContent, setExtraContent] = useState<ReactNode | null>(null);
 
-  const handleKeyClick = (label: string, image: string, extra?: ReactNode) => {
+  const handleKeyClick = (label: string, image: string | StaticImport, extra?: ReactNode) => {
     setActiveTab(label);
     setImage(image);
     setExtraContent(extra || null);
@@ -20,7 +26,7 @@ export default function Section_1() {
       case '안녕':
         return `안녕! 만나서 정말 기뻐.\n오늘 하루는 어때?`;
       case '반가워':
-        return '만나서 반가워!\n친하게 지내면 좋겠다!';
+        return '반가워!\n친하게 지내면 좋겠다!';
       case '우니':
         return '나는 우니라고 해!\n먹는 걸 좋아하지';
       case '팡이':
@@ -31,7 +37,10 @@ export default function Section_1() {
   };
 
   return (
-    <section className="relative flex w-full flex-col items-center justify-center pt-20 pb-30 md:flex-row md:pb-40">
+    <section
+      ref={ref}
+      className="relative flex w-full flex-col items-center justify-center pt-30 pb-60 md:flex-row md:pt-60 md:pb-90"
+    >
       <Keyboard onKeyClick={handleKeyClick} />
       <motion.div
         key={activeTab}
@@ -45,7 +54,7 @@ export default function Section_1() {
               {renderTitle()}
             </h3>
             <div className="relative h-50 w-50">
-              <Image src={image} alt="" fill className="object-contain" />
+              <Image src={image} alt={activeTab ?? ''} fill className="object-contain" priority />
             </div>
             {extraContent && <div className="">{extraContent}</div>}
           </div>
@@ -55,10 +64,11 @@ export default function Section_1() {
             <span className="font-semibold">우니와 팡이의 인사를 확인해보세요👋</span>
             <div className="relative h-60 w-80">
               <Image
-                src="/images/example.gif"
+                src={Example}
                 alt="클릭 예시 이미지"
                 fill
                 className="object-contain"
+                priority
               />
             </div>
           </div>

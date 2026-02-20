@@ -14,7 +14,7 @@ export default function ToNextSectionButton({ isShow = false, onClick }: Props) 
       size="lg"
       icon="IC_Arrow_Down"
       ariaLabel="아래로 스크롤"
-      className="fixed bottom-10 left-1/2 z-50 -translate-x-1/2 animate-bounce shadow-2xl lg:hidden"
+      className="fixed bottom-10 left-1/2 z-50 -translate-x-1/2 animate-bounce p-8 shadow lg:hidden"
     />
   );
 }

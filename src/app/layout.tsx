@@ -3,6 +3,7 @@ import Header from '@/shared/ui/Header/Header';
 import { ToastProvider } from '@/shared/ui/Toast/ToastProvider';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
+import { ReactNode } from 'react';
 
 import QueryProviders from './providers';
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="ko">

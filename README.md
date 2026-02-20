@@ -1,2 +1,2 @@
-# woonipangi
+# wooniepangi
 Kwangwoon Univ Mascot Page

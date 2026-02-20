@@ -2,13 +2,14 @@
 
 import { Placement } from '@floating-ui/react-dom';
 import React from 'react';
+import { ReactNode } from 'react';
 
 import PopoverContent from './PopoverContent';
 import PopoverProvider from './PopoverProvider';
 import PopoverTrigger from './PopoverTrigger';
 
 interface PopoverProps {
-  children: React.ReactNode;
+  children: ReactNode;
   placement?: Placement; // Popover의 기본 표시 위치
 }
 

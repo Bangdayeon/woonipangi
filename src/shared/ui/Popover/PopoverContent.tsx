@@ -4,13 +4,14 @@ import { useOutsideDismiss } from '@/shared/utils/useOutsideDismiss';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
+import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import { usePopover } from './PopoverContext';
 import { usePopoverPosition } from './usePopoverPosition';
 
 interface PopoverContentProps {
-  children: (close: () => void) => React.ReactNode; // render props 패턴으로 close 함수를 전달
+  children: (close: () => void) => ReactNode; // render props 패턴으로 close 함수를 전달
   popoverKey: string; // 어떤 Popover인지 구분하는 고유 키
   className?: string;
   transparent?: boolean;
