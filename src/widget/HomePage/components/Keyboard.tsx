@@ -1,4 +1,9 @@
+import Pang2 from '@/assets/images/pang_fly.png';
+import Pang1 from '@/assets/images/pang_hooray.png';
+import Woonie2 from '@/assets/images/woonie_palm.png';
+import Woonie1 from '@/assets/images/woonie_smile.png';
 import LinkButton from '@/shared/ui/LinkButton/LinkButton';
+import { StaticImageData } from 'next/image';
 import { ReactNode } from 'react';
 
 import Keycap from './Keycap';
@@ -6,24 +11,24 @@ import Keycap from './Keycap';
 export default function Keyboard({
   onKeyClick,
 }: {
-  onKeyClick: (label: string, image: string, extra?: ReactNode) => void;
+  onKeyClick: (label: string, image: string | StaticImageData, extra?: ReactNode) => void;
 }) {
   return (
-    <div className="flex h-70 w-90 md:w-100 lg:w-140">
+    <div className="flex h-60 w-90 md:w-100 lg:w-140">
       <div className="relative">
         <Keycap
           label="안녕"
           color="#FFD61E"
           darkColor="#FDC81B"
           className="absolute top-0 left-10 -rotate-3 md:-rotate-4"
-          onClick={() => onKeyClick('안녕', '/images/woonie_smile.png')}
+          onClick={() => onKeyClick('안녕', Woonie1)}
         />
         <Keycap
           label="반가워"
           color="#1BBF39"
           darkColor="#16932B"
           className="absolute top-7 left-39 -rotate-6 md:top-7 md:left-43 md:-rotate-8 lg:top-9 lg:left-48"
-          onClick={() => onKeyClick('반가워', '/images/pang_horray.png')}
+          onClick={() => onKeyClick('반가워', Pang1)}
         />
         <Keycap
           label="우니"
@@ -33,7 +38,7 @@ export default function Keyboard({
           onClick={() =>
             onKeyClick(
               '우니',
-              '/images/woonie_palm.png',
+              Woonie2,
               <LinkButton
                 href="/files?character=woonie"
                 label="우니의 다양한 모습 보러가기 >>"
@@ -50,7 +55,7 @@ export default function Keyboard({
           onClick={() =>
             onKeyClick(
               '팡이',
-              '/images/pang_fly.png',
+              Pang2,
               <LinkButton
                 href="/files/?character=pang"
                 label="팡이의 다양한 모습 보러가기 >>"

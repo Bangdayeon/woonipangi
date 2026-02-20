@@ -15,8 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // 스크롤 위치가 0보다 크면 배경색과 블러를 활성화
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 0); // 스크롤 위치가 0보다 크면 배경색과 블러를 활성화
     };
 
     // 초기 실행
@@ -28,13 +27,13 @@ const Header = () => {
   return (
     <header
       className={clsx(
-        'fixed top-0 right-0 left-0 z-50 flex h-15 items-center justify-between px-4 md:h-20 md:px-4',
+        'fixed top-0 right-0 left-0 z-50 flex h-15 items-center justify-between px-5 md:h-20 md:px-8',
         isScrolled
           ? 'bg-white/50 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] backdrop-blur-[1px]'
           : 'bg-transparent backdrop-blur-none'
       )}
     >
-      <Link href="/" aria-label="메인으로 이동" className="relative h-8 w-31 md:h-13 md:w-44.5">
+      <Link href="/" aria-label="메인으로 이동" className="relative h-8 w-31 md:h-11 md:w-44.5">
         <Image src={Logo} alt="" fill className="cursor-pointer object-contain" />
       </Link>
       <nav className="flex items-center gap-2" aria-label="주요 메뉴">

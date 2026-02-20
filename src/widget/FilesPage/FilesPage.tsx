@@ -42,9 +42,7 @@ export default function FilesPage({ allCards, initialCards }: Props) {
   return (
     <main className="mx-auto mt-25 flex min-h-screen w-full flex-col items-center px-4">
       <div className="w-full md:max-w-200 lg:max-w-300">
-        <header className="mb-5">
-          <h1 className="text-gray900 text-2xl font-bold md:text-3xl">마스코트 모음</h1>
-        </header>
+        <h1 className="mb-5 text-2xl font-bold md:text-3xl">마스코트 모음</h1>
 
         <div className="flex w-full flex-col">
           <div className="flex w-full flex-col gap-2">

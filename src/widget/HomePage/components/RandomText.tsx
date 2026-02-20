@@ -1,4 +1,5 @@
-import SVGIcon from '@/shared/ui/Icon/SVGIcon';
+import Click from '@/assets/images/click.png';
+import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
@@ -97,15 +98,15 @@ export default function App({ baseSpeed = 4, boostSpeed = 10, boostDuration = 60
   return (
     <>
       {showImage && (
-        <div
-          className="absolute top-25 z-30 flex w-full cursor-pointer items-center justify-center bg-black/30 md:top-30 md:py-3"
-          onClick={handleBoost}
-        >
-          <SVGIcon
-            icon="IC_Cursor"
-            aria-label="클릭 안내"
-            className="h-20 w-20 animate-pulse rounded-full p-4 text-white"
+        <div onClick={handleBoost}>
+          <Image
+            src={Click}
+            alt=""
+            width={80}
+            height={80}
+            className="absolute top-35 left-1/2 z-40 -translate-x-1/2 animate-bounce cursor-pointer md:top-40"
           />
+          <div className="absolute top-25 z-30 flex h-20 w-full cursor-pointer bg-black/30 md:top-30 md:h-28" />
         </div>
       )}
 

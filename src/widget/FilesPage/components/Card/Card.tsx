@@ -17,7 +17,7 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
   };
 
   return (
-    <div
+    <article
       tabIndex={0}
       role="button"
       aria-label={`${title} 상세보기`}
@@ -37,7 +37,7 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between gap-2 px-3.5 py-2">
+      <div className="flex flex-col justify-between gap-2 px-2 py-2 md:px-3 lg:px-3.5">
         <div className="flex items-center justify-between gap-2">
           <span className="font-title-sm line-clamp-1 md:text-[16px]">{title}</span>
         </div>
@@ -81,6 +81,6 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
           </Popover>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
