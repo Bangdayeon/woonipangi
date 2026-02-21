@@ -33,8 +33,8 @@ export default function AskPage() {
             {/* 카카오 오픈채팅방 */}
             <ContactSection
               title="오픈채팅방"
-              url="https://open.kakao.com/o/gSg7yHde"
-              content="https://open.kakao.com/me/woonipang2"
+              url="https://open.kakao.com/me/woonipang2"
+              content="카카오톡 오픈채팅방"
             />
           </div>
         </section>
