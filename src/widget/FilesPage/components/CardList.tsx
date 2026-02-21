@@ -17,7 +17,7 @@ export default function CardList({ cards }: CardListProps) {
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-      {cards.map(card => (
+      {cards.map((card, index) => (
         <Card
           key={card.id}
           id={card.id}
@@ -26,6 +26,7 @@ export default function CardList({ cards }: CardListProps) {
           fileUrls={card.fileUrls}
           thumbnail={card.thumbnail}
           createdAt={card.createdAt}
+          index={index}
         />
       ))}
     </div>

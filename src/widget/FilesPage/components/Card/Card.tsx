@@ -8,7 +8,15 @@ import { useRouter } from 'next/navigation';
 
 import Tag from './Tag/Tag';
 
-export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }: CardType) {
+export default function Card({
+  id,
+  title,
+  tags,
+  fileUrls,
+  thumbnail,
+  createdAt,
+  index,
+}: CardType & { index: number }) {
   const router = useRouter();
   const { formattedDate, isoDate } = formatDate(createdAt);
 
@@ -33,7 +41,14 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
       <div className="border-gray100 aspect-18/20 w-full border-b">
         <div className="flex h-full w-full items-center justify-center">
           <div className="relative h-[90%] w-[90%]">
-            <Image src={thumbnail} alt={title} fill className="object-contain" />
+            <Image
+              src={thumbnail}
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 45vw, (max-width: 1024px) 23vw, 15vw"
+              className="object-contain"
+              priority={index === 0}
+            />
           </div>
         </div>
       </div>
@@ -42,21 +57,27 @@ export default function Card({ id, title, tags, fileUrls, thumbnail, createdAt }
           <span className="font-title-sm line-clamp-1 md:text-[16px]">{title}</span>
         </div>
         <div className="hidden gap-1 md:flex">
-          {tags.map((tag, index) => (
-            <Tag key={`${tag}-${index}`} text={tag} />
+          {tags.map((tag, tagIndex) => (
+            <Tag key={`${tag}-${tagIndex}`} text={tag} />
           ))}
         </div>
         <div className="flex items-end justify-between">
-          <span className="text-gray400 font-label-xs">
+          <span className="text-gray600 font-label-xs">
             제작일 | <time dateTime={isoDate}>{formattedDate}</time>
           </span>
           <Popover placement="top-end">
             <Popover.Trigger popoverKey="menu">
-              <IconButton icon="IC_Download" variant="ghost" ariaLabel="파일 다운" />
+              <IconButton
+                icon="IC_Download"
+                variant="ghost"
+                ariaLabel="파일 다운"
+                aria-haspopup="menu"
+                aria-controls={`download-menu-${id}`} // 어떤 메뉴인지 연결
+              />
             </Popover.Trigger>
             <Popover.Content popoverKey="menu">
               {close => (
-                <div role="menu">
+                <div role="menu" id={`download-menu-${id}`} aria-label="다운로드 옵션">
                   {fileUrls.map((url, index) => {
                     const extensionMatch = url.match(/\.(\w+)(\?|$)/);
                     const extension = extensionMatch ? extensionMatch[1].toUpperCase() : 'FILE';
