@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!card) return {};
 
   return {
-    title: `${card.title} | 마스코트 모음`,
+    title: card.title,
     description: card.tmi,
     openGraph: {
       title: card.title,
