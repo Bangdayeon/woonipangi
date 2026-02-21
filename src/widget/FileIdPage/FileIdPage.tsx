@@ -20,7 +20,7 @@ export default function FileIdPage({ id, title, tags, tmi, fileUrls, thumbnail, 
         <div className="relative h-80 w-full">
           <Image
             src={thumbnail}
-            alt={`${title} 이미지`}
+            alt={`${title}`}
             fill
             className="object-contain"
             priority
@@ -35,7 +35,7 @@ export default function FileIdPage({ id, title, tags, tmi, fileUrls, thumbnail, 
           </div>
           <div className="font-label-sm shrink-0 pl-1">
             <span>제작일: </span>
-            <time dateTime={isoDate} className="text-gray600">
+            <time dateTime={isoDate} className="text-gray700">
               {formattedDate}
             </time>
           </div>

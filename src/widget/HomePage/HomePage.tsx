@@ -36,7 +36,7 @@ export default function HomePage() {
 
   // 서버 렌더링 시에는 플레이스홀더 반환
   if (!isClient) {
-    return <div className="h-screen w-full bg-gray-50" />;
+    return <div className="bg-gray50 h-screen w-full" />;
   }
 
   return (

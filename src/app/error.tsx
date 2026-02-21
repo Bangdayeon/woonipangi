@@ -15,8 +15,8 @@ export default function Error({ error, reset }: ErrorProps) {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-4">
-      <h2 className="text-2xl font-bold text-gray-900">문제가 발생했습니다</h2>
-      <p className="text-gray-600">{error.message || '알 수 없는 문제가 발생했습니다.'}</p>
+      <h2 className="text-2xl font-bold">문제가 발생했습니다</h2>
+      <p className="text-gray600">{error.message || '알 수 없는 문제가 발생했습니다.'}</p>
       <LinkButton label="메인 페이지로 돌아가기" href="/" onClick={() => reset()} />
     </div>
   );

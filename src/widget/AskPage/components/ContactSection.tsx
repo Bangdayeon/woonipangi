@@ -20,11 +20,11 @@ export default function ContactSection({ title, url, content }: Props) {
         {isEmail ? (
           <SVGIcon icon="IC_Mail" aria-hidden={true} />
         ) : isInstagram ? (
-          <Image src={Instagram} alt={title} width={18} height={18} aria-hidden={true} />
+          <Image src={Instagram} alt="" width={18} height={18} aria-hidden={true} />
         ) : isKakao ? (
-          <Image src={Kakao} alt={title} width={18} height={18} aria-hidden={true} />
+          <Image src={Kakao} alt="" width={18} height={18} aria-hidden={true} />
         ) : (
-          <div className="h-4.5 w-4.5 rounded-sm bg-gray-200" aria-hidden="true" />
+          <div className="bg-gray200 h-4.5 w-4.5 rounded-sm" aria-hidden={true} />
         )}
         <p className="font-body-md">{title}</p>
       </div>

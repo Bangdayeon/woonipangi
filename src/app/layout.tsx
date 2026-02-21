@@ -3,9 +3,16 @@ import Header from '@/shared/ui/Header/Header';
 import { ToastProvider } from '@/shared/ui/Toast/ToastProvider';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 
 import QueryProviders from './providers';
+
+const pretendard = localFont({
+  src: '../../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+});
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://woonipangi.vercel.app';
 
@@ -39,7 +46,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={pretendard.variable}>
       <body className="custom-scrollbar grid min-h-dvh grid-rows-[auto_1fr_auto]">
         <QueryProviders>
           <ToastProvider>

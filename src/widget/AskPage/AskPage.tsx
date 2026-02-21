@@ -7,7 +7,7 @@ function QnACard({ question, answer }: { question: string; answer: ReactNode }) 
   const qnaContentStyle = 'font-body-md md:text-lg';
 
   return (
-    <dl className="flex w-full flex-col gap-2 rounded-2xl bg-blue-50 px-8 py-6">
+    <dl className="bg-blue50 flex w-full flex-col gap-2 rounded-2xl px-8 py-6">
       <dt className={qnaTitleStyle}>Q. {question}</dt>
       <dd className={qnaContentStyle}>{answer}</dd>
     </dl>

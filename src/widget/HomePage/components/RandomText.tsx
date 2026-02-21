@@ -126,7 +126,7 @@ export default function App({ baseSpeed = 4, boostSpeed = 10, boostDuration = 60
             {randomizedTexts.map((text, index) => (
               <div key={`${text}-${index}`} className="shrink-0 px-2 md:px-3">
                 <span
-                  className={`text-5xl tracking-[calc(-0.08em)] transition-colors duration-300 md:text-7xl ${isBoosting ? 'text-yellow-400' : ''} `}
+                  className={`text-5xl tracking-[calc(-0.08em)] transition-colors duration-300 md:text-7xl ${isBoosting ? 'text-yellow400' : ''} `}
                 >
                   {text}
                 </span>
