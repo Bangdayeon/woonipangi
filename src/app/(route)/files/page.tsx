@@ -1,5 +1,11 @@
 import { CardDatas } from '@/data/cards';
 import FilesPage from '@/widget/FilesPage/FilesPage';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '파일 목록',
+  description: '우니&팡이의 파일을 검색하고 다운로드해보세요.',
+};
 
 // searchParams를 Props로 직접 받음
 type Props = {

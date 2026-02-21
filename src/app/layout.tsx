@@ -7,9 +7,30 @@ import { ReactNode } from 'react';
 
 import QueryProviders from './providers';
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://woonipangi.vercel.app';
+
 export const metadata: Metadata = {
-  title: '우니팡이',
+  metadataBase: new URL(baseUrl),
+  title: { default: '우니팡이', template: '%s | 우니팡이' },
   description: '우니팡이 공식 홈페이지',
+  icons: {
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: { default: '우니팡이', template: '%s | 우니팡이' },
+    description: '우니팡이 공식 홈페이지',
+    url: baseUrl,
+    siteName: '우니팡이',
+    locale: 'ko_KR',
+    type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: { default: '우니팡이', template: '%s | 우니팡이' },
+    description: '우니팡이 공식 홈페이지',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
