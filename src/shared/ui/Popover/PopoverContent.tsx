@@ -3,7 +3,7 @@
 import { useOutsideDismiss } from '@/shared/utils/useOutsideDismiss';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 

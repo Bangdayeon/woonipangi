@@ -1,17 +1,27 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
 import { useClickImageEffect } from './components/ClickImageEffect/useClickImageEffect';
 import RandomText from './components/RandomText';
 import ToNextSectionButton from './components/ToNextSectionButton';
 import ToTopButton from './components/ToTopButton';
-import ThreeHead from './components/three';
 import { useHomePageScroll } from './hooks/useHomePageScroll';
 import Section_1 from './sections/Section_1';
 import Section_2 from './sections/Section_2';
 import Section_3 from './sections/Section_3';
+
+const ThreeHead = dynamic(() => import('./components/three'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="bg-blue50 h-screen w-full bg-[linear-gradient(to_right,#CAEBFC_1.1px,transparent_1px),linear-gradient(to_bottom,#CAEBFC_1.1px,transparent_1px)] bg-size-[20px_20px]"
+      aria-hidden
+    />
+  ),
+});
 
 export default function HomePage() {
   const { scrollY } = useScroll();
