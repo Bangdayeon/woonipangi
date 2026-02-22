@@ -43,7 +43,6 @@ const Header = () => {
               icon="IC_Menu"
               variant="secondary"
               ariaLabel="헤더 메뉴 열기"
-              aria-haspopup="menu"
               aria-controls="header-nav-menu"
             />
           </Popover.Trigger>

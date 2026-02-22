@@ -1,4 +1,3 @@
-import Example from '@/assets/images/example.gif';
 import { motion } from 'framer-motion';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
@@ -62,14 +61,19 @@ export default function Section_1({ ref }: Props) {
         {!image && !activeTab && (
           <div className="border-gray100 flex flex-col items-center gap-3 rounded-3xl border-4 border-dashed py-5">
             <span className="font-semibold">우니와 팡이의 인사를 확인해보세요👋</span>
-            <div className="relative h-60 w-80">
-              <Image
-                src={Example}
-                alt="클릭 예시 이미지"
-                fill
+            <div className="relative flex h-60 w-80 items-center justify-center">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                width={240}
+                height={226}
                 className="object-contain"
-                priority
-              />
+                aria-hidden="true"
+              >
+                <source src="/images/example.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         )}
