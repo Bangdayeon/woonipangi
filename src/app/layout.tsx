@@ -4,6 +4,7 @@ import { ToastProvider } from '@/shared/ui/Toast/ToastProvider';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 
 import QueryProviders from './providers';
@@ -48,6 +49,18 @@ export default function RootLayout({
   return (
     <html lang="ko" className={pretendard.variable}>
       <body className="custom-scrollbar grid min-h-dvh grid-rows-[auto_1fr_auto]">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S3P40XVJ26"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-S3P40XVJ26');
+        `}
+        </Script>
         <QueryProviders>
           <ToastProvider>
             <Header />
