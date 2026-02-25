@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const links = [
-  { label: '인스타그램', href: 'https://www.instagram.com/woonipang2', external: true },
+  { label: '인스타그램', href: 'https://www.instagram.com/wooniepang2', external: true },
   { label: '서비스 이용약관', href: '/terms', external: false },
   { label: '개인정보 처리방침', href: '/privacy', external: false },
 ];

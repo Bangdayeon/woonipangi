@@ -29,8 +29,8 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-1">
           <SVGIcon icon="IC_Instagram" aria-hidden={true} />
-          <a href="https://www.instagram.com/woonipang2" target="_blank" rel="noopener noreferrer">
-            @woonipang2
+          <a href="https://www.instagram.com/wooniepang2" target="_blank" rel="noopener noreferrer">
+            @wooniepang2
           </a>
         </div>
       </nav>

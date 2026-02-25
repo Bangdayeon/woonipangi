@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 
-const baseUrl = process.env.BASE_URL ?? 'https://woonipangi.vercel.app';
+const rawBaseUrl = process.env.BASE_URL?.trim();
+const baseUrl = (rawBaseUrl || 'https://wooniepangi.site').replace(/\/+$/, '');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
