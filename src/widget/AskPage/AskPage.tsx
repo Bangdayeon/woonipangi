@@ -27,14 +27,14 @@ export default function AskPage() {
             {/* 인스타 */}
             <ContactSection
               title="인스타그램"
-              url="https://www.instagram.com/woonipang2"
-              content="@woonipang2"
+              url="https://www.instagram.com/wooniepang2"
+              content="@wooniepang2"
             />
             {/* 카카오 오픈채팅방 */}
             <ContactSection
               title="오픈채팅방"
-              url="https://open.kakao.com/me/woonipang2"
-              content="카카오톡 오픈채팅방"
+              url="https://open.kakao.com/me/wooniepang2"
+              content="카카오톡 1:1 오픈채팅"
             />
           </div>
         </section>

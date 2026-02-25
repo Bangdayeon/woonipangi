@@ -15,7 +15,18 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://woonipangi.vercel.app';
+const DEFAULT_BASE_URL = 'https://wooniepangi.site';
+
+const normalizeBaseUrl = (value?: string) => {
+  const candidate = value?.trim() || DEFAULT_BASE_URL;
+  try {
+    return new URL(candidate).origin;
+  } catch {
+    return DEFAULT_BASE_URL;
+  }
+};
+
+const baseUrl = normalizeBaseUrl(process.env.BASE_URL);
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
