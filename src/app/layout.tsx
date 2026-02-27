@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  other: {
+    'naver-site-verification': 'deba5f400c3b54cddd316e6ff4543490ca642eaa',
+  },
   openGraph: {
     title: { default: '우니팡이', template: '%s | 우니팡이' },
     description: '우니팡이 공식 홈페이지',
