@@ -32,11 +32,11 @@ export default function App({ baseSpeed = 4, boostSpeed = 10, boostDuration = 60
     return [...array].sort(() => Math.random() - 0.5);
   }, []);
 
-  // 화면에 렌더링할 텍스트 상태 (초기에 랜덤하게 섞어서 3배수 생성)
-  const [randomizedTexts, setRandomizedTexts] = useState<string[]>(() => [
-    ...shuffle(SLIDE_TEXTS),
-    ...shuffle(SLIDE_TEXTS),
-    ...shuffle(SLIDE_TEXTS),
+  // 화면에 렌더링할 텍스트 상태 (초기에는 고정값)
+  const [randomizedTexts, setRandomizedTexts] = useState<string[]>([
+    ...SLIDE_TEXTS,
+    ...SLIDE_TEXTS,
+    ...SLIDE_TEXTS,
   ]);
 
   const scrollRef = useRef<HTMLDivElement | null>(null);

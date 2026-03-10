@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
 
 import { useClickImageEffect } from './components/ClickImageEffect/useClickImageEffect';
 import RandomText from './components/RandomText';
@@ -28,8 +27,6 @@ export default function HomePage() {
   const y = useTransform(scrollY, [0, 500], [0, -100]);
   const { onPointerDown } = useClickImageEffect();
 
-  const [isClient, setIsClient] = useState(false);
-
   // 스크롤 관련 상태 및 핸들러 훅
   const {
     showScrollToBottomBtn,
@@ -38,16 +35,6 @@ export default function HomePage() {
     handleScrollToBottom,
     handleScrollToTop,
   } = useHomePageScroll();
-
-  useEffect(() => {
-    // eslint-disable-next-line
-    setIsClient(true);
-  }, []);
-
-  // 서버 렌더링 시에는 플레이스홀더 반환
-  if (!isClient) {
-    return <div className="bg-gray50 h-screen w-full" />;
-  }
 
   return (
     <main className="pb-80">
