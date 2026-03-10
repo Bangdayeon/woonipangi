@@ -23,5 +23,5 @@ export default async function Page({ searchParams }: Props) {
     card => card.title.includes(query) || card.tags.some(tag => tag.includes(query))
   );
 
-  return <FilesPage allCards={CardDatas} initialCards={initialCards} />;
+  return <FilesPage allCards={CardDatas} />;
 }
