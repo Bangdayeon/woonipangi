@@ -14,30 +14,19 @@ import { usePagination } from './hooks/usePagination';
 
 interface Props {
   allCards: Card[];
-  initialCards: Card[]; // 서버에서 넘어온 초기 필터링 데이터
 }
 
-export default function FilesPage({ allCards, initialCards }: Props) {
-  // 검색 필터 정렬된 카드 리스트
+export default function FilesPage({ allCards }: Props) {
   const { cards: processedCards } = useCardList(allCards);
 
-  // 페이지네이션
   const { currentPage, paginatedRange, handlePageChange } = usePagination(
     processedCards.length,
     PAGE_SIZE
   );
 
-  // 현재 페이지에 표시할 카드
   const displayedCards = useMemo(() => {
-    // 만약 클라이언트 로직이 아직 계산 전이거나 데이터가 없다면 서버에서 받은 initialCards를 우선 보여줌
-    // 하지만 Next.js 클라이언트 컴포넌트는 마운트 시점에 이미 processedCards를 계산하므로
-    // 초기 렌더링 시점에 processedCards가 비어있을 때 initialCards를 fallback으로 사용
-    if (processedCards.length === 0 && initialCards.length > 0) {
-      return initialCards.slice(0, PAGE_SIZE);
-    }
-
     return processedCards.slice(paginatedRange.start, paginatedRange.end);
-  }, [processedCards, paginatedRange, initialCards]);
+  }, [processedCards, paginatedRange]);
 
   return (
     <main className="mx-auto mt-25 flex min-h-screen w-full flex-col items-center px-4">
@@ -64,7 +53,7 @@ export default function FilesPage({ allCards, initialCards }: Props) {
 
         <Pagination
           currentPage={currentPage}
-          totalCount={processedCards.length} // 필터링된 개수 전달
+          totalCount={processedCards.length}
           pageSize={PAGE_SIZE}
           className="mt-16 mb-20 flex justify-center"
           onPageChange={handlePageChange}
