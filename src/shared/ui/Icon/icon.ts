@@ -19,6 +19,7 @@ import IC_Reset from '@/assets/icons/ic_reset.svg';
 import IC_Search from '@/assets/icons/ic_search.svg';
 import IC_Stream from '@/assets/icons/ic_stream.svg';
 import IC_Success from '@/assets/icons/ic_success.svg';
+import IC_Tests from '@/assets/icons/ic_tests.svg';
 import IC_Warning from '@/assets/icons/ic_warning.svg';
 import IC_X from '@/assets/icons/ic_x.svg';
 
@@ -45,6 +46,7 @@ export const IconMap = {
   IC_Stream,
   IC_Success,
   IC_Warning,
+  IC_Tests,
   IC_X,
 } as const;
 
