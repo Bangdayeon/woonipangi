@@ -39,12 +39,7 @@ const Header = () => {
       <nav className="flex items-center gap-2" aria-label="주요 메뉴">
         <Popover>
           <Popover.Trigger popoverKey="header_menu">
-            <IconButton
-              icon="IC_Menu"
-              variant="secondary"
-              ariaLabel="헤더 메뉴 열기"
-              aria-controls="header-nav-menu"
-            />
+            <IconButton icon="IC_Menu" ariaLabel="헤더 메뉴 열기" aria-controls="header-nav-menu" />
           </Popover.Trigger>
           <Popover.Content popoverKey="header_menu" transparent>
             {close => (
@@ -55,6 +50,15 @@ const Header = () => {
                 className="mr-1 flex flex-col gap-2 p-0.5 py-1"
               >
                 <LinkButton
+                  icon="IC_Stream"
+                  label="마스코트 소개"
+                  href="/intro"
+                  radius="full"
+                  variant="secondary"
+                  className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"
+                  onClick={close}
+                />
+                <LinkButton
                   icon="IC_Image_Folder"
                   label="마스코트 모음"
                   href="/files"
@@ -64,9 +68,9 @@ const Header = () => {
                   onClick={close}
                 />
                 <LinkButton
-                  icon="IC_Stream"
-                  label="마스코트 소개"
-                  href="/intro"
+                  icon="IC_Tests"
+                  label="성격 테스트"
+                  href="/personality-test"
                   radius="full"
                   variant="secondary"
                   className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"
