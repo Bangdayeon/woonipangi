@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap';
 @import 'tailwindcss';
 @import './colors.css';
 @import './colorToken.css';
@@ -40,4 +41,10 @@
 .no-scrollbar {
   -ms-overflow-style: none; /* IE, Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.noto {
+  font-family: 'Nanum Gothic', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
 }

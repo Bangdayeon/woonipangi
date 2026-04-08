@@ -75,7 +75,7 @@ export default function PangsConch({ description }: PangsConchProps) {
         </div>
 
         {/* 이미지 컨테이너 */}
-        <div className="relative w-full max-w-[200px] md:max-w-[320px]">
+        <div className="relative w-full max-w-50 md:max-w-[320px]">
           {/* 줄 이미지 */}
           {question && (
             <motion.div
@@ -83,7 +83,7 @@ export default function PangsConch({ description }: PangsConchProps) {
               dragConstraints={{ left: 0, right: 0 }}
               style={{ x: dragX }}
               onDragEnd={handleDragEnd}
-              className="absolute top-50 left-12 h-fit w-full cursor-grab"
+              className="absolute top-30 left-8 h-fit w-full cursor-grab md:top-50 md:left-12"
               role="button"
               tabIndex={0}
               aria-label="줄을 당겨서 답변 받기"
