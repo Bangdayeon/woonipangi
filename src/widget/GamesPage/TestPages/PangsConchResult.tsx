@@ -49,6 +49,10 @@ export default function PangsConchResult({
 
   const handleSave = async () => {
     if (!memeRef.current || isSaving) return;
+
+    // iOS는 클릭 컨텍스트 안에서 미리 탭 열기
+    const preOpenedTab = isIOS() ? window.open('', '_blank') : null;
+
     try {
       setIsSaving(true);
 
@@ -82,10 +86,9 @@ export default function PangsConchResult({
       const dataUrl = canvas.toDataURL('image/png');
 
       if (isIOS()) {
-        const newTab = window.open();
-        if (newTab) {
-          newTab.document.write(`<img src="${dataUrl}" style="max-width:100%"/>`);
-          newTab.document.close();
+        if (preOpenedTab) {
+          preOpenedTab.document.write(`<img src="${dataUrl}" style="max-width:100%"/>`);
+          preOpenedTab.document.close();
           showToast({
             message: '이미지를 길게 눌러 저장하세요!',
             type: 'success',
@@ -107,6 +110,7 @@ export default function PangsConchResult({
         });
       }
     } catch (error) {
+      preOpenedTab?.close();
       console.error('이미지 저장 실패:', error);
       showToast({
         message: '이미지 저장에 실패..',
@@ -154,4 +158,3 @@ export default function PangsConchResult({
     </div>
   );
 }
-
