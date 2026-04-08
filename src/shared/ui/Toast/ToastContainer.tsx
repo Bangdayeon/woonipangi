@@ -47,17 +47,21 @@ export function ToastContainer({ toasts }: { toasts: Toast[] }) {
             transition={{ duration: 0.2 }}
             className={toastStyle({ variant: toast.type })}
           >
-            <div className="flex items-center gap-1">
-              {renderToastIcon(toast.type)}
-              {toast.message}
+            <div className="flex w-full items-center gap-2">
+              <div className="shrink-0">{renderToastIcon(toast.type)}</div>
+
+              <div className="min-w-0 flex-1 text-sm wrap-break-word">{toast.message}</div>
+
+              <div className="shrink-0">
+                <IconButton
+                  icon="IC_X"
+                  ariaLabel="토스트 닫기"
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => closeToast({ id: toast.id })}
+                />
+              </div>
             </div>
-            <IconButton
-              icon="IC_X"
-              ariaLabel="토스트 닫기"
-              variant="secondary"
-              size="sm"
-              onClick={() => closeToast({ id: toast.id })}
-            />
           </motion.div>
         ))}
       </AnimatePresence>
