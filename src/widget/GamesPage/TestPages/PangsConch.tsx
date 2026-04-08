@@ -1,7 +1,5 @@
 'use client';
 
-import pangConchImg from '@/assets/images/services/pang_conch.png';
-import pangConchLineImg from '@/assets/images/services/pang_conch_line.png';
 import { pangsConch } from '@/data/pangsConch';
 import Button from '@/shared/ui/Button/Button';
 import Input from '@/shared/ui/Input/Input';
@@ -64,7 +62,7 @@ export default function PangsConch({ description }: PangsConchProps) {
             onChange={e => {
               if (timerRef.current) clearTimeout(timerRef.current);
               setQuestion(e.target.value);
-              setResult(null); // question 변경과 동시에 초기화
+              setResult(null);
               setLoading(false);
             }}
             placeholder="어떤 질문이든 물어보세요"
@@ -100,7 +98,7 @@ export default function PangsConch({ description }: PangsConchProps) {
               }}
             >
               <Image
-                src={pangConchLineImg}
+                src="/images/services/pang_conch_line.png"
                 alt="Conch line"
                 fill
                 style={{ objectFit: 'contain', pointerEvents: 'none' }}
@@ -110,9 +108,9 @@ export default function PangsConch({ description }: PangsConchProps) {
           )}
 
           {/* 소라 이미지 */}
-          <div className="relative z-10 h-full w-full">
+          <div className="relative h-full w-full">
             <Image
-              src={pangConchImg}
+              src="/images/services/pang_conch.png"
               alt="Conch"
               fill
               style={{ objectFit: 'contain' }}

@@ -1,4 +1,3 @@
-import pangConchMemeImg from '@/assets/images/services/pang_conch_meme.jpg';
 import Button from '@/shared/ui/Button/Button';
 import html2canvas from 'html2canvas';
 import Image from 'next/image';
@@ -40,7 +39,7 @@ export default function PangsConchResult({
     <div className="mt-4 mb-20 flex flex-col items-center gap-10 text-center text-[16px] font-semibold md:text-xl">
       <div ref={memeRef} className="relative inline-block h-80 w-80 md:h-150 md:w-150">
         <Image
-          src={pangConchMemeImg}
+          src="/images/services/pang_conch_meme.jpg"
           alt="Meme"
           fill
           style={{ objectFit: 'contain' }}
