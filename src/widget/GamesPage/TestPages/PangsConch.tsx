@@ -101,6 +101,7 @@ export default function PangsConch({ description }: PangsConchProps) {
                 src="/images/services/pang_conch_line.png"
                 alt="Conch line"
                 fill
+                sizes="(max-width: 768px) 200px, 320px"
                 style={{ objectFit: 'contain', pointerEvents: 'none' }}
                 draggable={false}
               />
@@ -113,6 +114,7 @@ export default function PangsConch({ description }: PangsConchProps) {
               src="/images/services/pang_conch.png"
               alt="Conch"
               fill
+              sizes="(max-width: 768px) 200px, 320px"
               style={{ objectFit: 'contain' }}
               draggable={false}
             />

@@ -42,6 +42,7 @@ export default function PangsConchResult({
           src="/images/services/pang_conch_meme.jpg"
           alt="Meme"
           fill
+          sizes="(max-width: 768px) 320px, 600px"
           style={{ objectFit: 'contain' }}
           draggable={false}
         />
