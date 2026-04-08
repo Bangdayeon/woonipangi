@@ -24,8 +24,8 @@ export const tests: TestData[] = [
   // },
   {
     id: 'pangs-conch',
-    title: '마법의 팡이고둥',
-    description: `마법의 팡이고둥에게\n질문해보세요`,
+    title: '팡이의 소라고둥',
+    description: `팡이의 소라고둥에게\n질문해보세요`,
     img: pangConchImg,
     bgcolor: 'bg-purple-400',
   },

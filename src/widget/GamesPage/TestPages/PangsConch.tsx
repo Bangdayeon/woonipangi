@@ -52,7 +52,7 @@ export default function PangsConch({ description }: PangsConchProps) {
             ariaLabel="뒤로 가기"
             href="/games"
           />
-          <h1 className="text-2xl font-bold md:text-3xl">마법의 팡이고둥</h1>
+          <h1 className="text-2xl font-bold md:text-3xl">팡이의 소라고둥</h1>
         </header>
         <p className="mt-4 text-lg">{description}</p>
 
