@@ -22,6 +22,7 @@ export default function Section_1() {
               fill
               priority
               className="object-contain"
+              unoptimized
             />
           </motion.div>
 

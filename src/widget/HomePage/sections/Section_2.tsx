@@ -29,7 +29,7 @@ const ContentContainer = ({
       className="flex w-full flex-col items-center justify-center gap-5 md:flex-row"
     >
       <div className="relative h-60 w-60">
-        <Image src={image} alt={title} fill className="object-contain" />
+        <Image src={image} alt={title} fill className="object-contain" unoptimized />
       </div>
 
       <div className="flex flex-col items-start gap-4">

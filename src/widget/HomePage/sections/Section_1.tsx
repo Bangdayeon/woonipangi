@@ -53,7 +53,14 @@ export default function Section_1({ ref }: Props) {
               {renderTitle()}
             </h3>
             <div className="relative h-50 w-50">
-              <Image src={image} alt={activeTab ?? ''} fill className="object-contain" priority />
+              <Image
+                src={image}
+                alt={activeTab ?? ''}
+                fill
+                className="object-contain"
+                priority
+                unoptimized
+              />
             </div>
             {extraContent && <div className="">{extraContent}</div>}
           </div>

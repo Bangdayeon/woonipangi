@@ -105,6 +105,7 @@ export default function App({ baseSpeed = 4, boostSpeed = 10, boostDuration = 60
             width={80}
             height={80}
             className="absolute top-35 left-1/2 z-40 -translate-x-1/2 animate-bounce cursor-pointer md:top-40"
+            unoptimized
           />
           <div className="absolute top-25 z-30 flex h-20 w-full cursor-pointer bg-black/30 md:top-30 md:h-28" />
         </div>

@@ -61,7 +61,13 @@ function CharacterCard({
       {/* 이미지 */}
       <div className="relative h-64 w-64 shrink-0 md:h-80 md:w-80">
         <div className="absolute inset-0 rounded-3xl bg-white/40 ring-1 ring-black/5" />
-        <Image src={image} alt={name} fill className="object-contain p-6 drop-shadow-md" />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-contain p-6 drop-shadow-md"
+          unoptimized
+        />
       </div>
     </motion.div>
   );
