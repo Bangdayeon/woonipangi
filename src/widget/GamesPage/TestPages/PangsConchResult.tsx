@@ -5,7 +5,6 @@ import { useToast } from '@/shared/ui/Toast';
 import html2canvas from 'html2canvas';
 import { useRef, useState } from 'react';
 
-// 공통 텍스트 스타일
 const overlayTextStyle: React.CSSProperties = {
   color: 'white',
   fontWeight: 400,
@@ -24,19 +23,18 @@ const overlayTextStyle: React.CSSProperties = {
   whiteSpace: 'pre-wrap',
 };
 
-// 파일명
 const getFileName = () => {
   const now = new Date();
-
   const yy = String(now.getFullYear()).slice(2);
   const MM = String(now.getMonth() + 1).padStart(2, '0');
   const dd = String(now.getDate()).padStart(2, '0');
   const HH = String(now.getHours()).padStart(2, '0');
   const mm = String(now.getMinutes()).padStart(2, '0');
   const ss = String(now.getSeconds()).padStart(2, '0');
-
   return `pangsconch${yy}${MM}${dd}${HH}${mm}${ss}.png`;
 };
+
+const isIOS = () => /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 export default function PangsConchResult({
   question,
@@ -54,7 +52,6 @@ export default function PangsConchResult({
     try {
       setIsSaving(true);
 
-      // 이미지 로드 전 저장 시도 방어
       const img = memeRef.current.querySelector('img');
       if (img) {
         if (!img.complete) {
@@ -63,17 +60,8 @@ export default function PangsConchResult({
               img.removeEventListener('load', handleLoad);
               img.removeEventListener('error', handleError);
             };
-
-            const handleLoad = () => {
-              cleanup();
-              resolve();
-            };
-
-            const handleError = () => {
-              cleanup();
-              reject(new Error('meme image failed to load'));
-            };
-
+            const handleLoad = () => { cleanup(); resolve(); };
+            const handleError = () => { cleanup(); reject(new Error('meme image failed to load')); };
             img.addEventListener('load', handleLoad);
             img.addEventListener('error', handleError);
           });
@@ -81,6 +69,7 @@ export default function PangsConchResult({
           throw new Error('meme image failed to load');
         }
       }
+
       await document.fonts.ready;
       await new Promise(r => requestAnimationFrame(r));
 
@@ -91,14 +80,32 @@ export default function PangsConchResult({
       });
 
       const dataUrl = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = getFileName();
-      link.click();
-      showToast({
-        message: '이미지 저장 성공!',
-        type: 'success',
-      });
+
+      if (isIOS()) {
+        const newTab = window.open();
+        if (newTab) {
+          newTab.document.write(`<img src="${dataUrl}" style="max-width:100%"/>`);
+          newTab.document.close();
+          showToast({
+            message: '이미지를 길게 눌러 저장하세요!',
+            type: 'success',
+          });
+        } else {
+          showToast({
+            message: '팝업이 차단되었습니다. 팝업 허용 후 다시 시도해주세요.',
+            type: 'error',
+          });
+        }
+      } else {
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = getFileName();
+        link.click();
+        showToast({
+          message: '이미지 저장 성공!',
+          type: 'success',
+        });
+      }
     } catch (error) {
       console.error('이미지 저장 실패:', error);
       showToast({
@@ -117,35 +124,23 @@ export default function PangsConchResult({
         <img
           src="/images/services/pang_conch_meme.jpg"
           crossOrigin="anonymous"
-          loading="lazy" // lazy load
-          decoding="async" // 렌더 최적화
+          loading="lazy"
+          decoding="async"
           alt="팡이고둥 이미지"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           draggable={false}
         />
 
-        {/* 질문 텍스트 */}
         <div
           className="absolute top-[42%] left-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center md:top-[45%]"
-          style={{
-            ...overlayTextStyle,
-            lineHeight: '1.2',
-          }}
+          style={{ ...overlayTextStyle, lineHeight: '1.2' }}
         >
           - {question}
         </div>
 
-        {/* 답변 텍스트 */}
         <div
           className="absolute bottom-[4%] left-1/2 w-full -translate-x-1/2 text-center md:bottom-[2%]"
-          style={{
-            ...overlayTextStyle,
-            lineHeight: '1.2',
-          }}
+          style={{ ...overlayTextStyle, lineHeight: '1.2' }}
         >
           - {result}
         </div>
@@ -159,3 +154,4 @@ export default function PangsConchResult({
     </div>
   );
 }
+
