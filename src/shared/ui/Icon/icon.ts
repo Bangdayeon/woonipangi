@@ -6,11 +6,13 @@ import IC_DropUp from '@/assets/icons/ic_arrow_drop_up.svg';
 import IC_Arrow_Next from '@/assets/icons/ic_arrow_next.svg';
 import IC_Arrow_Up from '@/assets/icons/ic_arrow_up.svg';
 import IC_Bookmark from '@/assets/icons/ic_bookmark.svg';
+import IC_Chat from '@/assets/icons/ic_chat.svg';
 import IC_Cursor from '@/assets/icons/ic_cursor.svg';
 import IC_Download from '@/assets/icons/ic_download.svg';
 import IC_Error from '@/assets/icons/ic_error.svg';
 import IC_Like_Off from '@/assets/icons/ic_favorite_off.svg';
 import IC_Like_On from '@/assets/icons/ic_favorite_on.svg';
+import IC_Game from '@/assets/icons/ic_game.svg';
 import IC_Image_Folder from '@/assets/icons/ic_image_folder.svg';
 import IC_Instagram from '@/assets/icons/ic_instagram.svg';
 import IC_Mail from '@/assets/icons/ic_mail.svg';
@@ -19,7 +21,6 @@ import IC_Reset from '@/assets/icons/ic_reset.svg';
 import IC_Search from '@/assets/icons/ic_search.svg';
 import IC_Stream from '@/assets/icons/ic_stream.svg';
 import IC_Success from '@/assets/icons/ic_success.svg';
-import IC_Tests from '@/assets/icons/ic_tests.svg';
 import IC_Warning from '@/assets/icons/ic_warning.svg';
 import IC_X from '@/assets/icons/ic_x.svg';
 
@@ -28,6 +29,7 @@ export const IconMap = {
   IC_Arrow_Back,
   IC_Arrow_Down,
   IC_Arrow_Up,
+  IC_Chat,
   IC_Cursor,
   IC_DropDown,
   IC_DropUp,
@@ -35,6 +37,7 @@ export const IconMap = {
   IC_Bookmark,
   IC_Download,
   IC_Error,
+  IC_Game,
   IC_Instagram,
   IC_Image_Folder,
   IC_Like_Off,
@@ -46,7 +49,6 @@ export const IconMap = {
   IC_Stream,
   IC_Success,
   IC_Warning,
-  IC_Tests,
   IC_X,
 } as const;
 
