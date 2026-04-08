@@ -68,9 +68,9 @@ const Header = () => {
                   onClick={close}
                 />
                 <LinkButton
-                  icon="IC_Tests"
-                  label="성격 테스트"
-                  href="/personality-test"
+                  icon="IC_Game"
+                  label="심심풀이"
+                  href="/games"
                   radius="full"
                   variant="secondary"
                   className="shadow-[0_1px_3px_1px_rgba(0,0,0,0.08),0_1px_5px_2px_rgba(0,0,0,0.02)]"

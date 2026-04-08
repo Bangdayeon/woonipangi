@@ -1,4 +1,4 @@
-import PersonalityTestPage from '@/widget/PersonalityTestPage/PersonalityTestPage';
+import GamesPage from '@/widget/GamesPage/GamesPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PersonalityTestPage />;
+  return <GamesPage />;
 }
