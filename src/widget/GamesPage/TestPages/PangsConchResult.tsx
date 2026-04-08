@@ -45,6 +45,7 @@ export default function PangsConchResult({
           sizes="(max-width: 768px) 320px, 600px"
           style={{ objectFit: 'contain' }}
           draggable={false}
+          unoptimized
         />
 
         {/* 질문 텍스트 */}

@@ -75,10 +75,7 @@ export default function PangsConch({ description }: PangsConchProps) {
         </div>
 
         {/* 이미지 컨테이너 */}
-        <div
-          className="relative w-full max-w-50 shrink-0 md:max-w-80"
-          style={{ aspectRatio: 578 / 694 }}
-        >
+        <div className="relative w-full max-w-[200px] md:max-w-[320px]">
           {/* 줄 이미지 */}
           {question && (
             <motion.div
@@ -100,23 +97,27 @@ export default function PangsConch({ description }: PangsConchProps) {
               <Image
                 src="/images/services/pang_conch_line.png"
                 alt="Conch line"
-                fill
-                sizes="(max-width: 768px) 200px, 320px"
+                width={320}
+                height={384} // 578 / 694 비율 적용
                 style={{ objectFit: 'contain', pointerEvents: 'none' }}
+                sizes="(max-width: 768px) 200px, 320px"
                 draggable={false}
+                unoptimized
               />
             </motion.div>
           )}
 
           {/* 소라 이미지 */}
-          <div className="relative h-full w-full">
+          <div className="relative w-full">
             <Image
               src="/images/services/pang_conch.png"
               alt="Conch"
-              fill
-              sizes="(max-width: 768px) 200px, 320px"
+              width={320}
+              height={384}
               style={{ objectFit: 'contain' }}
+              sizes="(max-width: 768px) 200px, 320px"
               draggable={false}
+              unoptimized
             />
           </div>
         </div>
