@@ -50,9 +50,6 @@ export default function PangsConchResult({
   const handleSave = async () => {
     if (!memeRef.current || isSaving) return;
 
-    // iOS는 클릭 컨텍스트 안에서 미리 탭 열기
-    const preOpenedTab = isIOS() ? window.open('', '_blank') : null;
-
     try {
       setIsSaving(true);
 
@@ -83,34 +80,52 @@ export default function PangsConchResult({
         scale: 2,
       });
 
-      const dataUrl = canvas.toDataURL('image/png');
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob(b => b ? resolve(b) : reject(new Error('blob 변환 실패')), 'image/png');
+      });
 
+      // iOS: Web Share API로 공유 시트 띄우기
       if (isIOS()) {
-        if (preOpenedTab) {
-          preOpenedTab.document.write(`<img src="${dataUrl}" style="max-width:100%"/>`);
-          preOpenedTab.document.close();
+        const file = new File([blob], getFileName(), { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file] });
           showToast({
-            message: '이미지를 길게 눌러 저장하세요!',
+            message: '저장 성공!',
             type: 'success',
           });
         } else {
-          showToast({
-            message: '팝업이 차단되었습니다. 팝업 허용 후 다시 시도해주세요.',
-            type: 'error',
-          });
+          // Web Share API 미지원 시 fallback
+          const objectUrl = URL.createObjectURL(blob);
+          const newTab = window.open(objectUrl, '_blank');
+          if (!newTab) {
+            showToast({
+              message: '팝업이 차단되었습니다. 팝업 허용 후 다시 시도해주세요.',
+              type: 'error',
+            });
+          } else {
+            showToast({
+              message: '이미지를 길게 눌러 저장하세요!',
+              type: 'success',
+            });
+          }
+          setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
         }
       } else {
+        // Android / PC
+        const objectUrl = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = dataUrl;
+        link.href = objectUrl;
         link.download = getFileName();
         link.click();
+        URL.revokeObjectURL(objectUrl);
         showToast({
           message: '이미지 저장 성공!',
           type: 'success',
         });
       }
-    } catch (error) {
-      preOpenedTab?.close();
+    } catch (error: unknown) {
+      // 사용자가 공유 시트에서 취소한 경우는 에러 무시
+      if (error instanceof Error && error.name === 'AbortError') return;
       console.error('이미지 저장 실패:', error);
       showToast({
         message: '이미지 저장에 실패..',
@@ -158,3 +173,4 @@ export default function PangsConchResult({
     </div>
   );
 }
+
