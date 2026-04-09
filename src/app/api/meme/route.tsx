@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
           width: '720px',
           textAlign: 'center',
           color: 'white',
-          fontSize: '28px',
+          fontSize: '36px',
           fontWeight: 400,
           lineHeight: 1.3,
           textShadow:
@@ -74,7 +74,7 @@ export async function GET(req: NextRequest) {
           width: '720px',
           textAlign: 'center',
           color: 'white',
-          fontSize: '40px',
+          fontSize: '36px',
           fontWeight: 400,
           lineHeight: 1.3,
           textShadow:
