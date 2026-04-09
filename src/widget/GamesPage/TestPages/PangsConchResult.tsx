@@ -50,7 +50,10 @@ export default function PangsConchResult({
           const objectUrl = URL.createObjectURL(blob);
           const newTab = window.open(objectUrl, '_blank');
           if (!newTab) {
-            showToast({ message: '팝업이 차단되었습니다. 팝업 허용 후 다시 시도해주세요.', type: 'error' });
+            showToast({
+              message: '팝업이 차단되었습니다. 팝업 허용 후 다시 시도해주세요.',
+              type: 'error',
+            });
           } else {
             showToast({ message: '이미지를 길게 눌러 저장하세요!', type: 'success' });
           }
