@@ -20,7 +20,12 @@ export default function TestCard({ title, description, href, img, bgcolor }: Pro
     >
       <div className="flex flex-col items-center">
         <header className="font-title-md mb-2">{title}</header>
-        {img && <Image src={img} alt={title} width={120} height={120} />}
+        {img ? (
+          <Image src={img} alt={title} width={120} height={120} />
+        ) : (
+          // 일러스트가 아직 없는 콘텐츠. 자리를 비워두면 카드가 무너져 보인다.
+          <div className="h-30 w-30 rounded-2xl bg-black/10" aria-hidden="true" />
+        )}
         <p className="font-body-md mt-2 text-center whitespace-pre-wrap">{description}</p>
       </div>
     </div>

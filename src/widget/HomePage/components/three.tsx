@@ -25,9 +25,10 @@ export default function ThreeHead() {
     const container = containerRef.current;
 
     // --- 동적 사이즈 ---
+    // 섹션이 페이지 중간으로 내려갔으므로 window 가 아니라 컨테이너 기준으로 잰다.
     const sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: container.clientWidth || window.innerWidth,
+      height: container.clientHeight || window.innerHeight,
     };
 
     // --- 씬 / 카메라 / 렌더러 ---
@@ -39,6 +40,9 @@ export default function ThreeHead() {
     const renderer = new WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.domElement.style.display = 'block'; // 인라인 baseline 간격 제거
+    // 캔버스가 재부모화되더라도 터치가 스크롤로 새지 않도록 하는 보험
+    renderer.domElement.style.touchAction = 'none';
 
     container.appendChild(renderer.domElement);
 
@@ -105,66 +109,94 @@ export default function ThreeHead() {
     );
 
     // --- 마우스/터치 위치 ---
-    const mouse = { x: 0, y: 0 };
+    // 핸들러는 raw 좌표만 저장하고, 레이아웃 읽기는 RAF 에서 프레임당 1회만 한다.
+    const pointer = { clientX: 0, clientY: 0, active: false };
+    const target = { x: 0, y: 0 };
 
-    // 위치 업데이트 공통 함수
-    const updateMousePosition = (clientX: number, clientY: number) => {
-      mouse.x = (clientX / sizes.width) * 2 - 0.8;
-      mouse.y = -(clientY / sizes.height) * 2 + 1;
+    const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+
+    /**
+     * 컨테이너 기준 정규화 좌표로 머리 회전값을 계산한다.
+     *
+     * 컨테이너가 뷰포트를 꽉 채우고 스크롤이 0일 때 기존 수식
+     * ((clientX / window.innerWidth) * 2 - 0.8)과 정확히 같은 값이 나온다.
+     *
+     * clamp 는 필수다. mousemove 는 window 에 남겨 두었기 때문에(데스크톱 감각 유지)
+     * 섹션이 페이지 중간에 있으면 커서가 컨테이너 밖에 있는 시간이 길다.
+     * clamp 가 없으면 머리가 몇 라디안씩 과회전한다.
+     */
+    const readPointer = () => {
+      if (!pointer.active) return;
+
+      const rect = container.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+
+      target.x = clamp01((pointer.clientX - rect.left) / rect.width) * 2 - 0.8;
+      target.y = -clamp01((pointer.clientY - rect.top) / rect.height) * 2 + 1;
     };
 
-    // 마우스 이벤트
     const onMouseMove = (e: MouseEvent) => {
-      updateMousePosition(e.clientX, e.clientY);
+      pointer.clientX = e.clientX;
+      pointer.clientY = e.clientY;
+      pointer.active = true;
     };
 
-    // 터치 이벤트
-    const onTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0];
-        updateMousePosition(touch.clientX, touch.clientY);
-      }
+    const onTouch = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+
+      pointer.clientX = touch.clientX;
+      pointer.clientY = touch.clientY;
+      pointer.active = true;
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    // 스크롤 억제는 CSS touch-action 이 담당한다. preventDefault 를 부르지 않으므로
+    // 리스너는 passive 로 두는 것이 맞다.
+    container.addEventListener('touchstart', onTouch, { passive: true });
+    container.addEventListener('touchmove', onTouch, { passive: true });
 
     // --- 리사이즈 핸들러 ---
+    // window resize 대신 ResizeObserver 를 쓴다. svh 박스는 모바일 URL 바가
+    // 접히고 펴질 때 크기가 변하는데 resize 이벤트가 오지 않는 브라우저가 있다.
     let resizeRafId: number | null = null;
-    const handleResize = () => {
-      if (resizeRafId !== null) return; // 이벤트마다 호출될 필요 없음
-      resizeRafId = requestAnimationFrame(() => {
-        resizeRafId = null;
-      });
-      // sizes 객체 업데이트
-      sizes.width = window.innerWidth;
-      sizes.height = window.innerHeight;
 
-      // 카메라 업데이트
-      camera.aspect = sizes.width / sizes.height;
+    const applySize = () => {
+      resizeRafId = null;
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      if (width === 0 || height === 0) return; // 마운트 직후 방어
+
+      sizes.width = width;
+      sizes.height = height;
+
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
 
-      // 렌더러 업데이트
-      renderer.setSize(sizes.width, sizes.height);
+      renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // 오브젝트 크기 업데이트
       if (head) {
         const newScale = calculateScale();
         head.scale.set(newScale, newScale, newScale);
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    const resizeObserver = new ResizeObserver(() => {
+      if (resizeRafId === null) resizeRafId = requestAnimationFrame(applySize);
+    });
+    resizeObserver.observe(container);
 
     let animationId: number;
 
     // --- 애니메이션 루프 ---
     const animate = () => {
       animationId = requestAnimationFrame(animate);
+      readPointer();
       if (head) {
-        head.rotation.y = Math.PI + mouse.x * 1;
-        head.rotation.x = -mouse.y * 1;
+        head.rotation.y = Math.PI + target.x;
+        head.rotation.x = -target.y;
       }
       renderer.render(scene, camera);
     };
@@ -186,11 +218,15 @@ export default function ThreeHead() {
       });
       isMounted = false;
       cancelAnimationFrame(animationId);
+      if (resizeRafId !== null) cancelAnimationFrame(resizeRafId);
+      resizeObserver.disconnect();
       window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('touchmove', onTouchMove);
-      window.removeEventListener('resize', handleResize);
+      container.removeEventListener('touchstart', onTouch);
+      container.removeEventListener('touchmove', onTouch);
       // 저장된 변수 사용
       container.removeChild(renderer.domElement);
+      // StrictMode 이중 마운트로 WebGL 컨텍스트가 새지 않도록 명시적으로 해제
+      renderer.forceContextLoss();
       renderer.dispose();
     };
   }, []);
@@ -199,7 +235,7 @@ export default function ThreeHead() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="bg-blue50 bg-[linear-gradient(to_right,#CAEBFC_1.1px,transparent_1px),linear-gradient(to_bottom,#CAEBFC_1.1px,transparent_1px)] bg-size-[20px_20px]"
+      className="bg-blue50 h-full w-full touch-none bg-[linear-gradient(to_right,#CAEBFC_1.1px,transparent_1px),linear-gradient(to_bottom,#CAEBFC_1.1px,transparent_1px)] bg-size-[20px_20px]"
     />
   );
 }

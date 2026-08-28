@@ -111,7 +111,7 @@ export default function App({ baseSpeed = 4, boostSpeed = 10, boostDuration = 60
         </div>
       )}
 
-      <div className="absolute top-25 flex w-full items-center justify-center overflow-hidden py-3 transition-colors duration-150 select-none hover:bg-black/30 md:top-30">
+      <div className="absolute top-25 z-10 flex w-full items-center justify-center overflow-hidden py-3 transition-colors duration-150 select-none hover:bg-black/30 md:top-30">
         <div
           onClick={handleBoost}
           className="w-full cursor-pointer transition-transform active:scale-95"

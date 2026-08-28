@@ -1,113 +1,78 @@
 import { type RefObject, useEffect, useRef, useState } from 'react';
 
-import { useScrollLock } from './useScrollLock';
-
 interface UseHomePageScrollReturn {
-  isLocked: boolean; // mobile, tablet에서 스크롤 잠금 여부
   showScrollToBottomBtn: boolean; // "아래로 이동 버튼" 표시 여부
   showScrollToTopBtn: boolean; // "상단 이동 버튼" 표시 여부
-  nextSectionRef: RefObject<HTMLElement | null>; // "아래로 이동 버튼" 클릭 시 스크롤할 다음 섹션
-  handleScrollToBottom: () => void; // 다음 섹션으로 스크롤할 시, 잠금 해제
+  nextSectionRef: RefObject<HTMLElement | null>; // 3D 섹션 다음에 올 섹션
+  handleScrollToBottom: () => void; // 다음 구간으로 스크롤
   handleScrollToTop: () => void; // 페이지 최상단으로 스크롤
 }
 
-// 홈페이지의 스크롤 관련 모든 상태와 핸들러를 관리하는 훅
-export function useHomePageScroll(): UseHomePageScrollReturn {
-  // 초기 상태를 스크롤 위치에 따라 결정 (뒤로가기 대응)
-  const [isLocked, setIsLocked] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY <= 10;
-    }
-    return true;
-  });
-  const [showScrollToBottomBtn, setShowScrollToBottomBtn] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY <= 10;
-    }
-    return true;
-  });
-  const [showScrollToTopBtn, setShowScrollToTopBtn] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.scrollY > 10;
-    }
-    return false;
-  });
+/** 문서 기준 절대 top. offsetParent 영향을 받지 않는다. */
+const docTop = (el: HTMLElement | null) =>
+  el ? el.getBoundingClientRect().top + window.scrollY : Number.POSITIVE_INFINITY;
 
+/**
+ * 홈페이지의 스크롤 버튼 상태와 핸들러를 관리하는 훅.
+ *
+ * 예전에는 전역 overflow:hidden 으로 페이지를 잠갔지만, 3D 섹션이 두 번째로
+ * 내려가면서 "페이지 최상단" 기준이 성립하지 않게 되었다. 지금은 3D 캔버스가
+ * touch-action:none 으로 스스로 터치를 잡고, 이 훅은 그 구간을 빠져나갈
+ * 탈출 버튼만 관리한다.
+ */
+export function useHomePageScroll(
+  threeSectionRef: RefObject<HTMLElement | null>
+): UseHomePageScrollReturn {
   const nextSectionRef = useRef<HTMLElement>(null);
-  const justUnlockedRef = useRef(false);
-  const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const relockTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  // isLocked 최신값을 스크롤 이벤트 핸들러에서 참조하기 위한 ref
-  const isLockedRef = useRef(isLocked);
+  // SSR 과 어긋나지 않도록 false 로 시작하고 마운트 후 교정한다.
+  const [showScrollToBottomBtn, setShowScrollToBottomBtn] = useState(false);
+  const [showScrollToTopBtn, setShowScrollToTopBtn] = useState(false);
 
-  // isLocked 상태 변경 시 ref도 동기화
   useEffect(() => {
-    isLockedRef.current = isLocked;
-  }, [isLocked]);
+    let rafId: number | null = null;
 
-  // 모바일/태블릿 스크롤 잠금 적용
-  useScrollLock(isLocked);
+    const update = () => {
+      rafId = null;
+      const y = window.scrollY;
+      const vh = window.innerHeight;
 
-  // 실제 스크롤 발생 시 로직
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const isAtTop = currentY <= 10;
+      // 히어로에는 자체 스크롤 버튼이 있으므로 fixed 버튼은 3D 구간에서만 띄운다.
+      // 두 개가 동시에 보이면 모바일에서 화살표가 겹친다.
+      const enteredThreeZone = y + vh * 0.5 >= docTop(threeSectionRef.current);
+      const beforeNextSection = y + vh * 0.6 < docTop(nextSectionRef.current);
 
-      setShowScrollToBottomBtn(isAtTop);
-      setShowScrollToTopBtn(!isAtTop);
-
-      // 최상단이 아닐 때는 무조건 잠금을 해제 (뒤로가기 등으로 중간 위치 진입 시 대응)
-      if (!isAtTop && isLockedRef.current) {
-        setIsLocked(false);
-      }
-
-      // 모바일 환경에서 '최상단' 도달 시에만 다시 잠금
-      if (
-        window.innerWidth < 1024 &&
-        currentY <= 1 &&
-        !isLockedRef.current &&
-        !justUnlockedRef.current
-      ) {
-        setIsLocked(true);
-      }
+      setShowScrollToBottomBtn(enteredThreeZone && beforeNextSection);
+      setShowScrollToTopBtn(y > vh * 0.5);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const onScroll = () => {
+      if (rafId === null) rafId = requestAnimationFrame(update);
+    };
 
-  // setTimeout cleanup
-  useEffect(() => {
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
     return () => {
-      clearTimeout(scrollTimerRef.current);
-      clearTimeout(relockTimerRef.current);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
-  }, []);
+  }, [threeSectionRef]);
 
   /**
-   * 아래로 이동 버튼 클릭 핸들러
-   * - 잠금 해제 후 다음 섹션으로 스크롤
-   * - justUnlockedRef를 통해 스크롤 완료 전 relock 방지
+   * 아래로 이동 핸들러. 히어로의 버튼과 3D 구간의 fixed 버튼이 함께 쓴다.
+   * 히어로에 있으면 3D 섹션으로, 3D 섹션에 있으면 그 다음 섹션으로 보낸다.
    */
   const handleScrollToBottom = () => {
-    clearTimeout(scrollTimerRef.current); // 기존 타이머 정리하여 relock 방지
-    clearTimeout(relockTimerRef.current);
+    const threeSection = threeSectionRef.current;
+    const stillInHero = window.scrollY + window.innerHeight * 0.5 < docTop(threeSection);
 
-    setIsLocked(false);
-    justUnlockedRef.current = true;
-
-    scrollTimerRef.current = setTimeout(() => {
-      nextSectionRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-
-      relockTimerRef.current = setTimeout(() => {
-        justUnlockedRef.current = false;
-      }, 500);
-    }, 0);
+    (stillInHero ? threeSection : nextSectionRef.current)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   /** 위로 이동 버튼 클릭 핸들러 - 페이지 최상단으로 부드럽게 스크롤 */
@@ -119,7 +84,6 @@ export function useHomePageScroll(): UseHomePageScrollReturn {
   };
 
   return {
-    isLocked,
     showScrollToBottomBtn,
     showScrollToTopBtn,
     nextSectionRef,

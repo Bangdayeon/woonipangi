@@ -8,16 +8,23 @@ import { buttonSizeMap } from '../Icon/icon';
 
 interface LinkButtonProps extends ButtonProps {
   href: string;
+  /** 아이콘을 라벨 뒤에 두고 싶을 때. 예: '이번주 메뉴 >' */
+  iconPosition?: 'left' | 'right';
 }
 
 const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  ({ href, icon, size = 'md', variant, radius, className, label, ...props }, ref) => {
+  (
+    { href, icon, iconPosition = 'left', size = 'md', variant, radius, className, label, ...props },
+    ref
+  ) => {
     if (!icon && !label)
       console.error('LinkButton: Either icon or label should be provided for accessibility');
 
     const safeUrl = getSafeUrl(href);
     const isExternal = /^https?:\/\//i.test(safeUrl);
     const linkProps = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
+    const iconNode = icon ? <SVGIcon icon={icon} size={buttonSizeMap[size]} /> : null;
 
     return (
       <Button
@@ -29,8 +36,9 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
         {...props}
       >
         <Link ref={ref} href={safeUrl} {...linkProps} className="flex items-center gap-1">
-          {icon && <SVGIcon icon={icon} size={buttonSizeMap[size]} />}
-          <span className={icon ? 'pr-1' : ''}>{label}</span>
+          {iconPosition === 'left' && iconNode}
+          <span className={icon ? (iconPosition === 'left' ? 'pr-1' : 'pl-1') : ''}>{label}</span>
+          {iconPosition === 'right' && iconNode}
         </Link>
       </Button>
     );
