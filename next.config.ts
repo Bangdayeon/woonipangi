@@ -32,7 +32,12 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
-    unoptimized: true,
+    // 런타임 최적화 대신 scripts/build-thumbnails.mjs 가 미리 만들어 둔 WebP 파생본을 쓴다.
+    loader: 'custom',
+    loaderFile: './src/shared/lib/imageLoader.ts',
+    // 실제로 생성해 둔 파생본 폭만 남긴다. 로더가 올림 처리하므로 그 외 폭이 와도 안전하다.
+    deviceSizes: [640, 960],
+    imageSizes: [320],
   },
 };
 

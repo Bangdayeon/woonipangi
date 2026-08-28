@@ -96,6 +96,20 @@ const config = [
     },
   },
 
+  // 빌드 스크립트는 브라우저가 아니라 Node 에서 돈다.
+  {
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        Buffer: 'readonly',
+        URL: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        process: 'readonly',
+      },
+    },
+  },
+
   // Prettier 설정 (규칙 충돌 방지)
   prettierConfig,
 ];

@@ -45,7 +45,9 @@ export default function Card({
               src={thumbnail}
               alt={title}
               fill
-              sizes="(max-width: 768px) 45vw, (max-width: 1024px) 23vw, 15vw"
+              // 컨테이너가 max-w-300(1200px)에서 멈추므로 md 이상에서는 vw 가 아니라 고정 폭에 가깝다.
+              // 1200px / 6컬럼 = 약 187px, 이미지는 그 90%.
+              sizes="(min-width: 768px) 190px, 45vw"
               className="object-contain"
               priority={index === 0}
             />

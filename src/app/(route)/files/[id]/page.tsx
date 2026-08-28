@@ -1,4 +1,5 @@
 import { CardDatas } from '@/data/cards';
+import { OG_IMAGE_SIZE, toOgImageUrl } from '@/shared/lib/ogImage';
 import FileIdPage from '@/widget/FileIdPage/FileIdPage';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -29,10 +30,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: card.tmi,
       images: [
         {
-          url: card.thumbnail,
+          url: toOgImageUrl(card.thumbnail),
+          ...OG_IMAGE_SIZE,
           alt: `${card.title} 이미지`,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: card.title,
+      description: card.tmi,
+      images: [toOgImageUrl(card.thumbnail)],
     },
   };
 }

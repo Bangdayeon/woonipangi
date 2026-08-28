@@ -24,7 +24,8 @@ export default function FileIdPage({ id, title, tags, tmi, fileUrls, thumbnail, 
             fill
             className="object-contain"
             priority
-            sizes="(min-width: 1024px) 75rem, (min-width: 768px) 50rem, 100vw"
+            // h-80 + object-contain 이라 정사각 원본은 320px, 가로가 긴 원본도 최대 약 570px 로 그려진다.
+            sizes="(min-width: 768px) 570px, 100vw"
           />
         </div>
         <Divider className="my-5" />
