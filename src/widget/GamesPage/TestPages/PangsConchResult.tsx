@@ -1,8 +1,11 @@
 'use client';
 
+import LoadingPang from '@/assets/images/loading_pang.gif';
 import Button from '@/shared/ui/Button/Button';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { useToast } from '@/shared/ui/Toast';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
 
 const getFileName = () => {
   const now = new Date();
@@ -25,10 +28,20 @@ export default function PangsConchResult({
   result: string;
 }) {
   const [isSaving, setIsSaving] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [isImageError, setIsImageError] = useState(false);
   const { showToast } = useToast();
 
-  const getMemeUrl = () =>
-    `/api/meme?question=${encodeURIComponent(question)}&result=${encodeURIComponent(result)}`;
+  const memeUrl = useMemo(
+    () => `/api/meme?question=${encodeURIComponent(question)}&result=${encodeURIComponent(result)}`,
+    [question, result]
+  );
+
+  // 질문/답변이 바뀌면 이미지를 새로 만들기 때문에 로딩 상태로 되돌린다.
+  useEffect(() => {
+    setIsImageLoading(true);
+    setIsImageError(false);
+  }, [memeUrl]);
 
   const handleSave = async () => {
     if (isSaving) return;
@@ -36,7 +49,7 @@ export default function PangsConchResult({
     try {
       setIsSaving(true);
 
-      const res = await fetch(getMemeUrl());
+      const res = await fetch(memeUrl);
       if (!res.ok) throw new Error(`이미지 생성 실패: ${res.status}`);
       const blob = await res.blob();
       const fileName = getFileName();
@@ -80,19 +93,48 @@ export default function PangsConchResult({
   return (
     <div className="mt-4 mb-20 flex flex-col items-center gap-10 text-center text-[16px] font-semibold md:text-xl">
       <div className="relative w-80 md:w-150" style={{ aspectRatio: '1 / 1' }}>
+        {isImageLoading && !isImageError && (
+          <div className="absolute inset-0" role="status" aria-live="polite">
+            <Skeleton className="absolute inset-0 h-full w-full rounded-2xl" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <Image src={LoadingPang} alt="" width={70} height={70} unoptimized />
+              <p className="text-gray600 text-sm font-medium md:text-base">이미지를 만드는 중...</p>
+            </div>
+          </div>
+        )}
+
+        {isImageError && (
+          <div className="bg-gray100 absolute inset-0 flex items-center justify-center rounded-2xl">
+            <p className="text-gray600 text-sm font-medium md:text-base">
+              이미지를 만들지 못했어요.
+            </p>
+          </div>
+        )}
+
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={getMemeUrl()}
+          src={memeUrl}
           alt="팡이고둥 밈"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: isImageLoading || isImageError ? 0 : 1,
+            transition: 'opacity 200ms ease-out',
+          }}
           draggable={false}
+          onLoad={() => setIsImageLoading(false)}
+          onError={() => {
+            setIsImageLoading(false);
+            setIsImageError(true);
+          }}
         />
       </div>
 
       <Button
         onClick={handleSave}
         label={isSaving ? '저장 중...' : '저장하기'}
-        disabled={isSaving}
+        disabled={isSaving || isImageLoading || isImageError}
       />
     </div>
   );
