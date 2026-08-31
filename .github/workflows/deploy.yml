@@ -1,10 +1,8 @@
 name: Deploy
 
 on:
-  push:
-    branches: [main]
-
-  # CI 워크플로우가 성공적으로 완료된 후 실행
+  # CI 워크플로우가 성공적으로 완료된 후에만 실행한다.
+  # push 트리거를 함께 두면 CI 결과를 기다리지 않는 배포가 한 번 더 돈다.
   workflow_run:
     workflows: ["CI"]
     types: [completed]
@@ -20,9 +18,7 @@ jobs:
   deploy:
     name: Deploy to Vercel
     # CI 워크플로우가 성공한 경우에만 실행
-    if: |
-      github.event_name == 'push' || 
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
