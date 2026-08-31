@@ -56,22 +56,24 @@
   - 페이로드가 12배 줄어 당장의 위험은 낮아졌지만 근본적으로는 옮기는 게 맞다
   - 옮기면 `cdn-cgi/image` 런타임 변환도 쓸 수 있게 된다 (현재 r2.dev 에서는 404)
 
-- [ ] **원본 파일에 `Cache-Control` 씌우기** — 우선순위 낮음
+- [x] **원본 파일에 `Cache-Control` 씌우기** — 완료 (2026-08-31)
 
   ```
   pnpm thumbnails --fix-originals
   ```
 
-  - R2 가 원본에 `Cache-Control` 을 안 보내서 브라우저가 휴리스틱 캐싱에 의존한다
-    (`ETag` / `Last-Modified` 는 보내므로 캐시가 아예 안 되는 건 아니고, 보장이 없는 상태)
-  - 이미지 최적화 이후로는 원본이 **다운로드 버튼과 OG 크롤러**만 건드리므로 체감 효과가 작다
-  - 원본 46MB 를 전부 다시 올려야 하는 작업이라 급하지 않으면 미뤄도 된다
+  - `public, max-age=86400, stale-while-revalidate=604800` 이 붙은 것을 확인했다
+  - 이건 `cards.ts` 의 `thumbnail` 과 `restaurants.ts` 의 `image` 만 대상이다.
+    `files` 의 `.ai` / `.pdf` 원본에는 아직 헤더가 없다 — 다운로드 버튼으로 한 번
+    받고 마는 파일이라 캐시 이득이 작아서 굳이 손대지 않았다
 
-- [ ] **`caniuse-lite` 갱신** — lint 실행 때마다 경고가 뜬다
+- [x] **`caniuse-lite` 갱신** — 완료, `1.0.30001810`. lint 경고 사라짐
 
   ```
   npx update-browserslist-db@latest
   ```
+
+  대상 브라우저 변화는 없어서(`No target browser changes`) 빌드 결과에는 영향이 없다.
 
 ---
 
